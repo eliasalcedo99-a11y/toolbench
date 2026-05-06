@@ -1,0 +1,10 @@
+---
+export interface Props {
+  rating: number;
+  showNumber?: boolean;
+}
+const { rating, showNumber = true } = Astro.props;
+const full = Math.round(rating);
+const stars = '★'.repeat(full) + '☆'.repeat(5 - full);
+---
+<span class="stars">{stars}{showNumber && <span class="num">{rating.toFixed(1)}</span>}</span>

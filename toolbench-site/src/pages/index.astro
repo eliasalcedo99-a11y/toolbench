@@ -1,0 +1,183 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import ToolCard from '~/components/ToolCard.astro';
+import CategoryFilter from '~/components/CategoryFilter.astro';
+import Stats from '~/components/Stats.astro';
+import { getCollection } from 'astro:content';
+import { SITE, USE_CASES } from '~/data/categories';
+
+const tools = await getCollection('tools');
+tools.sort((a, b) => b.data.rating - a.data.rating);
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.name,
+  url: SITE.url,
+  description: SITE.description,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${SITE.url}/?q={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: SITE.name,
+    slogan: SITE.tagline,
+  },
+};
+---
+
+<BaseLayout title={undefined} jsonLd={websiteSchema}>
+  <div class="container">
+    <section class="hero">
+      <div class="eyebrow">AI Tools Directory — 2026</div>
+      <h1>
+        Real <em class="accent">verdicts</em> on the AI tools small businesses actually use.
+      </h1>
+      <p class="hero-sub">
+        {SITE.totals.toolsReviewed} tools tested. {SITE.totals.comparisons} side-by-side comparisons. No vendor sponsorships, no affiliate kickbacks. Just straight talk on what works for your operations and what's quietly burning your monthly budget.
+      </p>
+      <form class="search" id="search-form" role="search">
+        <input
+          id="search-input"
+          type="search"
+          placeholder={`Search ${SITE.totals.toolsReviewed} tools — 'chatgpt', 'midjourney', 'image'...`}
+          aria-label="Search tools"
+        />
+        <button type="submit">Search</button>
+      </form>
+    </section>
+
+    <!-- AI Comparator promo -->
+    <a class="comparator-promo" href="/ai-comparator">
+      <div class="comparator-promo-inner">
+        <div class="comparator-promo-text">
+          <div class="comparator-promo-eyebrow">⚡ NEW · AI Matrix</div>
+          <div class="comparator-promo-title">Find the best AI for any task</div>
+          <div class="comparator-promo-sub">{tools.length} AI tools ranked across {USE_CASES.length} use cases — code, writing, images, video, and more.</div>
+        </div>
+        <div class="comparator-promo-chips">
+          {USE_CASES.slice(0, 6).map(uc => (
+            <span class="promo-chip">{uc.icon} {uc.label}</span>
+          ))}
+          <span class="promo-chip promo-chip-more">+{USE_CASES.length - 6} more</span>
+        </div>
+        <span class="btn btn-primary">Open the matrix →</span>
+      </div>
+    </a>
+
+    <CategoryFilter />
+
+    <div class="tools-grid" id="tools-grid">
+      {tools.map((tool) => (
+        <ToolCard
+          slug={tool.slug}
+          name={tool.data.name}
+          category={tool.data.category}
+          icon={tool.data.icon}
+          iconBg={tool.data.iconBg}
+          iconColor={tool.data.iconColor}
+          badge={tool.data.badge}
+          rating={tool.data.rating}
+          priceLabel={tool.data.priceLabel}
+          description={tool.data.description}
+          keywords={tool.data.keywords}
+        />
+      ))}
+      <div class="no-results" id="no-results" style="display:none">
+        No tools match your search. Try a different keyword or
+        <a href="#" id="reset-filters" style="color:var(--amber)">reset filters</a>.
+      </div>
+    </div>
+
+    <a class="cta-banner" href="/compare/chatgpt-vs-claude">
+      <div class="cta-banner-text">
+        <div class="cta-banner-eyebrow">Trending Comparison · This week</div>
+        <div class="cta-banner-title">ChatGPT vs Claude — which is the better all-rounder in 2026?</div>
+      </div>
+      <span class="btn btn-primary">Compare side-by-side →</span>
+    </a>
+
+    <Stats />
+  </div>
+
+  <script>
+    const grid = document.getElementById('tools-grid');
+    const cards = grid?.querySelectorAll<HTMLAnchorElement>('.card[data-cat]') ?? [];
+    const pills = document.querySelectorAll<HTMLButtonElement>('.pill');
+    const noResults = document.getElementById('no-results');
+    const searchForm = document.getElementById('search-form') as HTMLFormElement | null;
+    const searchInput = document.getElementById('search-input') as HTMLInputElement | null;
+    const resetLink = document.getElementById('reset-filters');
+
+    let activeCat = 'all';
+    let activeQuery = '';
+
+    function applyFilter() {
+      let visible = 0;
+      cards.forEach((c) => {
+        const catMatch = activeCat === 'all' || c.dataset.cat === activeCat;
+        const q = activeQuery.toLowerCase().trim();
+        const text = c.dataset.search || '';
+        const queryMatch = !q || text.includes(q);
+        const show = catMatch && queryMatch;
+        c.classList.toggle('hidden', !show);
+        if (show) {
+          c.classList.remove('fade-in');
+          void c.offsetWidth;
+          c.classList.add('fade-in');
+          visible++;
+        }
+      });
+      if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    pills.forEach((p) => {
+      p.addEventListener('click', () => {
+        pills.forEach((x) => {
+          x.classList.remove('active');
+          x.setAttribute('aria-selected', 'false');
+        });
+        p.classList.add('active');
+        p.setAttribute('aria-selected', 'true');
+        activeCat = p.dataset.cat || 'all';
+        applyFilter();
+      });
+    });
+
+    searchForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      activeQuery = searchInput?.value || '';
+      applyFilter();
+    });
+
+    resetLink?.addEventListener('click', (e) => {
+      e.preventDefault();
+      activeCat = 'all';
+      activeQuery = '';
+      if (searchInput) searchInput.value = '';
+      pills.forEach((x) => x.classList.remove('active'));
+      document.querySelector('.pill[data-cat="all"]')?.classList.add('active');
+      applyFilter();
+    });
+
+    // Initial route from ?cat= or ?q= query params
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get('cat');
+    const q = params.get('q');
+    if (q && searchInput) {
+      searchInput.value = q;
+      activeQuery = q;
+    }
+    if (cat) {
+      const target = document.querySelector<HTMLButtonElement>(`.pill[data-cat="${cat}"]`);
+      if (target) {
+        pills.forEach((x) => x.classList.remove('active'));
+        target.classList.add('active');
+        activeCat = cat;
+      }
+    }
+    if (q || cat) applyFilter();
+  </script>
+</BaseLayout>

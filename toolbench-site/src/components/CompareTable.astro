@@ -1,0 +1,38 @@
+---
+export interface Row {
+  label: string;
+  a: string;
+  b: string;
+  aType: 'yes' | 'no' | 'value';
+  bType: 'yes' | 'no' | 'value';
+}
+export interface Props {
+  toolAName: string;
+  toolBName: string;
+  rows: Row[];
+}
+const { toolAName, toolBName, rows } = Astro.props;
+
+const cellClass = (type: 'yes' | 'no' | 'value') => (type === 'yes' ? 'yes' : type === 'no' ? 'no' : '');
+---
+
+<div class="compare-wrap">
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>{toolAName}</th>
+        <th>{toolBName}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((row) => (
+        <tr>
+          <td class="feat">{row.label}</td>
+          <td><span class={cellClass(row.aType)}>{row.a}</span></td>
+          <td><span class={cellClass(row.bType)}>{row.b}</span></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

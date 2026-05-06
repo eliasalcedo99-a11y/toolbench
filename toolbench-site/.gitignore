@@ -1,0 +1,25 @@
+
+# Local Netlify folder
+.netlify
+e_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# env
+.env
+.env.production
+
+# system
+.DS_Store
+Thumbs.db
+
+# editor
+.vscode/
+.idea/
+
+# Local Netlify folder
+.netlify

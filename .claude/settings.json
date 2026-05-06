@@ -1,0 +1,60 @@
+{
+  "version": "1.0",
+  "model": "claude-opus-4-7",
+  "permissions": {
+    "allowlist": [
+      {
+        "tool": "Bash",
+        "prompt": "read-only file operations and git commands"
+      },
+      {
+        "tool": "Read",
+        "prompt": "read any file for context and verification"
+      },
+      {
+        "tool": "Write",
+        "prompt": "create and modify code files in blog-template/"
+      },
+      {
+        "tool": "Edit",
+        "prompt": "edit code files for refactoring and fixes"
+      },
+      {
+        "tool": "Glob",
+        "prompt": "search files by pattern"
+      },
+      {
+        "tool": "Grep",
+        "prompt": "search content in files"
+      }
+    ]
+  },
+  "codestyle": {
+    "language": "typescript",
+    "indentation": 2,
+    "quotes": "double",
+    "semicolons": true,
+    "trailingComma": "es5",
+    "maxLineLength": 100
+  },
+  "development": {
+    "devServer": "npm run dev",
+    "buildCommand": "npm run build",
+    "testCommand": "npm run type-check",
+    "linter": "eslint"
+  },
+  "project": {
+    "name": "better-blog",
+    "type": "nextjs",
+    "mainDir": "blog-template",
+    "contentDir": "blog-template/content",
+    "componentDir": "blog-template/components"
+  },
+  "antiHallucination": {
+    "verifyImports": true,
+    "checkFilePaths": true,
+    "typeCheckBeforeCommit": true,
+    "testUIChanges": true,
+    "requireCitations": true
+  }
+}

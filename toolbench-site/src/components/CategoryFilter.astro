@@ -1,0 +1,16 @@
+---
+import { CATEGORIES } from '~/data/categories';
+---
+
+<div class="pills" id="categories" role="tablist" aria-label="Tool categories">
+  {CATEGORIES.map((cat) => (
+    <button
+      class={`pill ${cat.id === 'all' ? 'active' : ''}`}
+      data-cat={cat.id}
+      role="tab"
+      aria-selected={cat.id === 'all' ? 'true' : 'false'}
+    >
+      {cat.label}
+    </button>
+  ))}
+</div>

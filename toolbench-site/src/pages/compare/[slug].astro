@@ -1,0 +1,118 @@
+---
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import CompareTable from '~/components/CompareTable.astro';
+import ScoreWidget from '~/components/ScoreWidget.astro';
+import FAQ from '~/components/FAQ.astro';
+import { SITE } from '~/data/categories';
+
+export async function getStaticPaths() {
+  const comparisons = await getCollection('comparisons');
+  return comparisons.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'comparisons'>;
+}
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const d = entry.data;
+
+const toolA = await getEntry('tools', d.toolA);
+const toolB = await getEntry('tools', d.toolB);
+
+if (!toolA || !toolB) {
+  throw new Error(`Comparison ${entry.slug}: missing tool entry (${d.toolA}, ${d.toolB})`);
+}
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: d.title,
+  description: d.description,
+  author: { '@type': 'Organization', name: SITE.name },
+  publisher: { '@type': 'Organization', name: SITE.name },
+  datePublished: d.publishedDate.toISOString().slice(0, 10),
+  dateModified: d.updatedDate.toISOString().slice(0, 10),
+};
+
+const updatedFmt = d.updatedDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout
+  title={d.title}
+  description={d.description}
+  ogType="article"
+  jsonLd={articleSchema}
+>
+  <div class="container-narrow">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <a href="/">Compare</a>
+      <span class="sep">/</span>
+      <span>{toolA.data.name} vs {toolB.data.name}</span>
+    </nav>
+
+    <div class="eyebrow">In-Depth Comparison · Updated {updatedFmt}</div>
+    <h1 style="margin-bottom:var(--s3)">{d.title}</h1>
+    <p class="lead">{d.description}</p>
+
+    <div class="verdict-box">
+      <div class="label">Quick Verdict</div>
+      <div class="text">{d.verdict}</div>
+    </div>
+
+    <h2 class="section-title">Feature comparison</h2>
+    <CompareTable
+      toolAName={toolA.data.name}
+      toolBName={toolB.data.name}
+      rows={d.features}
+    />
+
+    <hr class="divider" />
+
+    <div class="article" style="max-width:none;margin-top:var(--s5)">
+      <Content />
+    </div>
+
+    <hr class="divider" />
+
+    <ScoreWidget
+      toolAName={toolA.data.name}
+      toolBName={toolB.data.name}
+      toolAScores={toolA.data.scores}
+      toolBScores={toolB.data.scores}
+    />
+
+    {d.recommendations.length > 0 && (
+      <>
+        <hr class="divider" />
+        <h2 class="section-title" style="margin-top:var(--s5)">Final verdict by user type</h2>
+        <div class="recs">
+          {d.recommendations.map((r) => (
+            <div class="rec">
+              <div class="for">{r.for}</div>
+              <div class="pick">Pick {r.pick}</div>
+              <p>{r.reason}</p>
+            </div>
+          ))}
+        </div>
+      </>
+    )}
+
+    {d.faq.length > 0 && (
+      <>
+        <hr class="divider" />
+        <FAQ items={d.faq} />
+      </>
+    )}
+  </div>
+</BaseLayout>

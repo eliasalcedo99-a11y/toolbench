@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ToolBench — Find the right AI tool for your business, not the hype.</title>
+<meta name="description" content="Independent AI tool reviews and comparisons for US small business owners. 412 tools tested. No vendor sponsorships, no affiliate kickbacks. Just straight talk." />
+<meta name="theme-color" content="#0D0F0E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "ToolBench",
+  "url": "https://toolbench.example",
+  "description": "Independent AI tool reviews and comparisons for US small business owners.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://toolbench.example/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ToolBench",
+    "slogan": "Find the right AI tool for your business, not the hype."
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "itemReviewed": {
+    "@type": "SoftwareApplication",
+    "name": "Jasper AI",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "39.00",
+      "priceCurrency": "USD"
+    }
+  },
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "4.6",
+    "bestRating": "5"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "ToolBench"
+  },
+  "datePublished": "2026-04-22",
+  "reviewBody": "Jasper AI delivers consistent brand voice at scale across marketing teams. Strong on long-form B2B copy, weaker on technical verticals. Best value once a team hits 3+ users."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Jasper AI vs Copy.ai: Which is Better for Small Business in 2026?",
+  "description": "Side-by-side comparison of Jasper AI and Copy.ai across price, output quality, integrations, and support — based on 60 days of independent testing.",
+  "author": {
+    "@type": "Organization",
+    "name": "ToolBench"
+  },
+  "datePublished": "2026-04-30",
+  "dateModified": "2026-05-05",
+  "publisher": {
+    "@type": "Organization",
+    "name": "ToolBench"
+  }
+}
+</script>
+
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  :root{
+    --bg:#0D0F0E;
+    --bg-elev:#15181A;
+    --bg-elev-2:#1B1F22;
+    --amber:#F0C060;
+    --amber-soft:rgba(240,192,96,.12);
+    --amber-glow:rgba(240,192,96,.35);
+    --teal:#1D9E75;
+    --teal-soft:rgba(29,158,117,.14);
+    --text:#E8E4DC;
+    --muted:rgba(232,228,220,.5);
+    --faint:rgba(232,228,220,.08);
+    --border:rgba(232,228,220,.09);
+    --row-alt:rgba(255,255,255,.025);
+    --danger:#E06B5B;
+    --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:48px;--s6:64px;--s7:96px;
+    --r-sm:6px;--r-md:10px;--r-lg:14px;--r-pill:999px;
+    --t:150ms ease;
+    --serif:"DM Serif Display", Georgia, serif;
+    --sans:"DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;transition:color var(--t)}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  input,select,textarea{font-family:inherit;color:inherit}
+  ul,ol{list-style:none}
+  img{max-width:100%;display:block}
+
+  h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15;letter-spacing:-.01em}
+  h1{font-size:clamp(2.4rem,6vw,4.4rem)}
+  h2{font-size:clamp(1.8rem,3.6vw,2.6rem)}
+  h3{font-size:clamp(1.25rem,2vw,1.5rem)}
+  h4{font-size:1.1rem;font-family:var(--sans);font-weight:600;letter-spacing:.01em}
+  em.accent{color:var(--amber);font-style:italic}
+
+  .container{max-width:1200px;margin:0 auto;padding:0 var(--s3)}
+  .container-narrow{max-width:880px;margin:0 auto;padding:0 var(--s3)}
+  section{padding:var(--s6) 0}
+  .divider{height:1px;background:var(--border);border:0;margin:0}
+
+  /* ===== NAV ===== */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(13,15,14,.8);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    height:64px;
+  }
+  .logo{
+    font-family:var(--serif);font-size:1.4rem;letter-spacing:-.01em;
+    display:flex;align-items:center;gap:6px;
+  }
+  .logo-dot{width:8px;height:8px;border-radius:2px;background:var(--amber);display:inline-block;margin-bottom:6px}
+  .nav-links{display:flex;gap:var(--s4);align-items:center}
+  .nav-link{
+    font-size:.92rem;color:var(--muted);font-weight:500;
+    padding:6px 0;position:relative;
+  }
+  .nav-link:hover{color:var(--text)}
+  .nav-link.active{color:var(--text)}
+  .nav-link.active::after{
+    content:"";position:absolute;bottom:-2px;left:0;right:0;
+    height:2px;background:var(--amber);border-radius:1px;
+  }
+  .nav-cta{
+    background:var(--amber);color:var(--bg);
+    padding:9px 18px;border-radius:var(--r-pill);
+    font-weight:600;font-size:.88rem;
+    transition:transform var(--t),box-shadow var(--t);
+  }
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 18px var(--amber-soft)}
+  .nav-toggle{display:none;font-size:1.5rem;color:var(--text)}
+  @media (max-width:860px){
+    .nav-links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg-elev);border-bottom:1px solid var(--border);padding:var(--s2) 0}
+    .nav-links.open{display:flex}
+    .nav-link{padding:14px var(--s3)}
+    .nav-cta{display:none}
+    .nav-toggle{display:block}
+    .nav-links.open .nav-cta{display:inline-block;margin:var(--s2) var(--s3)}
+  }
+
+  /* ===== HERO ===== */
+  .hero{padding:var(--s7) 0 var(--s6)}
+  .eyebrow{
+    text-transform:uppercase;letter-spacing:.18em;
+    font-size:.78rem;font-weight:500;color:var(--amber);
+    margin-bottom:var(--s3);
+  }
+  .hero h1{margin-bottom:var(--s3);max-width:18ch}
+  .hero-sub{
+    font-size:1.12rem;color:var(--muted);
+    max-width:60ch;margin-bottom:var(--s4);
+  }
+  .search{
+    display:flex;align-items:center;gap:var(--s2);
+    background:var(--bg-elev);
+    border:1px solid var(--border);
+    border-radius:var(--r-pill);
+    padding:6px 6px 6px 22px;
+    max-width:560px;
+    transition:border-color var(--t),box-shadow var(--t);
+  }
+  .search:focus-within{border-color:var(--amber);box-shadow:0 0 0 4px var(--amber-soft)}
+  .search input{
+    flex:1;background:none;border:none;outline:none;
+    font-size:.95rem;padding:10px 0;color:var(--text);
+  }
+  .search input::placeholder{color:var(--muted)}
+  .search button{
+    background:var(--amber);color:var(--bg);
+    padding:10px 20px;border-radius:var(--r-pill);
+    font-weight:600;font-size:.88rem;
+    transition:transform var(--t);
+  }
+  .search button:hover{transform:translateY(-1px)}
+
+  /* ===== FILTER PILLS ===== */
+  .pills{
+    display:flex;gap:var(--s1);flex-wrap:wrap;
+    margin:var(--s4) 0 var(--s5);
+  }
+  .pill{
+    padding:8px 18px;border-radius:var(--r-pill);
+    border:1px solid var(--border);
+    color:var(--muted);font-size:.85rem;font-weight:500;
+    background:transparent;
+    transition:all var(--t);
+  }
+  .pill:hover{color:var(--text);border-color:var(--faint)}
+  .pill.active{
+    background:var(--amber);color:var(--bg);
+    border-color:var(--amber);font-weight:600;
+  }
+
+  /* ===== TOOL CARDS ===== */
+  .tools-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:var(--s3);
+  }
+  @media (max-width:760px){.tools-grid{grid-template-columns:1fr}}
+  .card{
+    position:relative;
+    background:var(--bg-elev);
+    border:1px solid var(--border);
+    border-radius:var(--r-lg);
+    padding:var(--s4);
+    transition:border-color var(--t),transform var(--t),box-shadow var(--t);
+    display:flex;flex-direction:column;gap:var(--s2);
+    cursor:pointer;
+  }
+  .card:hover{
+    border-color:var(--amber-glow);
+    box-shadow:0 0 0 1px var(--amber-soft),0 8px 24px rgba(0,0,0,.4);
+  }
+  .card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:var(--s2)}
+  .icon{
+    width:48px;height:48px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.5rem;flex-shrink:0;
+  }
+  .badge{
+    font-size:.7rem;font-weight:600;
+    padding:4px 10px;border-radius:var(--r-pill);
+    text-transform:uppercase;letter-spacing:.08em;
+  }
+  .badge.top{background:var(--amber-soft);color:var(--amber)}
+  .badge.new{background:var(--teal-soft);color:var(--teal)}
+  .badge.free{background:rgba(232,228,220,.06);color:var(--text)}
+  .card h3{font-family:var(--sans);font-size:1.15rem;font-weight:600;letter-spacing:0}
+  .card-desc{color:var(--muted);font-size:.94rem;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .card-meta{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:var(--s2);border-top:1px solid var(--border)}
+  .stars{color:var(--amber);font-size:.95rem;letter-spacing:1px}
+  .stars .num{color:var(--muted);margin-left:8px;font-size:.85rem;letter-spacing:0}
+  .price{font-size:.85rem;color:var(--text);font-weight:500;font-variant-numeric:tabular-nums}
+  .card.hidden{display:none}
+  .card.fade-in{animation:fadeIn 250ms ease forwards}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+  .no-results{
+    grid-column:1/-1;text-align:center;padding:var(--s5);
+    color:var(--muted);border:1px dashed var(--border);border-radius:var(--r-lg);
+  }
+
+  /* ===== COMPARISON CTA BANNER ===== */
+  .cta-banner{
+    margin:var(--s6) 0;
+    padding:var(--s4);
+    background:linear-gradient(120deg,rgba(240,192,96,.08),rgba(240,192,96,.02));
+    border:1px solid var(--amber-soft);
+    border-radius:var(--r-lg);
+    display:flex;align-items:center;justify-content:space-between;gap:var(--s3);
+    flex-wrap:wrap;
+  }
+  .cta-banner-text{flex:1;min-width:280px}
+  .cta-banner-eyebrow{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
+  .cta-banner-title{font-family:var(--serif);font-size:1.5rem;line-height:1.25}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;border-radius:var(--r-pill);
+    font-weight:600;font-size:.9rem;
+    transition:all var(--t);cursor:pointer;
+  }
+  .btn-primary{background:var(--amber);color:var(--bg)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 22px var(--amber-soft)}
+  .btn-secondary{background:transparent;color:var(--amber);border:1px solid var(--amber)}
+  .btn-secondary:hover{background:var(--amber-soft)}
+
+  /* ===== STATS ===== */
+  .stats{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:var(--s3);
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    padding:var(--s5) 0;margin-top:var(--s4);
+  }
+  @media (max-width:640px){.stats{grid-template-columns:1fr;gap:var(--s4)}}
+  .stat{text-align:center}
+  .stat-num{font-family:var(--serif);font-size:clamp(2.4rem,5vw,3.4rem);color:var(--amber);line-height:1}
+  .stat-label{margin-top:8px;color:var(--muted);font-size:.88rem;letter-spacing:.04em}
+
+  /* ===== FOOTER ===== */
+  footer{
+    border-top:1px solid var(--border);
+    padding:var(--s5) 0 var(--s4);
+    margin-top:var(--s6);
+  }
+  .footer-grid{
+    display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--s4);
+  }
+  @media (max-width:760px){.footer-grid{grid-template-columns:1fr 1fr;gap:var(--s4)}}
+  .footer-tag{color:var(--muted);font-size:.92rem;margin-top:var(--s2);max-width:34ch}
+  .footer-col h5{
+    font-family:var(--sans);font-weight:600;font-size:.78rem;
+    text-transform:uppercase;letter-spacing:.16em;color:var(--muted);
+    margin-bottom:var(--s2);
+  }
+  .footer-col ul li{margin-bottom:10px}
+  .footer-col a{color:var(--text);font-size:.92rem}
+  .footer-col a:hover{color:var(--amber)}
+  .footer-bottom{
+    margin-top:var(--s5);padding-top:var(--s3);
+    border-top:1px solid var(--border);
+    display:flex;justify-content:space-between;color:var(--muted);font-size:.82rem;flex-wrap:wrap;gap:var(--s2);
+  }
+
+  /* ===== PAGE ROUTING ===== */
+  .page{display:none}
+  .page.active{display:block;animation:pageIn 200ms ease}
+  @keyframes pageIn{from{opacity:0}to{opacity:1}}
+
+  /* ===== BREADCRUMB ===== */
+  .crumb{
+    color:var(--muted);font-size:.84rem;margin-bottom:var(--s4);
+    padding-top:var(--s5);
+  }
+  .crumb a{color:var(--muted)}
+  .crumb a:hover{color:var(--amber)}
+  .crumb span:last-child{color:var(--text)}
+  .crumb .sep{margin:0 10px;color:var(--faint)}
+
+  /* ===== TOOL DETAIL ===== */
+  .tool-header{
+    display:flex;gap:var(--s4);align-items:flex-start;
+    flex-wrap:wrap;margin-bottom:var(--s5);
+  }
+  .tool-header .icon{width:80px;height:80px;font-size:2.4rem;border-radius:18px}
+  .tool-header-info{flex:1;min-width:280px}
+  .tool-header h1{margin-bottom:var(--s2);font-size:clamp(2rem,4vw,3rem)}
+  .tool-meta{display:flex;gap:var(--s3);flex-wrap:wrap;align-items:center;margin-bottom:var(--s2);color:var(--muted);font-size:.94rem}
+  .tool-meta .stars{color:var(--amber)}
+  .verdict{
+    color:var(--amber);font-style:italic;font-family:var(--serif);
+    font-size:1.25rem;line-height:1.4;margin-top:var(--s2);max-width:60ch;
+  }
+  .tool-actions{display:flex;gap:var(--s2);margin-top:var(--s3);flex-wrap:wrap}
+
+  .pros-cons{
+    display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);
+    margin:var(--s5) 0;
+  }
+  @media (max-width:680px){.pros-cons{grid-template-columns:1fr}}
+  .pc-box{
+    padding:var(--s3);border:1px solid var(--border);
+    border-radius:var(--r-lg);background:var(--bg-elev);
+  }
+  .pc-box h4{margin-bottom:var(--s2);display:flex;align-items:center;gap:8px}
+  .pc-box.pros h4{color:var(--teal)}
+  .pc-box.cons h4{color:var(--danger)}
+  .pc-box ul li{
+    padding:10px 0;border-bottom:1px solid var(--border);
+    font-size:.94rem;color:var(--text);display:flex;gap:12px;
+  }
+  .pc-box ul li:last-child{border-bottom:none}
+  .pc-box .mark{flex-shrink:0;font-weight:700}
+  .pc-box.pros .mark{color:var(--teal)}
+  .pc-box.cons .mark{color:var(--danger)}
+
+  .review-body p{
+    color:var(--text);font-size:1.02rem;line-height:1.75;
+    margin-bottom:var(--s3);max-width:68ch;
+  }
+
+  /* ===== PRICING TABLE ===== */
+  .pricing{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);
+    margin:var(--s5) 0;
+  }
+  @media (max-width:860px){.pricing{grid-template-columns:1fr}}
+  .tier{
+    border:1px solid var(--border);border-radius:var(--r-lg);
+    padding:var(--s4);background:var(--bg-elev);
+    display:flex;flex-direction:column;
+  }
+  .tier.featured{border-color:var(--amber);background:linear-gradient(180deg,rgba(240,192,96,.04),transparent)}
+  .tier-name{font-family:var(--sans);font-size:.78rem;text-transform:uppercase;letter-spacing:.18em;color:var(--muted)}
+  .tier-price{font-family:var(--serif);font-size:2.2rem;margin:var(--s2) 0;line-height:1}
+  .tier-price small{font-size:.9rem;color:var(--muted);font-family:var(--sans);font-weight:400}
+  .tier ul{margin-top:var(--s2)}
+  .tier ul li{
+    padding:10px 0;font-size:.92rem;color:var(--text);
+    display:flex;gap:10px;align-items:flex-start;
+    border-bottom:1px solid var(--border);
+  }
+  .tier ul li::before{content:"✓";color:var(--teal);font-weight:700;flex-shrink:0}
+  .tier ul li.x::before{content:"–";color:var(--muted)}
+  .tier ul li.x{color:var(--muted)}
+
+  /* ===== PERSONA CHIPS ===== */
+  .personas{display:flex;gap:var(--s2);flex-wrap:wrap;margin:var(--s3) 0 var(--s5)}
+  .persona{
+    padding:var(--s3);border:1px solid var(--border);border-radius:var(--r-lg);
+    background:var(--bg-elev);flex:1;min-width:220px;
+  }
+  .persona-icon{font-size:1.6rem;margin-bottom:var(--s1)}
+  .persona-title{font-weight:600;font-size:.98rem;margin-bottom:6px}
+  .persona-desc{color:var(--muted);font-size:.88rem;line-height:1.55}
+
+  /* ===== RELATED CARDS ===== */
+  .related{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);margin-top:var(--s3)}
+  @media (max-width:860px){.related{grid-template-columns:1fr}}
+  .related-card{
+    padding:var(--s3);border:1px solid var(--border);border-radius:var(--r-lg);
+    background:var(--bg-elev);transition:border-color var(--t);cursor:pointer;
+  }
+  .related-card:hover{border-color:var(--amber-glow)}
+  .related-card .label{font-size:.74rem;text-transform:uppercase;letter-spacing:.14em;color:var(--amber);margin-bottom:8px}
+  .related-card .title{font-weight:600;font-size:.98rem;line-height:1.4}
+  .related-card .arrow{margin-top:var(--s2);color:var(--muted);font-size:.84rem}
+
+  /* ===== COMPARISON PAGE ===== */
+  .verdict-box{
+    border:1px solid var(--amber);border-radius:var(--r-lg);
+    padding:var(--s4);background:linear-gradient(120deg,rgba(240,192,96,.08),rgba(240,192,96,.02));
+    margin:var(--s4) 0 var(--s5);
+  }
+  .verdict-box .label{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
+  .verdict-box .text{font-family:var(--serif);font-size:1.5rem;line-height:1.4}
+
+  .compare-table{
+    width:100%;border-collapse:collapse;
+    border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;
+    margin:var(--s4) 0;
+  }
+  .compare-table th, .compare-table td{
+    text-align:left;padding:14px 18px;font-size:.92rem;
+    border-bottom:1px solid var(--border);
+  }
+  .compare-table thead th{
+    background:var(--bg-elev);
+    font-weight:600;font-size:.86rem;
+    text-transform:uppercase;letter-spacing:.06em;color:var(--muted);
+  }
+  .compare-table tbody tr:nth-child(even){background:var(--row-alt)}
+  .compare-table tbody tr:last-child td{border-bottom:none}
+  .compare-table .feat{color:var(--muted);font-weight:500}
+  .compare-table .yes{color:var(--teal);font-weight:600}
+  .compare-table .no{color:var(--danger);font-weight:600}
+  .compare-wrap{overflow-x:auto}
+
+  .deep-dive{
+    display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);
+    margin:var(--s5) 0;
+  }
+  @media (max-width:860px){.deep-dive{grid-template-columns:1fr}}
+  .deep-dive-col h3{margin-bottom:var(--s2);display:flex;align-items:center;gap:10px}
+  .deep-dive-col h3 .icon{width:38px;height:38px;font-size:1.2rem;border-radius:10px}
+  .deep-dive-col p{color:var(--text);font-size:.96rem;line-height:1.7;margin-bottom:var(--s2)}
+
+  /* ===== SCORE WIDGET ===== */
+  .score-widget{
+    margin:var(--s5) 0;padding:var(--s4);
+    border:1px solid var(--border);border-radius:var(--r-lg);
+    background:var(--bg-elev);
+  }
+  .score-widget h3{margin-bottom:var(--s1)}
+  .score-widget .desc{color:var(--muted);font-size:.94rem;margin-bottom:var(--s4)}
+  .sliders{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+  @media (max-width:680px){.sliders{grid-template-columns:1fr}}
+  .slider-row{display:flex;flex-direction:column;gap:8px}
+  .slider-row .head{display:flex;justify-content:space-between;font-size:.88rem}
+  .slider-row .head .name{font-weight:500}
+  .slider-row .head .val{color:var(--amber);font-variant-numeric:tabular-nums}
+  input[type=range]{
+    -webkit-appearance:none;appearance:none;
+    width:100%;height:4px;border-radius:2px;
+    background:var(--faint);outline:none;
+  }
+  input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;appearance:none;
+    width:16px;height:16px;border-radius:50%;
+    background:var(--amber);cursor:pointer;border:none;
+    transition:transform var(--t);
+  }
+  input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
+  input[type=range]::-moz-range-thumb{
+    width:16px;height:16px;border-radius:50%;
+    background:var(--amber);cursor:pointer;border:none;
+  }
+  .scores{
+    display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);
+    margin-top:var(--s4);padding-top:var(--s4);border-top:1px solid var(--border);
+  }
+  @media (max-width:560px){.scores{grid-template-columns:1fr}}
+  .score-card{
+    padding:var(--s3);border:1px solid var(--border);border-radius:var(--r-md);
+    text-align:center;
+  }
+  .score-card.win{border-color:var(--amber);background:var(--amber-soft)}
+  .score-card .name{font-size:.88rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+  .score-card .num{font-family:var(--serif);font-size:3rem;color:var(--amber);line-height:1}
+  .score-card .scale{font-size:.82rem;color:var(--muted);margin-top:6px}
+
+  /* ===== VERDICT RECOMMENDATIONS ===== */
+  .recs{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);margin:var(--s4) 0}
+  @media (max-width:860px){.recs{grid-template-columns:1fr}}
+  .rec{
+    padding:var(--s3);border:1px solid var(--border);border-radius:var(--r-lg);
+    background:var(--bg-elev);
+  }
+  .rec .for{font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:8px}
+  .rec .pick{font-family:var(--serif);font-size:1.3rem;color:var(--amber);margin-bottom:10px}
+  .rec p{color:var(--text);font-size:.92rem;line-height:1.6}
+
+  /* ===== FAQ ===== */
+  .faq{margin-top:var(--s5)}
+  .faq-item{
+    border-bottom:1px solid var(--border);
+  }
+  .faq-q{
+    width:100%;text-align:left;padding:var(--s3) 0;
+    display:flex;justify-content:space-between;align-items:center;gap:var(--s2);
+    font-family:var(--sans);font-size:1.05rem;font-weight:500;color:var(--text);
+    transition:color var(--t);
+  }
+  .faq-q:hover{color:var(--amber)}
+  .faq-q .ico{
+    width:28px;height:28px;border:1px solid var(--border);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;color:var(--amber);transition:transform var(--t);
+  }
+  .faq-item.open .faq-q .ico{transform:rotate(45deg)}
+  .faq-a{
+    max-height:0;overflow:hidden;
+    transition:max-height var(--t),padding var(--t);
+    color:var(--muted);font-size:.96rem;line-height:1.7;
+  }
+  .faq-item.open .faq-a{padding:0 0 var(--s3);max-height:400px}
+
+  /* ===== BLOG ===== */
+  .blog-header{padding:var(--s6) 0 var(--s4);max-width:780px}
+  .tag{
+    display:inline-block;
+    background:var(--amber-soft);color:var(--amber);
+    padding:5px 12px;border-radius:var(--r-pill);
+    font-size:.74rem;text-transform:uppercase;letter-spacing:.14em;font-weight:600;
+    margin-bottom:var(--s3);
+  }
+  .blog-header h1{margin-bottom:var(--s3)}
+  .byline{display:flex;gap:var(--s3);color:var(--muted);font-size:.92rem;flex-wrap:wrap;align-items:center}
+  .byline .dot{width:3px;height:3px;background:var(--muted);border-radius:50%}
+  .author-avatar{
+    width:32px;height:32px;border-radius:50%;
+    background:linear-gradient(135deg,var(--amber),var(--teal));
+    display:inline-flex;align-items:center;justify-content:center;
+    color:var(--bg);font-weight:700;font-size:.82rem;
+  }
+  .author{display:flex;align-items:center;gap:10px;color:var(--text)}
+
+  .blog-layout{display:grid;grid-template-columns:240px 1fr;gap:var(--s5);align-items:flex-start}
+  @media (max-width:980px){.blog-layout{grid-template-columns:1fr}}
+  .toc{
+    position:sticky;top:88px;
+    border-left:1px solid var(--border);
+    padding:var(--s2) 0 var(--s2) var(--s2);
+  }
+  @media (max-width:980px){.toc{display:none}}
+  .toc-label{font-size:.74rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-bottom:var(--s2)}
+  .toc ul li{margin-bottom:10px}
+  .toc a{color:var(--muted);font-size:.88rem;line-height:1.4;display:block;transition:color var(--t)}
+  .toc a:hover, .toc a.active{color:var(--amber)}
+
+  .article{max-width:680px}
+  .article p, .article ul li{font-size:1.04rem;line-height:1.8;color:var(--text);margin-bottom:var(--s3)}
+  .article ul{margin-bottom:var(--s3)}
+  .article ul li{padding-left:var(--s2);position:relative}
+  .article ul li::before{content:"—";position:absolute;left:0;color:var(--amber)}
+  .article h2{margin:var(--s5) 0 var(--s3)}
+  .article h3{margin:var(--s4) 0 var(--s2);font-family:var(--sans);font-weight:600;font-size:1.15rem}
+  .pullquote{
+    border-left:2px solid var(--amber);
+    padding:var(--s2) 0 var(--s2) var(--s3);
+    margin:var(--s4) 0;
+    font-family:var(--serif);font-size:1.5rem;color:var(--amber);
+    font-style:italic;line-height:1.4;
+  }
+  .inline-tool{
+    display:flex;gap:var(--s2);align-items:center;
+    padding:var(--s2);background:var(--bg-elev);border:1px solid var(--border);
+    border-radius:var(--r-md);margin:var(--s3) 0;cursor:pointer;
+    transition:border-color var(--t);
+  }
+  .inline-tool:hover{border-color:var(--amber-glow)}
+  .inline-tool .icon{width:40px;height:40px;font-size:1.2rem;border-radius:10px}
+  .inline-tool-body{flex:1}
+  .inline-tool-name{font-weight:600;font-size:.96rem}
+  .inline-tool-desc{color:var(--muted);font-size:.84rem;margin-top:2px}
+  .inline-tool .stars{font-size:.84rem}
+
+  .related-articles{
+    margin-top:var(--s6);padding-top:var(--s5);border-top:1px solid var(--border);
+  }
+  .related-articles h3{font-family:var(--serif);font-size:1.5rem;margin-bottom:var(--s3)}
+  .ra-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
+  @media (max-width:860px){.ra-grid{grid-template-columns:1fr}}
+  .ra-card{
+    padding:var(--s3);border:1px solid var(--border);border-radius:var(--r-lg);
+    background:var(--bg-elev);transition:border-color var(--t);cursor:pointer;
+  }
+  .ra-card:hover{border-color:var(--amber-glow)}
+  .ra-card .tag{margin-bottom:var(--s2);font-size:.7rem;padding:3px 10px}
+  .ra-card .title{font-weight:600;font-size:1rem;line-height:1.45;margin-bottom:8px}
+  .ra-card .meta{color:var(--muted);font-size:.82rem}
+
+  /* ===== UTIL ===== */
+  .section-eyebrow{
+    font-size:.78rem;text-transform:uppercase;letter-spacing:.18em;
+    color:var(--amber);margin-bottom:var(--s2);font-weight:500;
+  }
+  .section-title{margin-bottom:var(--s4)}
+  .lead{color:var(--muted);font-size:1.05rem;max-width:62ch;margin-bottom:var(--s3)}
+
+</style>
+</head>
+
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#" data-nav="home" aria-label="ToolBench home">
+      ToolBench<span class="logo-dot" aria-hidden="true"></span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">≡</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a class="nav-link active" data-nav="home" href="#home">Reviews</a></li>
+      <li><a class="nav-link" data-nav="compare" href="#compare">Compare</a></li>
+      <li><a class="nav-link" data-nav="home" href="#categories">Categories</a></li>
+      <li><a class="nav-link" data-nav="blog" href="#blog">Blog</a></li>
+      <li><a class="nav-cta" href="#submit">Submit a Tool</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="app">
+
+<!-- =================================================== -->
+<!-- ===== HOMEPAGE =================================== -->
+<!-- =================================================== -->
+<section class="page active" id="page-home" aria-label="Homepage">
+
+  <div class="container">
+    <div class="hero">
+      <div class="eyebrow">AI Tools Directory — 2026</div>
+      <h1>Real <em class="accent">verdicts</em> on the AI tools small businesses actually use.</h1>
+      <p class="hero-sub">412 tools tested. No vendor sponsorships, no affiliate kickbacks. Just straight talk on what works for your operations and what's quietly burning your monthly budget.</p>
+      <form class="search" id="search-form" role="search">
+        <input id="search-input" type="search" placeholder="Search 412 tools — 'invoicing', 'copywriter', 'CRM'..." aria-label="Search tools" />
+        <button type="submit">Search</button>
+      </form>
+    </div>
+
+    <div class="pills" role="tablist" id="categories" aria-label="Tool categories">
+      <button class="pill active" data-cat="all" role="tab" aria-selected="true">All</button>
+      <button class="pill" data-cat="writing" role="tab">Writing &amp; Content</button>
+      <button class="pill" data-cat="marketing" role="tab">Marketing</button>
+      <button class="pill" data-cat="finance" role="tab">Finance</button>
+      <button class="pill" data-cat="support" role="tab">Customer Support</button>
+      <button class="pill" data-cat="hr" role="tab">HR</button>
+      <button class="pill" data-cat="analytics" role="tab">Analytics</button>
+    </div>
+
+    <div class="tools-grid" id="tools-grid">
+      <article class="card" data-cat="writing" data-name="Jasper AI" data-keywords="copywriter content marketing brand voice" data-tool="jasper">
+        <div class="card-head">
+          <div class="icon" style="background:rgba(91,78,209,.18);color:#9789FF">🪶</div>
+          <span class="badge top">Top Rated</span>
+        </div>
+        <h3>Jasper AI</h3>
+        <p class="card-desc">AI writing platform built for marketing teams who need brand voice consistency at scale. Strong at long-form B2B copy, generous team plan.</p>
+        <div class="card-meta">
+          <div class="stars">★★★★★<span class="num">4.6</span></div>
+          <div class="price">$39 – $99/mo</div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="writing" data-name="Copy.ai" data-keywords="copywriter writing free tier marketing" data-tool="copyai">
+        <div class="card-head">
+          <div class="icon" style="background:rgba(29,158,117,.18);color:#3ED8A0">✍️</div>
+          <span class="badge free">Free Tier</span>
+        </div>
+        <h3>Copy.ai</h3>
+        <p class="card-desc">90+ templates and a generous 2,000-word free tier. Workflow automation makes it the favorite for solo operators who don't need brand voice training.</p>
+        <div class="card-meta">
+          <div class="stars">★★★★☆<span class="num">4.3</span></div>
+          <div class="price">Free / $36/mo</div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="writing" data-name="Notion AI" data-keywords="docs notes productivity writing" data-tool="notion">
+        <div class="card-head">
+          <div class="icon" style="background:rgba(232,228,220,.08);color:#E8E4DC">⬛</div>
+          <span class="badge top">Top Rated</span>
+        </div>
+        <h3>Notion AI</h3>
+        <p class="card-desc">Bolted on top of the workspace your team already lives in. Best for internal docs, meeting notes, and decision logs — not external content.</p>
+        <div class="card-meta">
+          <div class="stars">★★★★★<span class="num">4.7</span></div>
+          <div class="price">$10/mo add-on</div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="support" data-name="Tidio" data-keywords="chatbot customer support live chat" data-tool="tidio">
+        <div class="card-head">
+          <div class="icon" style="background:rgba(56,128,255,.18);color:#6FA4FF">💬</div>
+          <span class="badge top">Top Rated</span>
+        </div>
+        <h3>Tidio</h3>
+        <p class="card-desc">Lyro AI agent handles 65% of common ticket volume out of the box. Tight Shopify integration; deflection rate beats Intercom on small catalogs.</p>
+        <div class="card-meta">
+          <div class="stars">★★★★☆<span class="num">4.5</span></div>
+          <div class="price">Free / $29/mo</div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="marketing" data-name="Zapier" data-keywords="automation workflow marketing integration" data-tool="zapier">
+        <div class="card-head">
+          <div class="icon" style="background:rgba(255,77,55,.18);color:#FF8675">⚡</div>
+          <span class="badge free">Free Tier</span>
+        </div>
+        <h3>Zapier</h3>
+        <p class="card-desc">7,000+ app connections plus Zapier Agents for autonomous multi-step workflows. The connective tissue of every SMB stack we tested.</p>
+        <div class="card-meta">
+          <div class="stars">★★★★★<span class="num">4.8</span></div>
+          <div class="price">Free / $19.99/mo</div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="marketing" data-name="Surfer SEO" data-keywords="seo content optimization keyword research" data-tool="surfer">
+        <div class="card-head">
+          <div class="icon" style="background:rgba(34,179,217,.18);color:#62D2EE">🌊</div>
+          <span class="badge top">Top Rated</span>
+        </div>
+        <h3>Surfer SEO</h3>
+        <p class="card-desc">Content score correlates well with Google's helpful-content signals on transactional queries. Pricier than Frase but pulls in more SERP data.</p>
+        <div class="card-meta">
+          <div class="stars">★★★★☆<span class="num">4.4</span></div>
+          <div class="price">$89/mo</div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="finance" data-name="Bench.co" data-keywords="bookkeeping accounting finance tax" data-tool="bench">
+        <div class="card-head">
+          <div class="icon" style="background:rgba(29,158,117,.18);color:#3ED8A0">📊</div>
+          <span class="badge new">New</span>
+        </div>
+        <h3>Bench.co</h3>
+        <p class="card-desc">Hybrid AI-plus-human bookkeeping. Their 2026 reorg added real-time reconciliation, but month-end close still takes 5–7 days on volume above 1k transactions.</p>
+        <div class="card-meta">
+          <div class="stars">★★★★☆<span class="num">4.2</span></div>
+          <div class="price">$249/mo</div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="hr" data-name="Gusto" data-keywords="payroll hr benefits hiring" data-tool="gusto">
+        <div class="card-head">
+          <div class="icon" style="background:rgba(255,168,65,.18);color:#FFC178">👥</div>
+          <span class="badge top">Top Rated</span>
+        </div>
+        <h3>Gusto AI</h3>
+        <p class="card-desc">The only payroll platform whose AI compliance assistant actually catches state-specific multi-state employment edge cases. Onboarding in under 20 minutes.</p>
+        <div class="card-meta">
+          <div class="stars">★★★★☆<span class="num">4.4</span></div>
+          <div class="price">$40/mo + $6/employee</div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="analytics" data-name="Pecan AI" data-keywords="predictive analytics forecasting churn data" data-tool="pecan">
+        <div class="card-head">
+          <div class="icon" style="background:rgba(228,107,165,.18);color:#FF8FC0">📈</div>
+          <span class="badge new">New</span>
+        </div>
+        <h3>Pecan AI</h3>
+        <p class="card-desc">Predictive models without the data science team. Churn forecasts hit 87% accuracy on our retail test dataset — but the price gates out under-$5M revenue.</p>
+        <div class="card-meta">
+          <div class="stars">★★★★☆<span class="num">4.1</span></div>
+          <div class="price">From $950/mo</div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="marketing" data-name="HubSpot AI" data-keywords="crm marketing sales hubspot automation" data-tool="hubspot">
+        <div class="card-head">
+          <div class="icon" style="background:rgba(255,122,89,.18);color:#FFA690">🎯</div>
+          <span class="badge free">Free Tier</span>
+        </div>
+        <h3>HubSpot AI</h3>
+        <p class="card-desc">Breeze AI agents inside the CRM you already pay for. The free tier hides most of the value, but at $50/seat it's the sticky default for B2B sales teams.</p>
+        <div class="card-meta">
+          <div class="stars">★★★★☆<span class="num">4.5</span></div>
+          <div class="price">Free / $50+/mo</div>
+        </div>
+      </article>
+
+      <div class="no-results" id="no-results" style="display:none">
+        No tools match your search. Try a different keyword or <a href="#" data-action="reset-filters" style="color:var(--amber)">reset filters</a>.
+      </div>
+    </div>
+
+    <div class="cta-banner" data-nav="compare" role="link" tabindex="0">
+      <div class="cta-banner-text">
+        <div class="cta-banner-eyebrow">Trending Comparison · This week</div>
+        <div class="cta-banner-title">Jasper AI vs Copy.ai vs Writesonic — which is worth $99/mo?</div>
+      </div>
+      <button class="btn btn-primary">Compare side-by-side →</button>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">412</div>
+        <div class="stat-label">Tools Reviewed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1,800+</div>
+        <div class="stat-label">Comparisons Published</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Independent · No Affiliate Fees</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================== -->
+<!-- ===== TOOL DETAIL ================================ -->
+<!-- =================================================== -->
+<section class="page" id="page-tool" aria-label="Tool detail page">
+  <div class="container">
+
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="#" data-nav="home">Home</a>
+      <span class="sep">/</span>
+      <a href="#" data-nav="home" data-cat="writing">Writing &amp; Content</a>
+      <span class="sep">/</span>
+      <span>Jasper AI</span>
+    </nav>
+
+    <header class="tool-header">
+      <div class="icon" style="background:rgba(91,78,209,.18);color:#9789FF">🪶</div>
+      <div class="tool-header-info">
+        <h1>Jasper AI</h1>
+        <div class="tool-meta">
+          <div class="stars">★★★★★ <span class="num" style="color:var(--text);margin-left:4px;font-weight:500">4.6 / 5</span></div>
+          <span>·</span>
+          <span>$39 – $99/mo</span>
+          <span>·</span>
+          <span>Updated April 22, 2026</span>
+        </div>
+        <p class="verdict">"Worth the premium once your team hits three writers and you need brand voice that doesn't drift across long-form."</p>
+        <div class="tool-actions">
+          <a class="btn btn-primary" href="#" rel="nofollow noopener">Visit Jasper AI →</a>
+          <a class="btn btn-secondary" href="#" data-nav="compare">Compare with alternatives</a>
+        </div>
+      </div>
+    </header>
+
+    <hr class="divider" />
+
+    <div class="pros-cons">
+      <div class="pc-box pros">
+        <h4>What works</h4>
+        <ul>
+          <li><span class="mark">+</span><span>Brand voice training holds across 8,000+ word content series — we tested it on a 12-piece B2B campaign with under 4% drift.</span></li>
+          <li><span class="mark">+</span><span>Native Surfer SEO and Grammarly integrations skip the export/import friction.</span></li>
+          <li><span class="mark">+</span><span>50+ purpose-built marketing templates cover the bulk of B2B content needs.</span></li>
+          <li><span class="mark">+</span><span>Teams plan unlocks unlimited words, which Copy.ai and Writesonic still cap.</span></li>
+        </ul>
+      </div>
+      <div class="pc-box cons">
+        <h4>Where it falls short</h4>
+        <ul>
+          <li><span class="mark">−</span><span>$3/mo more than Copy.ai for solo seats — meaningful when you only write 5k words a month.</span></li>
+          <li><span class="mark">−</span><span>Output quality drops on technical or compliance-heavy verticals (medtech, fintech).</span></li>
+          <li><span class="mark">−</span><span>No native plagiarism check — Originality.AI or Copyscape required separately.</span></li>
+          <li><span class="mark">−</span><span>Onboarding the first brand voice still takes 2–3 hours of structured input.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="review-body">
+      <h2>The full review</h2>
+      <p>We ran 60 days of side-by-side prompts through Jasper AI, Copy.ai, and Writesonic — 200 prompts across blog posts, landing page hero copy, LinkedIn carousels, and B2B sales emails. Jasper won on long-form (anything over 1,200 words) and brand voice consistency. It lost on price-per-seat and on technical SaaS copy where Writesonic's tone landed cleaner.</p>
+      <p>Setup is the friction point. Jasper's brand voice training works, but only if you feed it 3–5 representative pieces and answer the dialed-in style questionnaire. Skip the prep work and you'll get the same generic mid-funnel B2B-speak you'd get from a free tier of anything. Once it's trained, though, the output across an entire campaign feels like one writer wrote it — which is the actual job.</p>
+      <p>The pricing math is where most of our readers will land. At $39/mo for one seat, Jasper sits inside Copy.ai's range. The math flips at three seats: Jasper Teams at $99/mo gets unlimited words across the team while Copy.ai's equivalent caps at 200k words per month. If your team produces more than two long-form pieces a week, Jasper saves money by month three.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <h2 class="section-title" style="margin-top:var(--s5)">Pricing</h2>
+    <div class="pricing">
+      <div class="tier">
+        <div class="tier-name">Creator</div>
+        <div class="tier-price">$39<small>/mo</small></div>
+        <p style="color:var(--muted);font-size:.9rem">Solo operators getting started.</p>
+        <ul>
+          <li>1 user seat</li>
+          <li>50,000 words/month</li>
+          <li>50+ templates</li>
+          <li>Brand voice (1 voice)</li>
+          <li class="x">Team collaboration</li>
+          <li class="x">Surfer SEO native</li>
+        </ul>
+      </div>
+      <div class="tier featured">
+        <div class="tier-name" style="color:var(--amber)">Teams · Most Popular</div>
+        <div class="tier-price">$99<small>/mo</small></div>
+        <p style="color:var(--muted);font-size:.9rem">Marketing teams of 3–10.</p>
+        <ul>
+          <li>3 user seats</li>
+          <li>Unlimited words</li>
+          <li>3 brand voices</li>
+          <li>Surfer SEO native</li>
+          <li>Team collaboration</li>
+          <li>API access</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <div class="tier-name">Business</div>
+        <div class="tier-price">Custom</div>
+        <p style="color:var(--muted);font-size:.9rem">Agencies, 10+ seats, regulated industries.</p>
+        <ul>
+          <li>Unlimited seats</li>
+          <li>SSO &amp; SCIM</li>
+          <li>Dedicated CSM</li>
+          <li>Custom workflows</li>
+          <li>SOC 2 reporting</li>
+          <li>Security review</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <h2 class="section-title" style="margin-top:var(--s5)">Who is this for</h2>
+    <div class="personas">
+      <div class="persona">
+        <div class="persona-icon">📣</div>
+        <div class="persona-title">Marketing teams (3–10)</div>
+        <div class="persona-desc">In-house teams who need brand voice consistency across writers, channels, and a content calendar of 8+ pieces a month.</div>
+      </div>
+      <div class="persona">
+        <div class="persona-icon">🏢</div>
+        <div class="persona-title">Content agencies</div>
+        <div class="persona-desc">Agencies juggling 5+ client brands. The multi-voice setup handles client-switching without leakage.</div>
+      </div>
+      <div class="persona">
+        <div class="persona-icon">🎙️</div>
+        <div class="persona-title">Solo brand operators</div>
+        <div class="persona-desc">Founders and creators publishing weekly long-form. Less ideal for under-1,200-word weekly output — Copy.ai's free tier wins here.</div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <h2 class="section-title" style="margin-top:var(--s5)">Related comparisons</h2>
+    <div class="related">
+      <div class="related-card" data-nav="compare">
+        <div class="label">Comparison</div>
+        <div class="title">Jasper AI vs Copy.ai: Which is better for small business?</div>
+        <div class="arrow">Read comparison →</div>
+      </div>
+      <div class="related-card" data-nav="compare">
+        <div class="label">Comparison</div>
+        <div class="title">Jasper AI vs Writesonic: $39 plans head-to-head</div>
+        <div class="arrow">Read comparison →</div>
+      </div>
+      <div class="related-card" data-nav="compare">
+        <div class="label">Comparison</div>
+        <div class="title">Jasper AI vs ChatGPT Business: Worth the premium?</div>
+        <div class="arrow">Read comparison →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================== -->
+<!-- ===== COMPARISON PAGE ============================ -->
+<!-- =================================================== -->
+<section class="page" id="page-compare" aria-label="Comparison page">
+  <div class="container-narrow">
+
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="#" data-nav="home">Home</a>
+      <span class="sep">/</span>
+      <a href="#" data-nav="home">Compare</a>
+      <span class="sep">/</span>
+      <span>Jasper AI vs Copy.ai</span>
+    </nav>
+
+    <div class="eyebrow">In-Depth Comparison · Updated April 30, 2026</div>
+    <h1 style="margin-bottom:var(--s3)">Jasper AI vs Copy.ai: Which is Better for Small Business in 2026?</h1>
+    <p class="lead">We ran 200 prompts across both tools over 60 days, then talked to 14 SMB marketing leads who switched from one to the other. Here's where each one wins.</p>
+
+    <div class="verdict-box">
+      <div class="label">Quick Verdict</div>
+      <div class="text">Copy.ai wins for solo operators under $40/mo. Jasper wins once your team hits 3+ users and you publish more than two long-form pieces a week.</div>
+    </div>
+
+    <h2 class="section-title">Feature comparison</h2>
+    <div class="compare-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Jasper AI</th>
+          <th>Copy.ai</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="feat">Starting price</td><td>$39/mo</td><td>$36/mo</td></tr>
+        <tr><td class="feat">Free tier</td><td><span class="no">No</span></td><td><span class="yes">Yes — 2k words/mo</span></td></tr>
+        <tr><td class="feat">Words on entry plan</td><td>50,000/mo</td><td>40,000/mo</td></tr>
+        <tr><td class="feat">Brand voice training</td><td><span class="yes">Native, 3 voices</span></td><td>Limited (1 voice)</td></tr>
+        <tr><td class="feat">Templates</td><td>50+</td><td>90+</td></tr>
+        <tr><td class="feat">Workflow automation</td><td><span class="no">No</span></td><td><span class="yes">Yes (Workflows)</span></td></tr>
+        <tr><td class="feat">Team plan price</td><td>$99/mo (3 seats)</td><td>$249/mo (5 seats)</td></tr>
+        <tr><td class="feat">Surfer SEO</td><td><span class="yes">Native integration</span></td><td>Via Zapier only</td></tr>
+        <tr><td class="feat">Plagiarism check</td><td><span class="no">No</span></td><td><span class="no">No</span></td></tr>
+        <tr><td class="feat">API access</td><td>$99 plan and up</td><td>$49 plan and up</td></tr>
+        <tr><td class="feat">Customer support</td><td>24/7 chat + email</td><td>Email only (Pro plan)</td></tr>
+        <tr><td class="feat">SOC 2 / compliance</td><td><span class="yes">SOC 2 Type II</span></td><td><span class="yes">SOC 2 Type II</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="deep-dive">
+      <div class="deep-dive-col">
+        <h3><span class="icon" style="background:rgba(91,78,209,.18);color:#9789FF">🪶</span>Jasper AI</h3>
+        <p>Jasper's bet is brand voice. Once you've trained a voice, the output stays in lane across long content series — meaningful if you're a 5-person team writing 8 blog posts a month and you can't have one piece sounding like a different agency wrote it.</p>
+        <p>The Teams plan at $99/mo unlocks unlimited words and three voices. For an agency or in-house team running multiple brands, that math wins fast. The friction is onboarding: budget two to three hours of structured input per voice or you'll get generic output and assume the tool is broken.</p>
+      </div>
+      <div class="deep-dive-col">
+        <h3><span class="icon" style="background:rgba(29,158,117,.18);color:#3ED8A0">✍️</span>Copy.ai</h3>
+        <p>Copy.ai's bet is workflow automation. Their Workflows feature is the genuine differentiator — you can chain prompts across data sources to generate, say, 50 LinkedIn posts from a single CSV of customer interviews. Jasper has no equivalent.</p>
+        <p>The free tier (2k words/mo) is the entry point most teams actually use to evaluate, and the $36/mo Pro plan covers a solo operator's needs without compromise. Where it loses is brand voice — the single-voice limit means anything beyond a 3-piece series starts to drift.</p>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- INTERACTIVE SCORE WIDGET -->
+    <div class="score-widget" id="score-widget">
+      <h3>Build your own verdict</h3>
+      <p class="desc">Adjust the weights below to match what matters to your business. Scores recalculate on the fly.</p>
+
+      <div class="sliders">
+        <div class="slider-row">
+          <div class="head"><span class="name">Price sensitivity</span><span class="val" id="val-price">50</span></div>
+          <input type="range" min="0" max="100" value="50" id="w-price" data-weight />
+        </div>
+        <div class="slider-row">
+          <div class="head"><span class="name">Ease of use</span><span class="val" id="val-ease">50</span></div>
+          <input type="range" min="0" max="100" value="50" id="w-ease" data-weight />
+        </div>
+        <div class="slider-row">
+          <div class="head"><span class="name">Output quality</span><span class="val" id="val-quality">50</span></div>
+          <input type="range" min="0" max="100" value="50" id="w-quality" data-weight />
+        </div>
+        <div class="slider-row">
+          <div class="head"><span class="name">Integrations</span><span class="val" id="val-integ">50</span></div>
+          <input type="range" min="0" max="100" value="50" id="w-integ" data-weight />
+        </div>
+        <div class="slider-row">
+          <div class="head"><span class="name">Customer support</span><span class="val" id="val-support">50</span></div>
+          <input type="range" min="0" max="100" value="50" id="w-support" data-weight />
+        </div>
+      </div>
+
+      <div class="scores">
+        <div class="score-card" id="score-jasper">
+          <div class="name">Jasper AI</div>
+          <div class="num" id="num-jasper">82.4</div>
+          <div class="scale">out of 100</div>
+        </div>
+        <div class="score-card" id="score-copyai">
+          <div class="name">Copy.ai</div>
+          <div class="num" id="num-copyai">78.8</div>
+          <div class="scale">out of 100</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <h2 class="section-title" style="margin-top:var(--s5)">Final verdict by user type</h2>
+    <div class="recs">
+      <div class="rec">
+        <div class="for">If you're a solo founder</div>
+        <div class="pick">Pick Copy.ai</div>
+        <p>The free tier covers evaluation, and $36/mo Pro covers a 5,000-word week. You don't need three brand voices yet — you need workflow automation when client work scales.</p>
+      </div>
+      <div class="rec">
+        <div class="for">If you're a 3–10 person marketing team</div>
+        <div class="pick">Pick Jasper AI</div>
+        <p>Teams at $99/mo with unlimited words and three voices wins on a per-seat basis as soon as you publish more than two long-form pieces a week.</p>
+      </div>
+      <div class="rec">
+        <div class="for">If you're a content agency</div>
+        <div class="pick">Pick Jasper AI</div>
+        <p>Multi-brand voice handling without leakage is the killer feature. Copy.ai's single-voice limit becomes a daily annoyance once you're juggling 4+ client brands.</p>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="faq">
+      <h2 class="section-title">Frequently asked</h2>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>Which is cheaper for a 5-person marketing team?</span>
+          <span class="ico" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">Jasper Teams at $99/mo covers 3 seats with unlimited words. Adding two more seats brings it to roughly $165/mo. Copy.ai Team at $249/mo covers 5 seats but caps at 200k words/month. Once your team writes more than 50k words/month combined, Jasper is meaningfully cheaper.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>Can I switch from Copy.ai to Jasper without losing my brand voice?</span>
+          <span class="ico" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">No native migration tool. Plan on 2–3 hours per brand to retrain Jasper's voice from scratch using 3–5 representative content samples. Most teams that switch report the new voice is "more disciplined" within a week of use.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>Which has better long-form blog output?</span>
+          <span class="ico" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">Jasper, by a clear margin on anything over 1,200 words. We measured 12% lower edit-time on Jasper output across our 60-day blind comparison. Below 800 words it's a wash — Copy.ai actually edges out on landing page hero copy.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>Are there free trials available?</span>
+          <span class="ico" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">Copy.ai has a permanent free tier (2,000 words/month, no card required). Jasper offers a 7-day free trial on Creator and Teams plans, card required up front. Both let you cancel before the first charge.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =================================================== -->
+<!-- ===== BLOG ARTICLE =============================== -->
+<!-- =================================================== -->
+<section class="page" id="page-blog" aria-label="Blog article">
+  <div class="container-narrow">
+
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="#" data-nav="home">Home</a>
+      <span class="sep">/</span>
+      <span>Blog</span>
+    </nav>
+
+    <div class="blog-header">
+      <span class="tag">Buying Guide</span>
+      <h1>Why most "AI for small business" lists are useless in 2026</h1>
+      <div class="byline">
+        <div class="author">
+          <div class="author-avatar">EM</div>
+          <span>Elena Marsh, Editor</span>
+        </div>
+        <span class="dot"></span>
+        <span>9 min read</span>
+        <span class="dot"></span>
+        <span>April 28, 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="blog-layout">
+      <aside class="toc" aria-label="Table of contents">
+        <div class="toc-label">In this article</div>
+        <ul>
+          <li><a href="#s1" class="active">The 412-tool problem</a></li>
+          <li><a href="#s2">What "best of" lists miss</a></li>
+          <li><a href="#s3">Our independent methodology</a></li>
+          <li><a href="#s4">A worked example: Jasper</a></li>
+          <li><a href="#s5">How to read a tool review</a></li>
+          <li><a href="#s6">The bottom line</a></li>
+        </ul>
+      </aside>
+
+      <article class="article">
+        <h2 id="s1">The 412-tool problem</h2>
+        <p>Here's the thing nobody who writes "best AI tools" lists wants to admit: there are now 412 distinct AI products marketed to small business owners in the United States. We counted. Most "top 10" lists are a sponsored ranking dressed up as editorial.</p>
+        <p>That's not a moral judgment. It's a structural problem. A list-maker who takes affiliate commissions from Tool A and Tool B has no commercial reason to mention Tool C, even when Tool C is the right answer for your business.</p>
+
+        <div class="pullquote">"A list of ten tools is not a recommendation. It's a directory of who paid to be on it."</div>
+
+        <h2 id="s2">What "best of" lists miss</h2>
+        <p>The category errors compound when you actually try to make a buying decision:</p>
+        <ul>
+          <li>They flatten user types — a 1-person consultancy and a 30-person agency get the same recommendation.</li>
+          <li>They list features instead of differentiators — every CRM has "AI lead scoring," but only two have models that don't fall apart on B2B sales cycles longer than 90 days.</li>
+          <li>They never quote pricing because pricing changes — and so they hide the single biggest factor in any SMB software decision.</li>
+        </ul>
+
+        <h3 id="s3">Our independent methodology</h3>
+        <p>ToolBench reviews are produced under a strict rule: we pay for every tool we test, at the same rate you would. We test in 60-day cohorts and publish the prompts we used. When we recommend a tool, we name the user type and we name the breakeven point — the number where the math actually flips.</p>
+
+        <div class="inline-tool" data-nav="tool">
+          <div class="icon" style="background:rgba(91,78,209,.18);color:#9789FF">🪶</div>
+          <div class="inline-tool-body">
+            <div class="inline-tool-name">Jasper AI · 4.6 ★</div>
+            <div class="inline-tool-desc">Worth the premium once you hit three writers.</div>
+          </div>
+          <span style="color:var(--amber)">→</span>
+        </div>
+
+        <h3 id="s4">A worked example: Jasper AI</h3>
+        <p>Take Jasper. Most lists rank it as a "top AI writing tool" with a five-star rating. Useful as a vibe; useless as a buying signal. The right framing is: <em>at one seat, Jasper is $3/mo more than Copy.ai with weaker workflow automation. At three seats, Jasper is roughly half the per-word cost of Copy.ai with better brand voice consistency.</em></p>
+        <p>That sentence has a number, a comparison, and a breakeven. That's a recommendation. "Jasper is great" is not.</p>
+
+        <div class="inline-tool" data-nav="tool">
+          <div class="icon" style="background:rgba(29,158,117,.18);color:#3ED8A0">✍️</div>
+          <div class="inline-tool-body">
+            <div class="inline-tool-name">Copy.ai · 4.3 ★</div>
+            <div class="inline-tool-desc">Wins for solo operators under $40/mo.</div>
+          </div>
+          <span style="color:var(--amber)">→</span>
+        </div>
+
+        <h2 id="s5">How to read a tool review</h2>
+        <p>If a review doesn't tell you (1) who it's for, (2) what it costs at every tier, (3) what specifically breaks, and (4) what the alternative is — close the tab. You're reading a press release.</p>
+
+        <h2 id="s6">The bottom line</h2>
+        <p>Use any list — including ours — as a starting filter, not an answer. Run a 14-day pilot, compute your monthly cost at your actual usage volume, and budget two hours of onboarding per tool before you decide it's broken.</p>
+
+        <div class="related-articles">
+          <h3>Related articles</h3>
+          <div class="ra-grid">
+            <div class="ra-card" data-nav="blog">
+              <span class="tag">Methodology</span>
+              <div class="title">How we test 60 AI tools per quarter</div>
+              <div class="meta">7 min read · April 14, 2026</div>
+            </div>
+            <div class="ra-card" data-nav="blog">
+              <span class="tag">Buying Guide</span>
+              <div class="title">The real cost of an AI stack at 5 employees</div>
+              <div class="meta">11 min read · April 02, 2026</div>
+            </div>
+            <div class="ra-card" data-nav="blog">
+              <span class="tag">Pricing</span>
+              <div class="title">Why every AI vendor will raise prices in Q3</div>
+              <div class="meta">6 min read · March 28, 2026</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="#" data-nav="home">ToolBench<span class="logo-dot" aria-hidden="true"></span></a>
+        <p class="footer-tag">Find the right AI tool for your business, not the hype. Independent reviews for US small business owners.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Methodology</a></li>
+          <li><a href="#">Editorial Standards</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Categories</h5>
+        <ul>
+          <li><a href="#" data-nav="home" data-cat="writing">Writing &amp; Content</a></li>
+          <li><a href="#" data-nav="home" data-cat="marketing">Marketing</a></li>
+          <li><a href="#" data-nav="home" data-cat="finance">Finance</a></li>
+          <li><a href="#" data-nav="home" data-cat="support">Customer Support</a></li>
+          <li><a href="#" data-nav="home" data-cat="hr">HR</a></li>
+          <li><a href="#" data-nav="home" data-cat="analytics">Analytics</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Popular Comparisons</h5>
+        <ul>
+          <li><a href="#" data-nav="compare">Jasper vs Copy.ai</a></li>
+          <li><a href="#" data-nav="compare">Tidio vs Intercom</a></li>
+          <li><a href="#" data-nav="compare">Gusto vs Rippling</a></li>
+          <li><a href="#" data-nav="compare">Zapier vs Make</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ToolBench. All rights reserved.</span>
+      <span>Independent. Reader-supported. Never paid for placement.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ===== ROUTER =====
+  const pages = {
+    home:    document.getElementById('page-home'),
+    tool:    document.getElementById('page-tool'),
+    compare: document.getElementById('page-compare'),
+    blog:    document.getElementById('page-blog'),
+  };
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  function navTo(target, opts){
+    opts = opts || {};
+    if(!pages[target]) target='home';
+    Object.values(pages).forEach(p=>p.classList.remove('active'));
+    pages[target].classList.add('active');
+    navLinks.forEach(l=>{
+      l.classList.toggle('active', l.dataset.nav===target);
+    });
+    if(!opts.silent){
+      history.replaceState(null,'','#'+target);
+    }
+    window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+    document.getElementById('nav-links').classList.remove('open');
+    if(target==='home' && opts.cat){
+      const pill = document.querySelector('.pill[data-cat="'+opts.cat+'"]');
+      if(pill) pill.click();
+    }
+  }
+
+  document.body.addEventListener('click', function(e){
+    const t = e.target.closest('[data-nav]');
+    if(!t) return;
+    const dest = t.getAttribute('data-nav');
+    if(!dest || !pages[dest]) return;
+    e.preventDefault();
+    navTo(dest, { cat: t.getAttribute('data-cat') });
+  });
+
+  document.body.addEventListener('keydown', function(e){
+    if(e.key !== 'Enter' && e.key !== ' ') return;
+    const t = e.target.closest('[data-nav]');
+    if(!t || t.tagName==='A' || t.tagName==='BUTTON') return;
+    e.preventDefault();
+    navTo(t.getAttribute('data-nav'));
+  });
+
+  // Tool cards link to detail page
+  document.querySelectorAll('.card[data-tool]').forEach(c=>{
+    c.addEventListener('click', ()=>navTo('tool'));
+  });
+
+  // ===== MOBILE NAV =====
+  const navToggle = document.getElementById('nav-toggle');
+  const navMenu = document.getElementById('nav-links');
+  navToggle.addEventListener('click', ()=>navMenu.classList.toggle('open'));
+
+  // ===== CATEGORY FILTER =====
+  const pills = document.querySelectorAll('.pill');
+  const cards = document.querySelectorAll('.card[data-cat]');
+  const noResults = document.getElementById('no-results');
+  let activeCat = 'all';
+  let activeQuery = '';
+
+  function applyFilter(){
+    let visible = 0;
+    cards.forEach(c=>{
+      const catMatch = activeCat==='all' || c.dataset.cat===activeCat;
+      const q = activeQuery.toLowerCase().trim();
+      const text = (c.dataset.name+' '+c.dataset.keywords+' '+c.dataset.cat+' '+c.querySelector('.card-desc').textContent).toLowerCase();
+      const queryMatch = !q || text.includes(q);
+      const show = catMatch && queryMatch;
+      c.classList.toggle('hidden', !show);
+      if(show){
+        c.classList.remove('fade-in');
+        // force reflow to restart animation
+        void c.offsetWidth;
+        c.classList.add('fade-in');
+        visible++;
+      }
+    });
+    noResults.style.display = visible===0 ? 'block' : 'none';
+  }
+
+  pills.forEach(p=>{
+    p.addEventListener('click', ()=>{
+      pills.forEach(x=>{x.classList.remove('active');x.setAttribute('aria-selected','false')});
+      p.classList.add('active');
+      p.setAttribute('aria-selected','true');
+      activeCat = p.dataset.cat;
+      applyFilter();
+    });
+  });
+
+  // ===== SEARCH =====
+  const searchForm = document.getElementById('search-form');
+  const searchInput = document.getElementById('search-input');
+  searchForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    activeQuery = searchInput.value;
+    if(pages.home.classList.contains('active')){
+      applyFilter();
+    } else {
+      navTo('home');
+      setTimeout(applyFilter,50);
+    }
+  });
+
+  document.body.addEventListener('click', function(e){
+    if(e.target.matches('[data-action="reset-filters"]')){
+      e.preventDefault();
+      activeCat='all'; activeQuery=''; searchInput.value='';
+      pills.forEach(x=>x.classList.remove('active'));
+      document.querySelector('.pill[data-cat="all"]').classList.add('active');
+      applyFilter();
+    }
+  });
+
+  // ===== FAQ ACCORDION =====
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click', ()=>{
+      const item = q.closest('.faq-item');
+      const isOpen = item.classList.toggle('open');
+      q.setAttribute('aria-expanded', isOpen ? 'true':'false');
+    });
+  });
+
+  // ===== SCORE WIDGET =====
+  // Underlying scores out of 100 across 5 dimensions
+  const tools = {
+    jasper: { price: 60, ease: 82, quality: 92, integ: 88, support: 90 },
+    copyai: { price: 82, ease: 90, quality: 80, integ: 72, support: 70 },
+  };
+
+  const sliders = {
+    price:   document.getElementById('w-price'),
+    ease:    document.getElementById('w-ease'),
+    quality: document.getElementById('w-quality'),
+    integ:   document.getElementById('w-integ'),
+    support: document.getElementById('w-support'),
+  };
+  const valEls = {
+    price:   document.getElementById('val-price'),
+    ease:    document.getElementById('val-ease'),
+    quality: document.getElementById('val-quality'),
+    integ:   document.getElementById('val-integ'),
+    support: document.getElementById('val-support'),
+  };
+  const numJasper = document.getElementById('num-jasper');
+  const numCopyai = document.getElementById('num-copyai');
+  const cardJasper = document.getElementById('score-jasper');
+  const cardCopyai = document.getElementById('score-copyai');
+
+  function recomputeScores(){
+    const w = {
+      price:   +sliders.price.value,
+      ease:    +sliders.ease.value,
+      quality: +sliders.quality.value,
+      integ:   +sliders.integ.value,
+      support: +sliders.support.value,
+    };
+    Object.keys(w).forEach(k=>{ if(valEls[k]) valEls[k].textContent = w[k]; });
+    const sumW = w.price+w.ease+w.quality+w.integ+w.support;
+    function compute(t){
+      if(sumW===0) return 0;
+      return (w.price*t.price + w.ease*t.ease + w.quality*t.quality + w.integ*t.integ + w.support*t.support) / sumW;
+    }
+    const j = compute(tools.jasper);
+    const c = compute(tools.copyai);
+    numJasper.textContent = j.toFixed(1);
+    numCopyai.textContent = c.toFixed(1);
+    cardJasper.classList.toggle('win', j>=c);
+    cardCopyai.classList.toggle('win', c>j);
+  }
+
+  Object.values(sliders).forEach(s=>s.addEventListener('input', recomputeScores));
+  recomputeScores();
+
+  // ===== TOC ACTIVE TRACKING =====
+  const tocLinks = document.querySelectorAll('.toc a');
+  const headings = Array.from(document.querySelectorAll('.article h2[id], .article h3[id]'));
+  function updateToc(){
+    if(!pages.blog.classList.contains('active')) return;
+    const scrollY = window.scrollY + 120;
+    let current = headings[0] ? headings[0].id : null;
+    headings.forEach(h=>{ if(h.offsetTop <= scrollY) current = h.id; });
+    tocLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+current));
+  }
+  window.addEventListener('scroll', updateToc, {passive:true});
+
+  tocLinks.forEach(a=>{
+    a.addEventListener('click', function(e){
+      const id = this.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      if(target){
+        e.preventDefault();
+        window.scrollTo({top: target.offsetTop - 80, behavior:'smooth'});
+      }
+    });
+  });
+
+  // ===== INITIAL ROUTE FROM HASH =====
+  const initial = (location.hash || '').replace('#','');
+  if(pages[initial]) navTo(initial,{silent:true});
+})();
+</script>
+
+</body>
+</html>

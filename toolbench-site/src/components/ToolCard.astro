@@ -1,0 +1,50 @@
+---
+import Stars from './Stars.astro';
+import { getLogoUrl } from '~/data/ai-logos';
+
+export interface Props {
+  slug: string;
+  name: string;
+  category: string;
+  icon: string;
+  iconBg: string;
+  iconColor: string;
+  badge?: 'top' | 'new' | 'free';
+  rating: number;
+  priceLabel: string;
+  description: string;
+  keywords: string[];
+}
+
+const { slug, name, category, icon, iconBg, iconColor, badge, rating, priceLabel, description, keywords } =
+  Astro.props;
+
+const badgeText = badge === 'top' ? 'Top Rated' : badge === 'new' ? 'New' : badge === 'free' ? 'Free Tier' : '';
+const searchBlob = [name, ...keywords, category, description].join(' ').toLowerCase();
+const logoUrl = getLogoUrl(slug);
+---
+
+<a
+  class="card"
+  href={`/reviews/${slug}`}
+  data-cat={category}
+  data-name={name}
+  data-search={searchBlob}
+>
+  <div class="card-head">
+    <div class="icon" style={`background:${iconBg};color:${iconColor}`}>
+      {logoUrl ? (
+        <img src={logoUrl} alt={`${name} logo`} loading="lazy" decoding="async" width="28" height="28" />
+      ) : (
+        icon
+      )}
+    </div>
+    {badge && <span class={`badge ${badge}`}>{badgeText}</span>}
+  </div>
+  <h3>{name}</h3>
+  <p class="card-desc">{description}</p>
+  <div class="card-meta">
+    <Stars rating={rating} />
+    <div class="price">{priceLabel}</div>
+  </div>
+</a>

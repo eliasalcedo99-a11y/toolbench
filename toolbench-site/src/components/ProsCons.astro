@@ -1,0 +1,26 @@
+---
+export interface Props {
+  pros: string[];
+  cons: string[];
+}
+const { pros, cons } = Astro.props;
+---
+
+<div class="pros-cons">
+  <div class="pc-box pros">
+    <h4>What works</h4>
+    <ul>
+      {pros.map((p) => (
+        <li><span class="mark">+</span><span>{p}</span></li>
+      ))}
+    </ul>
+  </div>
+  <div class="pc-box cons">
+    <h4>Where it falls short</h4>
+    <ul>
+      {cons.map((c) => (
+        <li><span class="mark">−</span><span>{c}</span></li>
+      ))}
+    </ul>
+  </div>
+</div>

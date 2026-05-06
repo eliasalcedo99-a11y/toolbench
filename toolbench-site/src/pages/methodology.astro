@@ -1,0 +1,109 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { SITE } from '~/data/categories';
+
+const title = `Methodology - ${SITE.name}`;
+const description = 'How we test, review, and score AI tools for small businesses.';
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="container">
+    <section class="hero" style="padding-bottom: 2rem;">
+      <div class="eyebrow">Behind the Scenes</div>
+      <h1>Our <em class="accent">Methodology</em></h1>
+      <p class="hero-sub" style="max-width: 800px;">
+        We don't just rewrite marketing copy. Every tool on ToolBench goes through a rigorous testing process designed specifically for small business use cases. Here is exactly how we evaluate, score, and rank AI tools.
+      </p>
+    </section>
+
+    <div class="content-wrapper" style="max-width: 800px; margin: 0 auto; padding: 2rem 0 6rem; display: flex; flex-direction: column; gap: 4rem;">
+      
+      <section id="how-we-test">
+        <h2>1. How We Test</h2>
+        <p>Testing AI tools requires going beyond the "demo" phase. Our evaluation process involves three distinct stages:</p>
+        <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 1rem;">
+          <li><strong>The Sandbox Test:</strong> We run standard, repeatable prompts across all tools in a category to measure baseline performance.</li>
+          <li><strong>The Stress Test:</strong> We push the limits with edge cases, complex logic, and large context windows to see where the tool breaks.</li>
+          <li><strong>The Workflow Test:</strong> We integrate the tool into real-world business scenarios (e.g., writing a marketing campaign, debugging a React app) to evaluate practical utility.</li>
+        </ul>
+      </section>
+
+      <section id="scoring-criteria">
+        <h2>2. Scoring Criteria</h2>
+        <p>Our overall rating out of 5 stars is an aggregate of five distinct dimensions, each scored from 0 to 100:</p>
+        <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
+          <div style="background: var(--surface); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+            <h3 style="margin: 0 0 0.5rem; color: var(--amber); font-size: 1.1rem;">Quality (0-100)</h3>
+            <p style="margin: 0; font-size: 0.95rem; color: var(--text-muted);">The accuracy, reliability, and nuance of the AI outputs. Does it hallucinate? Are the responses generic or highly contextual?</p>
+          </div>
+          <div style="background: var(--surface); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+            <h3 style="margin: 0 0 0.5rem; color: var(--amber); font-size: 1.1rem;">Ease of Use (0-100)</h3>
+            <p style="margin: 0; font-size: 0.95rem; color: var(--text-muted);">UX/UI design, onboarding friction, and learning curve. How fast can a non-technical user get value from the tool?</p>
+          </div>
+          <div style="background: var(--surface); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+            <h3 style="margin: 0 0 0.5rem; color: var(--amber); font-size: 1.1rem;">Integrations (0-100)</h3>
+            <p style="margin: 0; font-size: 0.95rem; color: var(--text-muted);">How well it plays with the rest of your stack. We look for native integrations, API availability, and webhook support.</p>
+          </div>
+          <div style="background: var(--surface); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+            <h3 style="margin: 0 0 0.5rem; color: var(--amber); font-size: 1.1rem;">Support (0-100)</h3>
+            <p style="margin: 0; font-size: 0.95rem; color: var(--text-muted);">Documentation quality, community forums, and responsiveness of customer service. Is there enterprise-grade support available?</p>
+          </div>
+          <div style="background: var(--surface); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+            <h3 style="margin: 0 0 0.5rem; color: var(--amber); font-size: 1.1rem;">Price & Value (0-100)</h3>
+            <p style="margin: 0; font-size: 0.95rem; color: var(--text-muted);">Not just how cheap it is, but the return on investment. We evaluate hidden limits, overage charges, and free tier utility.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="data-sources">
+        <h2>3. Data Sources & Community Sentiment</h2>
+        <p>Our internal testing is combined with aggregate sentiment analysis from the developer and maker communities. We constantly scrape and analyze discussions from:</p>
+        <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+          <li><strong>Reddit:</strong> Subreddits like r/OpenAI, r/LocalLLaMA, and r/SaaS for unfiltered user feedback and rants.</li>
+          <li><strong>GitHub:</strong> For open-source tools, we look at issue resolution times, star growth velocity, and active contributor counts.</li>
+          <li><strong>Product Hunt:</strong> To track launch momentum, early adopter feedback, and feature iterations.</li>
+        </ul>
+        <p style="margin-top: 1rem;">This ensures our reviews aren't just one person's opinion, but reflect the broader consensus of power users.</p>
+      </section>
+
+      <section id="faq">
+        <h2>4. Frequently Asked Questions</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.5rem;">
+          <div>
+            <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem;">Do you accept payments for reviews?</h4>
+            <p style="margin: 0; color: var(--text-muted);">No. We do not accept sponsored placements, paid reviews, or "fast-track" requests. If a tool is listed here, it's because we believe it's worth evaluating.</p>
+          </div>
+          <div>
+            <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem;">How do you make money?</h4>
+            <p style="margin: 0; color: var(--text-muted);">ToolBench is currently a reader-supported passion project. We may introduce premium features in the future, but the core directory will remain free and objective.</p>
+          </div>
+          <div>
+            <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem;">How often are scores updated?</h4>
+            <p style="margin: 0; color: var(--text-muted);">AI moves fast. We aim to revisit our top comparisons and highest-rated tools every quarter, or immediately after a major model update (e.g., a new Claude or GPT release).</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+  p {
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+  ul li {
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  ul li strong {
+    color: var(--text);
+  }
+</style>

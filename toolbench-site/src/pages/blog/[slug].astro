@@ -1,0 +1,140 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { SITE } from '~/data/categories';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+const { post } = Astro.props;
+const { Content, headings } = await post.render();
+const d = post.data;
+
+const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: d.title,
+  description: d.description,
+  author: { '@type': 'Person', name: d.author.name, affiliation: SITE.name },
+  publisher: { '@type': 'Organization', name: SITE.name },
+  datePublished: d.publishedDate.toISOString().slice(0, 10),
+  dateModified: (d.updatedDate ?? d.publishedDate).toISOString().slice(0, 10),
+};
+
+const otherPosts = (await getCollection('blog'))
+  .filter((p) => p.slug !== post.slug)
+  .slice(0, 3);
+
+const dateFmt = d.publishedDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={d.title} description={d.description} ogType="article" jsonLd={articleSchema}>
+  <div class="container-narrow">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <span>Blog</span>
+    </nav>
+
+    <header class="blog-header">
+      <span class="tag">{d.category}</span>
+      <h1>{d.title}</h1>
+      <div class="byline">
+        <div class="author">
+          <div class="author-avatar">{d.author.initials}</div>
+          <span>{d.author.name}, Editor</span>
+        </div>
+        <span class="dot"></span>
+        <span>{d.readTime}</span>
+        <span class="dot"></span>
+        <span>{dateFmt}</span>
+      </div>
+    </header>
+  </div>
+
+  <div class="container">
+    <div class="blog-layout">
+      <aside class="toc" aria-label="Table of contents">
+        <div class="toc-label">In this article</div>
+        <ul>
+          {tocHeadings.map((h) => (
+            <li>
+              <a
+                href={`#${h.slug}`}
+                style={h.depth === 3 ? 'padding-left:var(--s2)' : ''}
+              >
+                {h.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </aside>
+
+      <article class="article">
+        <Content />
+
+        {otherPosts.length > 0 && (
+          <div class="related-articles">
+            <h3>Related articles</h3>
+            <div class="ra-grid">
+              {otherPosts.map((p) => (
+                <a class="ra-card" href={`/blog/${p.slug}`}>
+                  <span class="tag">{p.data.category}</span>
+                  <div class="title">{p.data.title}</div>
+                  <div class="meta">{p.data.readTime} · {p.data.publishedDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </article>
+    </div>
+  </div>
+
+  <script>
+    const tocLinks = document.querySelectorAll<HTMLAnchorElement>('.toc a');
+    const headings = Array.from(
+      document.querySelectorAll<HTMLElement>('.article h2[id], .article h3[id]')
+    );
+
+    function update() {
+      const scrollY = window.scrollY + 120;
+      let current = headings[0]?.id ?? null;
+      headings.forEach((h) => {
+        if (h.offsetTop <= scrollY) current = h.id;
+      });
+      tocLinks.forEach((a) =>
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current)
+      );
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+
+    tocLinks.forEach((a) => {
+      a.addEventListener('click', (e) => {
+        const href = a.getAttribute('href');
+        if (!href) return;
+        const target = document.getElementById(href.slice(1));
+        if (target) {
+          e.preventDefault();
+          window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</BaseLayout>

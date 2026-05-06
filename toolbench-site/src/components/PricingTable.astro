@@ -1,0 +1,33 @@
+---
+export interface Tier {
+  name: string;
+  price: string;
+  summary: string;
+  featured: boolean;
+  features: string[];
+  notIncluded: string[];
+}
+
+export interface Props {
+  tiers: Tier[];
+}
+
+const { tiers } = Astro.props;
+const cls = tiers.length === 1 ? 'pricing pricing-1' : tiers.length === 2 ? 'pricing pricing-2' : 'pricing';
+---
+
+<div class={cls}>
+  {tiers.map((tier) => (
+    <div class={`tier ${tier.featured ? 'featured' : ''}`}>
+      <div class="tier-name" style={tier.featured ? 'color:var(--amber)' : ''}>
+        {tier.featured ? `${tier.name} · Most Popular` : tier.name}
+      </div>
+      <div class="tier-price" set:html={tier.price.replace(/(\/[a-z]+)/, '<small>$1</small>')} />
+      <p class="tier-summary">{tier.summary}</p>
+      <ul>
+        {tier.features.map((f) => (<li>{f}</li>))}
+        {tier.notIncluded.map((f) => (<li class="x">{f}</li>))}
+      </ul>
+    </div>
+  ))}
+</div>

@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ToolBench — AI Tools for Small Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0D0F0E;
+    --bg-elev: #131614;
+    --amber: #F0C060;
+    --teal: #1D9E75;
+    --text: #E8E4DC;
+    --muted: rgba(232, 228, 220, 0.5);
+    --line: rgba(232, 228, 220, 0.1);
+    --line-strong: rgba(232, 228, 220, 0.18);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+  .serif { font-family: "DM Serif Display", Georgia, serif; font-weight: 400; }
+  .italic { font-style: italic; }
+  .mono-tab { font-variant-numeric: tabular-nums; }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(13, 15, 14, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--line);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    gap: 32px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+  }
+  .logo-mark {
+    width: 26px;
+    height: 26px;
+    border: 1px solid var(--amber);
+    display: grid;
+    place-items: center;
+    color: var(--amber);
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .nav-links a {
+    color: var(--muted);
+    transition: color 150ms ease;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+  .nav-links a.active {
+    position: relative;
+  }
+  .nav-links a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -24px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--amber);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 150ms ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .btn-primary {
+    background: var(--amber);
+    color: #1A1305;
+  }
+  .btn-primary:hover { background: #f4ca78; }
+  .btn-ghost {
+    border: 1px solid var(--line-strong);
+    color: var(--text);
+  }
+  .btn-ghost:hover { border-color: var(--amber); color: var(--amber); }
+
+  .menu-toggle { display: none; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 96px 0 72px;
+    border-bottom: 0.5px solid var(--line);
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .eyebrow-dot {
+    width: 6px; height: 6px; background: var(--amber); border-radius: 50%;
+  }
+  .hero h1 {
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    max-width: 18ch;
+    margin-bottom: 24px;
+  }
+  .hero h1 em {
+    color: var(--amber);
+    font-style: italic;
+  }
+  .hero p {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 56ch;
+    margin-bottom: 40px;
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    max-width: 620px;
+    border: 0.5px solid var(--line-strong);
+    background: var(--bg-elev);
+    transition: border-color 150ms ease;
+  }
+  .search:focus-within { border-color: var(--amber); }
+  .search input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 15px;
+    padding: 16px 18px;
+  }
+  .search input::placeholder { color: var(--muted); }
+  .search button {
+    background: var(--amber);
+    color: #1A1305;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 16px 24px;
+    height: 100%;
+    transition: background 150ms ease;
+  }
+  .search button:hover { background: #f4ca78; }
+
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    margin-top: 32px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
+  .hero-meta .dot { width: 4px; height: 4px; background: var(--muted); border-radius: 50%; }
+
+  /* ---------- CATEGORY PILLS ---------- */
+  .category-bar {
+    padding: 40px 0 24px;
+  }
+  .category-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .category-title {
+    font-family: "DM Serif Display", serif;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+  }
+  .category-count {
+    font-size: 13px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .pill {
+    padding: 9px 16px;
+    border: 0.5px solid var(--line-strong);
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 150ms ease;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .pill:hover { color: var(--text); border-color: var(--text); }
+  .pill.active {
+    background: var(--amber);
+    color: #1A1305;
+    border-color: var(--amber);
+  }
+  .pill .pill-num {
+    font-size: 11px;
+    opacity: 0.7;
+    font-variant-numeric: tabular-nums;
+  }
+  .pill.active .pill-num { opacity: 0.6; }
+
+  /* ---------- TOOL CARDS ---------- */
+  .cards-section { padding: 24px 0 80px; }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .card {
+    border: 0.5px solid var(--line-strong);
+    padding: 28px;
+    background: var(--bg);
+    transition: border-color 150ms ease, background 150ms ease;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    cursor: pointer;
+  }
+  .card:hover {
+    border-color: var(--amber);
+    background: rgba(240, 192, 96, 0.02);
+  }
+  .card-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .icon-box {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    font-size: 24px;
+    border: 0.5px solid var(--line-strong);
+    background: var(--bg-elev);
+    flex-shrink: 0;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 9px;
+    font-weight: 600;
+    border-radius: 2px;
+  }
+  .badge-top { background: rgba(240, 192, 96, 0.12); color: var(--amber); }
+  .badge-new { background: rgba(29, 158, 117, 0.14); color: #4ec99e; }
+  .badge-free { background: rgba(232, 228, 220, 0.06); color: var(--text); border: 0.5px solid var(--line-strong); }
+  .card-title {
+    font-family: "DM Serif Display", serif;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .card-cat {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .card-desc {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 0.5px solid var(--line);
+    margin-top: auto;
+  }
+  .stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .stars .star-row {
+    color: var(--amber);
+    letter-spacing: 1px;
+    font-size: 12px;
+  }
+  .stars .star-row .empty { color: rgba(240, 192, 96, 0.22); }
+  .price {
+    font-size: 13px;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+  }
+  .price .price-from { color: var(--muted); font-weight: 400; }
+
+  .empty {
+    grid-column: 1 / -1;
+    padding: 64px 24px;
+    text-align: center;
+    color: var(--muted);
+    border: 0.5px dashed var(--line-strong);
+    font-size: 14px;
+  }
+
+  /* ---------- STATS ---------- */
+  .stats {
+    border-top: 0.5px solid var(--line);
+    border-bottom: 0.5px solid var(--line);
+    padding: 64px 0;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .stat {
+    padding: 0 32px;
+    border-left: 0.5px solid var(--line);
+  }
+  .stat:first-child { border-left: none; padding-left: 0; }
+  .stat-num {
+    font-family: "DM Serif Display", serif;
+    font-size: 56px;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-num em { color: var(--amber); font-style: italic; }
+  .stat-label {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    padding: 80px 0 40px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 64px;
+  }
+  .footer-tag {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 16px;
+    max-width: 28ch;
+    line-height: 1.55;
+  }
+  .footer-col h4 {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .footer-col a {
+    font-size: 14px;
+    color: var(--text);
+    transition: color 150ms ease;
+  }
+  .footer-col a:hover { color: var(--amber); }
+  .footer-bottom {
+    padding-top: 28px;
+    border-top: 0.5px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--muted);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 880px) {
+    .container { padding: 0 20px; }
+    .nav-links { display: none; }
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px; height: 40px;
+      border: 0.5px solid var(--line-strong);
+    }
+    .hero { padding: 64px 0 56px; }
+    .hero p { font-size: 16px; }
+    .search button { padding: 14px 16px; font-size: 13px; }
+    .cards { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr; gap: 32px; }
+    .stat { padding: 0; border-left: none; border-top: 0.5px solid var(--line); padding-top: 24px; }
+    .stat:first-child { border-top: none; padding-top: 0; }
+    .stat-num { font-size: 44px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    .hero-meta { flex-wrap: wrap; gap: 16px; }
+  }
+  @media (max-width: 480px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .search { flex-direction: column; align-items: stretch; }
+    .search input { width: 100%; }
+    .search button { width: 100%; padding: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">T</span>
+      ToolBench
+    </a>
+    <div class="nav-links">
+      <a href="#" class="active">Reviews</a>
+      <a href="#">Compare</a>
+      <a href="#">Categories</a>
+      <a href="#">Blog</a>
+    </div>
+    <a href="#" class="btn btn-primary">Submit a Tool →</a>
+    <button class="menu-toggle" aria-label="Open menu">
+      <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="1"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">
+      <span class="eyebrow-dot"></span>
+      AI Tools Directory — 2026
+    </div>
+    <h1 class="serif">Find the right AI tool for your <em>business</em>, not the hype.</h1>
+    <p>Independent, hands-on reviews of the AI tools small businesses actually use. We test, score, and compare so you don't waste 47 hours of free trials.</p>
+    <form class="search" onsubmit="event.preventDefault();">
+      <input type="text" placeholder="Search 412 tools — try &ldquo;invoice automation&rdquo; or &ldquo;customer support&rdquo;" aria-label="Search tools" />
+      <button type="submit">Search →</button>
+    </form>
+    <div class="hero-meta">
+      <span>Updated weekly</span>
+      <span class="dot"></span>
+      <span>No paid placements</span>
+      <span class="dot"></span>
+      <span>Tested by humans, not bots</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ CATEGORY PILLS ============ -->
+<section class="category-bar">
+  <div class="container">
+    <div class="category-header">
+      <h2 class="category-title">Browse by category</h2>
+      <span class="category-count" id="resultCount">Showing 6 of 412</span>
+    </div>
+    <div class="pills" id="pills">
+      <button class="pill active" data-cat="all">All <span class="pill-num">412</span></button>
+      <button class="pill" data-cat="writing">Writing <span class="pill-num">86</span></button>
+      <button class="pill" data-cat="marketing">Marketing <span class="pill-num">71</span></button>
+      <button class="pill" data-cat="finance">Finance <span class="pill-num">42</span></button>
+      <button class="pill" data-cat="support">Support <span class="pill-num">58</span></button>
+      <button class="pill" data-cat="analytics">Analytics <span class="pill-num">39</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOOL CARDS ============ -->
+<section class="cards-section">
+  <div class="container">
+    <div class="cards" id="cards">
+
+      <article class="card" data-cat="writing">
+        <div class="card-head">
+          <div class="icon-box" style="color:#F0C060">✍︎</div>
+          <span class="badge badge-top">Top Rated</span>
+        </div>
+        <div>
+          <div class="card-cat">Writing &amp; Content</div>
+          <h3 class="card-title">Jasper AI</h3>
+        </div>
+        <p class="card-desc">Best long-form writer we tested. Templates feel dated, but the brand voice tuning is genuinely useful for agencies juggling 4+ clients.</p>
+        <div class="card-foot">
+          <span class="stars">
+            <span class="star-row">★★★★<span class="empty">★</span></span>
+            <span>4.3</span>
+          </span>
+          <span class="price"><span class="price-from">from</span> $49/mo</span>
+        </div>
+      </article>
+
+      <article class="card" data-cat="marketing">
+        <div class="card-head">
+          <div class="icon-box" style="color:#4ec99e">◎</div>
+          <span class="badge badge-new">New</span>
+        </div>
+        <div>
+          <div class="card-cat">Marketing Automation</div>
+          <h3 class="card-title">Zapier Central</h3>
+        </div>
+        <p class="card-desc">Agent-style automation that finally works without 14 hours of setup. Our test workflow handled 312 leads in a week with one rule.</p>
+        <div class="card-foot">
+          <span class="stars">
+            <span class="star-row">★★★★<span class="empty">★</span></span>
+            <span>4.5</span>
+          </span>
+          <span class="price"><span class="price-from">from</span> $29/mo</span>
+        </div>
+      </article>
+
+      <article class="card" data-cat="finance">
+        <div class="card-head">
+          <div class="icon-box" style="color:#F0C060">$</div>
+          <span class="badge badge-free">Free Tier</span>
+        </div>
+        <div>
+          <div class="card-cat">Finance &amp; Bookkeeping</div>
+          <h3 class="card-title">Puzzle.io</h3>
+        </div>
+        <p class="card-desc">Auto-categorizes transactions with 94% accuracy in our 6-month test. Cuts the monthly close from 3 days to about 4 hours.</p>
+        <div class="card-foot">
+          <span class="stars">
+            <span class="star-row">★★★★<span class="empty">★</span></span>
+            <span>4.1</span>
+          </span>
+          <span class="price"><span class="price-from">from</span> $0</span>
+        </div>
+      </article>
+
+      <article class="card" data-cat="support">
+        <div class="card-head">
+          <div class="icon-box" style="color:#4ec99e">◐</div>
+          <span class="badge badge-top">Top Rated</span>
+        </div>
+        <div>
+          <div class="card-cat">Customer Support</div>
+          <h3 class="card-title">Tidio Lyro</h3>
+        </div>
+        <p class="card-desc">Handled 71% of our test tickets without a human. The escalation logic is the best in class — quietly hands off before frustration builds.</p>
+        <div class="card-foot">
+          <span class="stars">
+            <span class="star-row">★★★★<span class="empty">★</span></span>
+            <span>4.6</span>
+          </span>
+          <span class="price"><span class="price-from">from</span> $39/mo</span>
+        </div>
+      </article>
+
+      <article class="card" data-cat="analytics">
+        <div class="card-head">
+          <div class="icon-box" style="color:#F0C060">▲</div>
+          <span class="badge badge-free">Free Tier</span>
+        </div>
+        <div>
+          <div class="card-cat">Analytics &amp; BI</div>
+          <h3 class="card-title">Hex Magic</h3>
+        </div>
+        <p class="card-desc">SQL-by-prompt that doesn't hallucinate column names. Connected to our test Postgres in 90 seconds and answered 8 of 10 ad-hoc questions cleanly.</p>
+        <div class="card-foot">
+          <span class="stars">
+            <span class="star-row">★★★★<span class="empty">★</span></span>
+            <span>4.2</span>
+          </span>
+          <span class="price"><span class="price-from">from</span> $0</span>
+        </div>
+      </article>
+
+      <article class="card" data-cat="writing">
+        <div class="card-head">
+          <div class="icon-box" style="color:#4ec99e">¶</div>
+          <span class="badge badge-new">New</span>
+        </div>
+        <div>
+          <div class="card-cat">Writing &amp; Content</div>
+          <h3 class="card-title">Copy.ai Workflows</h3>
+        </div>
+        <p class="card-desc">The 2026 rebuild is a different product. Sales-focused workflows that actually pull from your CRM instead of generic prompt templates.</p>
+        <div class="card-foot">
+          <span class="stars">
+            <span class="star-row">★★★★<span class="empty">★</span></span>
+            <span>4.0</span>
+          </span>
+          <span class="price"><span class="price-from">from</span> $36/mo</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-num mono-tab">412</div>
+        <div class="stat-label">Tools reviewed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num mono-tab">1,800<em>+</em></div>
+        <div class="stat-label">Comparisons published</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num mono-tab">100<em>%</em></div>
+        <div class="stat-label">Independent &mdash; no paid placements</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#" class="logo">
+          <span class="logo-mark">T</span>
+          ToolBench
+        </a>
+        <p class="footer-tag">Find the right AI tool for your business, not the hype. Independent reviews, side-by-side comparisons, and honest verdicts.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Methodology</a></li>
+          <li><a href="#">Editorial policy</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#">Writing &amp; Content</a></li>
+          <li><a href="#">Marketing</a></li>
+          <li><a href="#">Customer Support</a></li>
+          <li><a href="#">Finance</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Popular comparisons</h4>
+        <ul>
+          <li><a href="#">Jasper vs Copy.ai</a></li>
+          <li><a href="#">Tidio vs Intercom Fin</a></li>
+          <li><a href="#">Notion AI vs Mem</a></li>
+          <li><a href="#">Zapier vs Make</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ToolBench. All reviews independently produced.</span>
+      <span>Built in Brooklyn, NY.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Category filter
+  (function () {
+    var pills = document.querySelectorAll('#pills .pill');
+    var cards = document.querySelectorAll('#cards .card');
+    var countEl = document.getElementById('resultCount');
+    var totalEl = document.getElementById('cards');
+
+    pills.forEach(function (p) {
+      p.addEventListener('click', function () {
+        var cat = p.getAttribute('data-cat');
+        pills.forEach(function (x) { x.classList.remove('active'); });
+        p.classList.add('active');
+
+        var visible = 0;
+        cards.forEach(function (c) {
+          var match = (cat === 'all') || c.getAttribute('data-cat') === cat;
+          c.style.display = match ? '' : 'none';
+          if (match) visible++;
+        });
+
+        // empty state
+        var existing = document.getElementById('emptyState');
+        if (existing) existing.remove();
+        if (visible === 0) {
+          var div = document.createElement('div');
+          div.className = 'empty';
+          div.id = 'emptyState';
+          div.textContent = 'No tools in this category yet — check back soon.';
+          totalEl.appendChild(div);
+        }
+        countEl.textContent = 'Showing ' + visible + ' of 412';
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

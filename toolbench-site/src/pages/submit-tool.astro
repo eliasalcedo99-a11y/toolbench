@@ -1,0 +1,96 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { CATEGORIES, SITE } from '~/data/categories';
+
+const submitCats = CATEGORIES.filter(c => c.id !== 'all');
+---
+
+<BaseLayout
+  title="Submit a Tool for Review"
+  description="Suggest an AI tool for the ToolBench review queue. We test and rank submissions on the same criteria as everything else — no paid placement."
+>
+  <div class="container">
+    <section class="comparator-hero">
+      <div class="eyebrow">Submit a Tool · Reader Channel</div>
+      <h1>
+        Tell us what to <em class="accent">test next</em>
+      </h1>
+      <p class="hero-sub">
+        We rotate through reader submissions every Friday. The same 5-axis methodology applies — quality, ease, integrations, support, price. No fast-tracking, no paid placement, no exceptions.
+      </p>
+    </section>
+
+    <section class="submit-form-wrap">
+      <form
+        class="submit-form"
+        id="submit-tool-form"
+        name="submit-tool"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="botfield"
+        action="/submit-tool/thanks"
+      >
+        <!-- Netlify Forms required hidden field -->
+        <input type="hidden" name="form-name" value="submit-tool" />
+        <p class="honeypot-row">
+          <label>Don't fill this out: <input name="botfield" tabindex="-1" autocomplete="off" /></label>
+        </p>
+
+        <div class="form-row">
+          <label for="tool-name">Tool name <span class="required">*</span></label>
+          <input id="tool-name" type="text" name="tool_name" required placeholder="e.g. Cursor, Suno, Krea" />
+        </div>
+
+        <div class="form-row">
+          <label for="tool-url">Website <span class="required">*</span></label>
+          <input id="tool-url" type="url" name="tool_url" required placeholder="https://example.com" />
+        </div>
+
+        <div class="form-row">
+          <label for="tool-category">Closest category</label>
+          <select id="tool-category" name="tool_category">
+            {submitCats.map(c => <option value={c.id}>{c.icon} {c.label}</option>)}
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="tool-pitch">Why should we test it? <span class="required">*</span></label>
+          <textarea
+            id="tool-pitch"
+            name="tool_pitch"
+            required
+            rows="5"
+            placeholder="What's it good at? Who uses it? What does it actually replace?"
+          ></textarea>
+        </div>
+
+        <div class="form-row">
+          <label for="submitter-email">Your email (optional)</label>
+          <input id="submitter-email" type="email" name="submitter_email" placeholder="you@company.com" />
+          <p class="form-hint">Only used to ping you when the review goes live. Never shared.</p>
+        </div>
+
+        <div class="form-row form-disclaimer">
+          <p>
+            <strong>What we don't accept:</strong> sponsored slots, affiliate kickbacks, "rush reviews", or
+            anything that compromises editorial independence. See our
+            <a href="/editorial-standards">editorial standards</a>.
+          </p>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Submit for review →</button>
+          <a href="/methodology" class="btn btn-ghost">Read our methodology first</a>
+        </div>
+      </form>
+    </section>
+
+    <a class="cta-banner" href="/ai-comparator">
+      <div class="cta-banner-text">
+        <div class="cta-banner-eyebrow">Already in the index?</div>
+        <div class="cta-banner-title">Check the AI Matrix to see if {SITE.name} already covers it →</div>
+      </div>
+      <span class="btn btn-primary">Open AI Matrix</span>
+    </a>
+  </div>
+</BaseLayout>

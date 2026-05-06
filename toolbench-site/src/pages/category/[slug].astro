@@ -1,0 +1,179 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import ToolCard from '~/components/ToolCard.astro';
+import { getCollection } from 'astro:content';
+import { CATEGORIES, CATEGORY_LABELS, SITE } from '~/data/categories';
+
+export async function getStaticPaths() {
+  const tools = await getCollection('tools');
+  // Build a path for every category that has at least one tool
+  const cats = Array.from(new Set(tools.map(t => t.data.category)));
+  return cats.map(cat => ({ params: { slug: cat } }));
+}
+
+const { slug } = Astro.params;
+const allTools = await getCollection('tools');
+const allComparisons = await getCollection('comparisons');
+
+const tools = allTools
+  .filter(t => t.data.category === slug)
+  .sort((a, b) => b.data.rating - a.data.rating);
+
+const categoryLabel = CATEGORY_LABELS[slug as string] || slug;
+const categoryMeta = CATEGORIES.find(c => c.id === slug);
+
+// Cross-category comparisons that involve at least one tool from this category
+const slugSet = new Set(tools.map(t => t.slug));
+const relatedComparisons = allComparisons
+  .filter(c => slugSet.has(c.data.toolA) || slugSet.has(c.data.toolB))
+  .slice(0, 12);
+
+const toolMap = new Map(allTools.map(t => [t.slug, t]));
+
+// Top picks: top 3 tools by rating in this category
+const topPicks = tools.slice(0, 3);
+
+// Category descriptions
+const CATEGORY_DESCRIPTIONS: Record<string, string> = {
+  general: 'All-purpose conversational AI assistants for daily work, research, and brainstorming.',
+  code: 'AI-powered coding assistants for developers — autocomplete, debugging, and full-codebase reasoning.',
+  writing: 'AI writing tools for blogs, marketing copy, emails, and long-form content production.',
+  image: 'AI image generators for visual art, illustrations, marketing assets, and design.',
+  video: 'AI video creation, avatars, editing, and clip generation tools for content creators.',
+  audio: 'Text-to-speech, transcription, voice cloning, and podcast production AI tools.',
+  search: 'AI-powered search engines and research assistants for academic and professional work.',
+  music: 'AI music generators and composition tools for creators, indie artists, and producers.',
+  design: 'AI design tools for logos, branding, templates, and visual assets.',
+  business: 'AI for analytics, dashboards, business intelligence, and data-driven decisions.',
+  productivity: 'AI productivity tools for notes, automation, document analysis, and workflow.',
+  marketing: 'AI marketing tools for SEO, content, ads, social, and lead generation.',
+  finance: 'AI bookkeeping, accounting, and financial planning tools for small business.',
+  support: 'AI customer support chatbots, helpdesks, and conversational tools.',
+  hr: 'AI tools for hiring, payroll, employee management, and HR workflows.',
+  analytics: 'AI analytics platforms with natural language insights and reporting.',
+};
+
+const description = CATEGORY_DESCRIPTIONS[slug as string] || `Best ${categoryLabel} AI tools reviewed by ToolBench.`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `Best ${categoryLabel} AI Tools`,
+  description,
+  url: `${SITE.url}/category/${slug}`,
+  numberOfItems: tools.length,
+  hasPart: tools.slice(0, 10).map(t => ({
+    '@type': 'SoftwareApplication',
+    name: t.data.name,
+    url: `${SITE.url}/reviews/${t.slug}`,
+    applicationCategory: categoryLabel,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: t.data.rating,
+      bestRating: 5,
+      ratingCount: 100,
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title={`Best ${categoryLabel} AI Tools — Compared`}
+  description={description}
+  jsonLd={jsonLd}
+>
+  <div class="container">
+    <section class="category-hero">
+      <div class="eyebrow">Category · 2026</div>
+      <h1>
+        Best <em class="accent">{categoryMeta?.icon} {categoryLabel}</em> AI tools
+      </h1>
+      <p class="hero-sub">{description}</p>
+
+      <div class="comparator-stats">
+        <div class="stat-pill">
+          <span class="stat-num">{tools.length}</span>
+          <span class="stat-label">tools tested</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-num">{relatedComparisons.length}+</span>
+          <span class="stat-label">comparisons</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-num">{topPicks[0]?.data.rating.toFixed(1) || '—'}</span>
+          <span class="stat-label">top rating</span>
+        </div>
+      </div>
+    </section>
+
+    {topPicks.length > 0 && (
+      <section class="category-toppicks">
+        <h2 class="section-label">🏆 Top picks</h2>
+        <div class="category-toppicks-grid">
+          {topPicks.map((t, i) => (
+            <a class={`category-toppick ${i === 0 ? 'winner' : ''}`} href={`/reviews/${t.slug}`}>
+              <div class="rank-number">#{i + 1}</div>
+              <h3>{t.data.name}</h3>
+              <p>{t.data.description}</p>
+              <div class="category-toppick-meta">
+                <span class="rating">★ {t.data.rating.toFixed(1)}</span>
+                <span class="price">{t.data.priceLabel}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <section class="category-all">
+      <h2 class="section-label">All {categoryLabel.toLowerCase()} tools ({tools.length})</h2>
+      <div class="tools-grid">
+        {tools.map((tool) => (
+          <ToolCard
+            slug={tool.slug}
+            name={tool.data.name}
+            category={tool.data.category}
+            icon={tool.data.icon}
+            iconBg={tool.data.iconBg}
+            iconColor={tool.data.iconColor}
+            badge={tool.data.badge}
+            rating={tool.data.rating}
+            priceLabel={tool.data.priceLabel}
+            description={tool.data.description}
+            keywords={tool.data.keywords}
+          />
+        ))}
+      </div>
+    </section>
+
+    {relatedComparisons.length > 0 && (
+      <section class="category-comparisons">
+        <h2 class="section-label">⚔️ Head-to-head comparisons</h2>
+        <ul class="compare-list">
+          {relatedComparisons.map(c => {
+            const a = toolMap.get(c.data.toolA);
+            const b = toolMap.get(c.data.toolB);
+            if (!a || !b) return null;
+            return (
+              <li>
+                <a href={`/compare/${c.slug}`} class="compare-list-item">
+                  <span class="compare-list-name">{a.data.name} <em>vs</em> {b.data.name}</span>
+                  <span class="compare-list-arrow">→</span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+        <a href="/compare" class="btn btn-ghost" style="margin-top:1rem">See all comparisons →</a>
+      </section>
+    )}
+
+    <a class="cta-banner" href="/ai-comparator">
+      <div class="cta-banner-text">
+        <div class="cta-banner-eyebrow">Cross-category insights</div>
+        <div class="cta-banner-title">Compare {categoryLabel.toLowerCase()} tools across all use cases →</div>
+      </div>
+      <span class="btn btn-primary">Open AI Matrix</span>
+    </a>
+  </div>
+</BaseLayout>

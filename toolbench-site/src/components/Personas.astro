@@ -1,0 +1,21 @@
+---
+export interface Persona {
+  icon: string;
+  title: string;
+  description: string;
+}
+export interface Props {
+  personas: Persona[];
+}
+const { personas } = Astro.props;
+---
+
+<div class="personas">
+  {personas.map((p) => (
+    <div class="persona">
+      <div class="persona-icon">{p.icon}</div>
+      <div class="persona-title">{p.title}</div>
+      <div class="persona-desc">{p.description}</div>
+    </div>
+  ))}
+</div>

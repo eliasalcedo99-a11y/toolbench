@@ -1,0 +1,319 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import Stars from '~/components/Stars.astro';
+import { getCollection } from 'astro:content';
+import { USE_CASES, SITE, CATEGORY_LABELS } from '~/data/categories';
+import { getLogoUrl } from '~/data/ai-logos';
+
+const tools = await getCollection('tools');
+
+// Map of new AI categories that should be featured in the comparator
+const AI_CATEGORIES = ['general', 'code', 'writing', 'image', 'video', 'audio', 'search', 'music', 'design', 'business', 'productivity'];
+
+// Filter to only show AI tools (exclude legacy categories like marketing/finance/hr)
+const aiTools = tools.filter(t => AI_CATEGORIES.includes(t.data.category));
+
+// Score boost: when a tool's category matches the use case, give it the full quality score.
+// "general" tools are versatile, so they show up in most use cases with a slight discount.
+function scoreForUseCase(tool: typeof aiTools[number], useCaseId: string): number {
+  const cat = tool.data.category;
+  const s = tool.data.scores;
+  const overall = (s.quality * 0.5) + (s.ease * 0.2) + (s.integrations * 0.15) + (s.support * 0.1) + (s.price * 0.05);
+
+  if (cat === useCaseId) return Math.round(overall);
+  // General tools are versatile — they fit code, writing, search, productivity well
+  if (cat === 'general' && ['code', 'writing', 'search', 'productivity'].includes(useCaseId)) {
+    return Math.round(overall * 0.85);
+  }
+  return 0;
+}
+
+// Build top picks per use case
+const useCaseRankings = USE_CASES.map(uc => {
+  const ranked = aiTools
+    .map(t => ({ tool: t, score: scoreForUseCase(t, uc.id) }))
+    .filter(x => x.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 6);
+  return { useCase: uc, ranked };
+});
+
+// JSON-LD: Collection page
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'AI Tools Comparator Matrix',
+  description: 'Interactive matrix comparing 50 AI tools across 11 use cases. Find the best AI for code, writing, images, video, and more.',
+  url: `${SITE.url}/ai-comparator`,
+  numberOfItems: aiTools.length,
+};
+---
+
+<BaseLayout
+  title="AI Comparator — Find the Best AI for Every Task"
+  description="Compare 50 AI tools across 11 use cases. Interactive matrix with rankings for code, writing, images, video, audio, and more."
+  jsonLd={jsonLd}
+>
+  <div class="container">
+    <!-- Hero -->
+    <section class="comparator-hero">
+      <div class="eyebrow">AI Comparator Matrix · 2026</div>
+      <h1>
+        The best AI for <em class="accent" id="hero-usecase">every task</em>
+      </h1>
+      <p class="hero-sub">
+        {aiTools.length} AI tools ranked across {USE_CASES.length} real use cases. Pick a category below to see the top performers — based on quality, ease of use, and community feedback.
+      </p>
+
+      <div class="comparator-stats">
+        <div class="stat-pill">
+          <span class="stat-num">{aiTools.length}</span>
+          <span class="stat-label">AI tools</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-num">{USE_CASES.length}</span>
+          <span class="stat-label">use cases</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-num">1,225+</span>
+          <span class="stat-label">comparisons</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Case Selector -->
+    <section class="usecase-selector" aria-label="Select a use case">
+      <h2 class="section-label">Pick a use case</h2>
+      <div class="usecase-grid" role="tablist">
+        {USE_CASES.map((uc, i) => (
+          <button
+            class={`usecase-card ${i === 0 ? 'active' : ''}`}
+            data-usecase={uc.id}
+            role="tab"
+            aria-selected={i === 0 ? 'true' : 'false'}
+          >
+            <span class="usecase-icon">{uc.icon}</span>
+            <span class="usecase-label">{uc.label}</span>
+            <span class="usecase-desc">{uc.description}</span>
+          </button>
+        ))}
+      </div>
+    </section>
+
+    <!-- Rankings Display -->
+    <section class="rankings-section">
+      {useCaseRankings.map((ranking, i) => (
+        <div
+          class={`ranking-panel ${i === 0 ? 'active' : ''}`}
+          data-usecase-panel={ranking.useCase.id}
+          aria-hidden={i === 0 ? 'false' : 'true'}
+        >
+          <div class="ranking-header">
+            <h2>
+              <span class="ranking-icon">{ranking.useCase.icon}</span>
+              Best AI for {ranking.useCase.label}
+            </h2>
+            <p class="ranking-desc">{ranking.useCase.description}</p>
+          </div>
+
+          {ranking.ranked.length === 0 ? (
+            <p class="empty-state">No AI tools indexed for this use case yet.</p>
+          ) : (
+            <ol class="ranking-list">
+              {ranking.ranked.map((entry, idx) => {
+                const t = entry.tool;
+                const isWinner = idx === 0;
+                return (
+                  <li class={`ranking-item ${isWinner ? 'winner' : ''}`}>
+                    <div class="rank-number">#{idx + 1}</div>
+                    <div class="rank-icon" style={`background:${t.data.iconBg};color:${t.data.iconColor}`}>
+                      {getLogoUrl(t.slug) ? (
+                        <img src={getLogoUrl(t.slug)!} alt={`${t.data.name} logo`} loading="lazy" decoding="async" width="32" height="32" />
+                      ) : (
+                        t.data.icon
+                      )}
+                    </div>
+                    <div class="rank-body">
+                      <div class="rank-head">
+                        <h3><a href={`/reviews/${t.slug}`}>{t.data.name}</a></h3>
+                        {isWinner && <span class="rank-crown">👑 Top Pick</span>}
+                      </div>
+                      <p class="rank-desc">{t.data.description}</p>
+                      <div class="rank-meta">
+                        <Stars rating={t.data.rating} />
+                        <span class="rank-price">{t.data.priceLabel}</span>
+                        <span class="rank-cat">{CATEGORY_LABELS[t.data.category] || t.data.category}</span>
+                      </div>
+                    </div>
+                    <div class="rank-score">
+                      <div class="score-num">{entry.score}</div>
+                      <div class="score-label">score</div>
+                    </div>
+                    <div class="rank-actions">
+                      <a class="btn btn-ghost" href={`/reviews/${t.slug}`}>Review →</a>
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+          )}
+
+          {ranking.ranked.length >= 2 && (
+            <div class="ranking-vs">
+              <span class="vs-label">Head-to-head:</span>
+              <a class="vs-link" href={`/compare/${ranking.ranked[0].tool.slug}-vs-${ranking.ranked[1].tool.slug}`}>
+                {ranking.ranked[0].tool.data.name} vs {ranking.ranked[1].tool.data.name} →
+              </a>
+            </div>
+          )}
+        </div>
+      ))}
+    </section>
+
+    <!-- Full Matrix -->
+    <section class="matrix-section">
+      <div class="matrix-header">
+        <h2>The full matrix</h2>
+        <p>All {aiTools.length} AI tools × {USE_CASES.length} use cases. Hover any cell to see the score.</p>
+        <div class="matrix-search-wrap">
+          <input
+            type="search"
+            id="matrix-search"
+            class="matrix-search"
+            placeholder="🔍 Filter tools — type 'midjourney', 'code', 'free'..."
+            aria-label="Filter matrix tools"
+          />
+          <span class="matrix-search-count" id="matrix-search-count">{aiTools.length} tools</span>
+        </div>
+      </div>
+
+      <div class="matrix-wrap">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th class="matrix-corner">Tool</th>
+              {USE_CASES.map(uc => (
+                <th class="matrix-uc" title={uc.label}>
+                  <span class="matrix-uc-icon">{uc.icon}</span>
+                  <span class="matrix-uc-label">{uc.label}</span>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {aiTools
+              .sort((a, b) => b.data.rating - a.data.rating)
+              .map(t => (
+                <tr data-search={[t.data.name, t.data.category, ...(t.data.keywords || []), t.data.priceLabel, t.data.description].join(' ').toLowerCase()}>
+                  <td class="matrix-tool">
+                    <a href={`/reviews/${t.slug}`} class="matrix-tool-link">
+                      <span class="matrix-tool-icon" style={`background:${t.data.iconBg};color:${t.data.iconColor}`}>
+                        {getLogoUrl(t.slug) ? (
+                          <img src={getLogoUrl(t.slug)!} alt="" loading="lazy" decoding="async" width="20" height="20" />
+                        ) : (
+                          t.data.icon
+                        )}
+                      </span>
+                      <span class="matrix-tool-name">{t.data.name}</span>
+                    </a>
+                  </td>
+                  {USE_CASES.map(uc => {
+                    const sc = scoreForUseCase(t, uc.id);
+                    let level = '';
+                    if (sc >= 80) level = 'cell-excellent';
+                    else if (sc >= 65) level = 'cell-good';
+                    else if (sc >= 50) level = 'cell-fair';
+                    else if (sc > 0) level = 'cell-poor';
+                    else level = 'cell-na';
+                    return (
+                      <td class={`matrix-cell ${level}`} title={`${t.data.name} for ${uc.label}: ${sc || 'N/A'}`}>
+                        {sc > 0 ? sc : '—'}
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="matrix-legend">
+        <span class="legend-item"><span class="legend-dot cell-excellent"></span>80+ Excellent</span>
+        <span class="legend-item"><span class="legend-dot cell-good"></span>65-79 Good</span>
+        <span class="legend-item"><span class="legend-dot cell-fair"></span>50-64 Fair</span>
+        <span class="legend-item"><span class="legend-dot cell-poor"></span>&lt;50 Poor</span>
+        <span class="legend-item"><span class="legend-dot cell-na"></span>— Not applicable</span>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <a class="cta-banner" href="/">
+      <div class="cta-banner-text">
+        <div class="cta-banner-eyebrow">Looking for in-depth reviews?</div>
+        <div class="cta-banner-title">Browse all {aiTools.length} AI tool reviews →</div>
+      </div>
+      <span class="btn btn-primary">See full directory</span>
+    </a>
+  </div>
+
+  <script>
+    const cards = document.querySelectorAll<HTMLButtonElement>('.usecase-card');
+    const panels = document.querySelectorAll<HTMLDivElement>('.ranking-panel');
+    const heroUseCase = document.getElementById('hero-usecase');
+
+    cards.forEach((card) => {
+      card.addEventListener('click', () => {
+        const id = card.dataset.usecase;
+        if (!id) return;
+
+        cards.forEach((c) => {
+          c.classList.remove('active');
+          c.setAttribute('aria-selected', 'false');
+        });
+        card.classList.add('active');
+        card.setAttribute('aria-selected', 'true');
+
+        panels.forEach((p) => {
+          const matches = p.dataset.usecasePanel === id;
+          p.classList.toggle('active', matches);
+          p.setAttribute('aria-hidden', matches ? 'false' : 'true');
+        });
+
+        const label = card.querySelector('.usecase-label')?.textContent;
+        if (heroUseCase && label) heroUseCase.textContent = label.toLowerCase();
+
+        // Smooth scroll to rankings
+        document.querySelector('.rankings-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Read ?uc= query param to deep-link
+    const params = new URLSearchParams(window.location.search);
+    const uc = params.get('uc');
+    if (uc) {
+      const target = document.querySelector<HTMLButtonElement>(`.usecase-card[data-usecase="${uc}"]`);
+      target?.click();
+    }
+
+    // Matrix interactive search
+    const matrixSearch = document.getElementById('matrix-search') as HTMLInputElement | null;
+    const matrixCount = document.getElementById('matrix-search-count');
+    const matrixRows = document.querySelectorAll<HTMLTableRowElement>('.matrix-table tbody tr');
+
+    matrixSearch?.addEventListener('input', () => {
+      const q = matrixSearch.value.trim().toLowerCase();
+      let visible = 0;
+      matrixRows.forEach((row) => {
+        const blob = row.dataset.search || '';
+        const show = !q || blob.includes(q);
+        row.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      if (matrixCount) {
+        matrixCount.textContent = q
+          ? `${visible} of ${matrixRows.length} tools`
+          : `${matrixRows.length} tools`;
+      }
+    });
+  </script>
+</BaseLayout>

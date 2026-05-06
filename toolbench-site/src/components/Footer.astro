@@ -1,0 +1,118 @@
+---
+import { CATEGORIES, SITE } from '~/data/categories';
+
+const year = new Date().getFullYear();
+const visibleCats = CATEGORIES.filter((c) => c.id !== 'all').slice(0, 8);
+---
+
+<footer>
+  <div class="container">
+    <!-- Newsletter signup -->
+    <div class="footer-newsletter" id="newsletter">
+      <div class="footer-newsletter-text">
+        <h4>Get the weekly verdict.</h4>
+        <p>One short email. The best AI tool we tested this week — and one we'd skip. No spam, no affiliate fluff.</p>
+      </div>
+      <form class="footer-newsletter-form" id="newsletter-form" novalidate>
+        <input type="text" name="botfield" tabindex="-1" autocomplete="off" aria-hidden="true" class="honeypot" />
+        <input
+          type="email"
+          name="email"
+          id="newsletter-email"
+          placeholder="you@company.com"
+          aria-label="Email address"
+          required
+        />
+        <button type="submit" class="btn btn-primary" id="newsletter-submit">Subscribe →</button>
+        <p class="newsletter-status" id="newsletter-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="/">ToolBench<span class="logo-dot" aria-hidden="true"></span></a>
+        <p class="footer-tag">{SITE.tagline} Independent AI tool reviews and comparisons.</p>
+        <div class="footer-social" aria-label="Social links">
+          <a href="https://twitter.com" aria-label="Twitter / X" rel="me noopener">𝕏</a>
+          <a href="https://github.com" aria-label="GitHub" rel="me noopener">⌨</a>
+          <a href="/rss.xml" aria-label="RSS feed">📡</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <ul>
+          <li><a href="/">All Reviews</a></li>
+          <li><a href="/ai-comparator">AI Matrix</a></li>
+          <li><a href="/compare">Comparisons</a></li>
+          <li><a href="/blog/ai-lists-useless-2026">Blog</a></li>
+          <li><a href="/submit-tool">Submit a Tool</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Categories</h5>
+        <ul>
+          {visibleCats.map((c) => (
+            <li><a href={`/category/${c.id}`}>{c.label}</a></li>
+          ))}
+          <li><a href="/#categories">All categories →</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="/methodology">Methodology</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/editorial-standards">Editorial Standards</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {year} {SITE.name}. All rights reserved.</span>
+      <span>Independent. Reader-supported. Never paid for placement. <strong>No affiliate links.</strong></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById('newsletter-form') as HTMLFormElement | null;
+  const emailInput = document.getElementById('newsletter-email') as HTMLInputElement | null;
+  const status = document.getElementById('newsletter-status');
+  const submit = document.getElementById('newsletter-submit') as HTMLButtonElement | null;
+
+  function setStatus(text: string, kind: 'ok' | 'err' | 'info' = 'info') {
+    if (!status) return;
+    status.textContent = text;
+    status.dataset.kind = kind;
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = emailInput?.value.trim();
+    if (!email) {
+      setStatus('Please enter your email.', 'err');
+      return;
+    }
+    if (submit) submit.disabled = true;
+    setStatus('Subscribing…', 'info');
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'footer' }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setStatus(data.error || 'Could not subscribe. Try again later.', 'err');
+      } else {
+        setStatus('Subscribed. Check your inbox.', 'ok');
+        form.reset();
+      }
+    } catch {
+      setStatus('Network error. Try again.', 'err');
+    } finally {
+      if (submit) submit.disabled = false;
+    }
+  });
+</script>

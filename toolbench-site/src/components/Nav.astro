@@ -1,0 +1,39 @@
+---
+const path = Astro.url.pathname;
+function isActive(prefix: string) {
+  if (prefix === '/') return path === '/';
+  return path === prefix || path.startsWith(prefix + '/');
+}
+---
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="/" aria-label="ToolBench home">
+      ToolBench<span class="logo-dot" aria-hidden="true"></span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">≡</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a class="nav-link" href="/" aria-current={isActive('/') ? 'page' : undefined}>Reviews</a></li>
+      <li>
+        <a class="nav-link nav-link-highlight" href="/ai-comparator" aria-current={isActive('/ai-comparator') ? 'page' : undefined}>
+          AI Matrix<span class="nav-pill">NEW</span>
+        </a>
+      </li>
+      <li><a class="nav-link" href="/compare" aria-current={isActive('/compare') ? 'page' : undefined}>Compare</a></li>
+      <li><a class="nav-link" href="/methodology" aria-current={isActive('/methodology') ? 'page' : undefined}>Methodology</a></li>
+      <li><a class="nav-link" href="/blog/ai-lists-useless-2026" aria-current={isActive('/blog') ? 'page' : undefined}>Blog</a></li>
+      <li><a class="nav-link nav-link-cta" href="/submit-tool">Submit a Tool</a></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-links');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+</script>

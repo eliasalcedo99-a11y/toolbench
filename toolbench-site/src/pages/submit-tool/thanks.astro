@@ -1,0 +1,21 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Submission received" description="Thanks for suggesting a tool — we'll review it on the next Friday queue.">
+  <div class="container">
+    <section class="comparator-hero">
+      <div class="eyebrow">Submission Received</div>
+      <h1>
+        Got it. <em class="accent">Thanks.</em>
+      </h1>
+      <p class="hero-sub">
+        Your tool is in the queue. We review submissions every Friday — if it makes the cut, we'll publish a full review and ping you (if you left an email).
+      </p>
+      <div class="form-actions" style="justify-content:center">
+        <a class="btn btn-primary" href="/ai-comparator">Browse the matrix →</a>
+        <a class="btn btn-ghost" href="/">All reviews</a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

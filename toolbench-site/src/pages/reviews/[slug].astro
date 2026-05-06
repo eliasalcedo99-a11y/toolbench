@@ -1,0 +1,146 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import ProsCons from '~/components/ProsCons.astro';
+import PricingTable from '~/components/PricingTable.astro';
+import Personas from '~/components/Personas.astro';
+import RelatedComparisons from '~/components/RelatedComparisons.astro';
+import Stars from '~/components/Stars.astro';
+import { CATEGORY_LABELS, SITE } from '~/data/categories';
+
+export async function getStaticPaths() {
+  const tools = await getCollection('tools');
+  return tools.map((tool) => ({
+    params: { slug: tool.slug },
+    props: { tool },
+  }));
+}
+
+interface Props {
+  tool: CollectionEntry<'tools'>;
+}
+const { tool } = Astro.props;
+const { Content } = await tool.render();
+const d = tool.data;
+
+const reviewSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Review',
+  itemReviewed: {
+    '@type': 'SoftwareApplication',
+    name: d.name,
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web',
+  },
+  reviewRating: {
+    '@type': 'Rating',
+    ratingValue: d.rating.toString(),
+    bestRating: '5',
+  },
+  author: { '@type': 'Organization', name: SITE.name },
+  datePublished: d.publishedDate.toISOString().slice(0, 10),
+  dateModified: d.updatedDate.toISOString().slice(0, 10),
+  reviewBody: d.verdict,
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: CATEGORY_LABELS[d.category],
+      item: `${SITE.url}/?cat=${d.category}`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: d.name,
+      item: `${SITE.url}/reviews/${tool.slug}`,
+    },
+  ],
+};
+
+const updatedFmt = d.updatedDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout
+  title={`${d.name} Review`}
+  description={d.verdict}
+  ogType="article"
+  jsonLd={[reviewSchema, breadcrumbSchema]}
+>
+  <div class="container">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <a href={`/?cat=${d.category}`}>{CATEGORY_LABELS[d.category]}</a>
+      <span class="sep">/</span>
+      <span>{d.name}</span>
+    </nav>
+
+    <header class="tool-header">
+      <div class="icon" style={`background:${d.iconBg};color:${d.iconColor}`}>{d.icon}</div>
+      <div class="tool-header-info">
+        <h1>{d.name}</h1>
+        <div class="tool-meta">
+          <Stars rating={d.rating} showNumber={false} />
+          <span style="color:var(--text);font-weight:500">{d.rating.toFixed(1)} / 5</span>
+          <span>·</span>
+          <span>{d.priceLabel}</span>
+          <span>·</span>
+          <span>Updated {updatedFmt}</span>
+        </div>
+        <p class="verdict">"{d.verdict}"</p>
+        <div class="tool-actions">
+          {d.websiteUrl && (
+            <a class="btn btn-primary" href={d.websiteUrl} rel="nofollow noopener" target="_blank">
+              Visit {d.name} →
+            </a>
+          )}
+          {d.relatedComparisons.length > 0 && (
+            <a class="btn btn-secondary" href={`/compare/${d.relatedComparisons[0].slug}`}>
+              Compare with alternatives
+            </a>
+          )}
+        </div>
+      </div>
+    </header>
+
+    <hr class="divider" />
+
+    <ProsCons pros={d.pros} cons={d.cons} />
+
+    <div class="review-body">
+      <h2>The full review</h2>
+      <Content />
+    </div>
+
+    <hr class="divider" />
+
+    <h2 class="section-title" style="margin-top:var(--s5)">Pricing</h2>
+    <PricingTable tiers={d.pricing} />
+
+    {d.personas.length > 0 && (
+      <>
+        <hr class="divider" />
+        <h2 class="section-title" style="margin-top:var(--s5)">Who is this for</h2>
+        <Personas personas={d.personas} />
+      </>
+    )}
+
+    {d.relatedComparisons.length > 0 && (
+      <>
+        <hr class="divider" />
+        <h2 class="section-title" style="margin-top:var(--s5)">Related comparisons</h2>
+        <RelatedComparisons items={d.relatedComparisons} />
+      </>
+    )}
+  </div>
+</BaseLayout>

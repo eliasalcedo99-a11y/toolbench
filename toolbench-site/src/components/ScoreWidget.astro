@@ -1,0 +1,98 @@
+---
+export interface ToolScores {
+  price: number;
+  ease: number;
+  quality: number;
+  integrations: number;
+  support: number;
+}
+
+export interface Props {
+  toolAName: string;
+  toolBName: string;
+  toolAScores: ToolScores;
+  toolBScores: ToolScores;
+}
+
+const { toolAName, toolBName, toolAScores, toolBScores } = Astro.props;
+const scoresJson = JSON.stringify({ a: toolAScores, b: toolBScores });
+---
+
+<div class="score-widget" data-scores={scoresJson}>
+  <h3>Build your own verdict</h3>
+  <p class="desc">Adjust the weights below to match what matters to your business. Scores recalculate on the fly.</p>
+
+  <div class="sliders">
+    <div class="slider-row">
+      <div class="head"><span class="name">Price sensitivity</span><span class="val" data-val="price">50</span></div>
+      <input type="range" min="0" max="100" value="50" data-weight="price" aria-label="Price sensitivity weight" />
+    </div>
+    <div class="slider-row">
+      <div class="head"><span class="name">Ease of use</span><span class="val" data-val="ease">50</span></div>
+      <input type="range" min="0" max="100" value="50" data-weight="ease" aria-label="Ease of use weight" />
+    </div>
+    <div class="slider-row">
+      <div class="head"><span class="name">Output quality</span><span class="val" data-val="quality">50</span></div>
+      <input type="range" min="0" max="100" value="50" data-weight="quality" aria-label="Output quality weight" />
+    </div>
+    <div class="slider-row">
+      <div class="head"><span class="name">Integrations</span><span class="val" data-val="integrations">50</span></div>
+      <input type="range" min="0" max="100" value="50" data-weight="integrations" aria-label="Integrations weight" />
+    </div>
+    <div class="slider-row">
+      <div class="head"><span class="name">Customer support</span><span class="val" data-val="support">50</span></div>
+      <input type="range" min="0" max="100" value="50" data-weight="support" aria-label="Customer support weight" />
+    </div>
+  </div>
+
+  <div class="scores">
+    <div class="score-card" data-tool="a">
+      <div class="name">{toolAName}</div>
+      <div class="num" data-num="a">0.0</div>
+      <div class="scale">out of 100</div>
+    </div>
+    <div class="score-card" data-tool="b">
+      <div class="name">{toolBName}</div>
+      <div class="num" data-num="b">0.0</div>
+      <div class="scale">out of 100</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLDivElement>('.score-widget').forEach((widget) => {
+    const data = JSON.parse(widget.dataset.scores || '{}');
+    const tools = { a: data.a, b: data.b };
+
+    const sliders = widget.querySelectorAll<HTMLInputElement>('input[type="range"]');
+    const valueLabels = widget.querySelectorAll<HTMLSpanElement>('[data-val]');
+    const numA = widget.querySelector<HTMLDivElement>('[data-num="a"]')!;
+    const numB = widget.querySelector<HTMLDivElement>('[data-num="b"]')!;
+    const cardA = widget.querySelector<HTMLDivElement>('[data-tool="a"]')!;
+    const cardB = widget.querySelector<HTMLDivElement>('[data-tool="b"]')!;
+
+    function compute() {
+      const weights: Record<string, number> = {};
+      sliders.forEach((s) => {
+        weights[s.dataset.weight!] = +s.value;
+      });
+      valueLabels.forEach((l) => {
+        l.textContent = String(weights[l.dataset.val!] ?? 0);
+      });
+      const sum = Object.values(weights).reduce((a, b) => a + b, 0);
+      const score = (t: Record<string, number>) =>
+        sum === 0
+          ? 0
+          : Object.keys(weights).reduce((acc, k) => acc + weights[k] * t[k], 0) / sum;
+      const a = score(tools.a);
+      const b = score(tools.b);
+      numA.textContent = a.toFixed(1);
+      numB.textContent = b.toFixed(1);
+      cardA.classList.toggle('win', a >= b);
+      cardB.classList.toggle('win', b > a);
+    }
+
+    sliders.forEach((s) => s.addEventListener('input', compute));
+    compute();
+  });
+</script>

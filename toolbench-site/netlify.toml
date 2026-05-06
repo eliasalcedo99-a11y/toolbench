@@ -1,0 +1,42 @@
+# Netlify configuration for ToolBench
+#
+# Required environment variables (set in Netlify dashboard, NOT committed):
+#   RESEND_API_KEY        - From https://resend.com/api-keys
+#   RESEND_AUDIENCE_ID    - From https://resend.com/audiences
+#   RESEND_FROM_EMAIL     - Verified sender (e.g. newsletter@toolbench.netlify.app)
+#   PUBLIC_PLAUSIBLE_DOMAIN - Domain registered in Plausible (e.g. toolbench.netlify.app)
+#
+# Newsletter signups POST to /api/newsletter (Netlify Function via @astrojs/netlify).
+# Tool submissions POST to /submit-tool via Netlify Forms (auto-detected at build).
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/og/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# 410 deprecated routes (legacy, in case they were ever indexed)
+[[redirects]]
+  from = "/?cat=:cat"
+  to = "/category/:cat"
+  status = 301
+  force = false
