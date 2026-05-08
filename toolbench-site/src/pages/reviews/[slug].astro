@@ -5,7 +5,10 @@ import ProsCons from '~/components/ProsCons.astro';
 import PricingTable from '~/components/PricingTable.astro';
 import Personas from '~/components/Personas.astro';
 import RelatedComparisons from '~/components/RelatedComparisons.astro';
+import RelatedTools from '~/components/RelatedTools.astro';
+import SocialShare from '~/components/SocialShare.astro';
 import Stars from '~/components/Stars.astro';
+import { getLogoUrl } from '~/data/ai-logos';
 import { CATEGORY_LABELS, SITE } from '~/data/categories';
 
 export async function getStaticPaths() {
@@ -22,6 +25,16 @@ interface Props {
 const { tool } = Astro.props;
 const { Content } = await tool.render();
 const d = tool.data;
+
+const allTools = await getCollection('tools');
+const relatedTools = allTools
+  .filter((t) => t.slug !== tool.slug && t.data.category === d.category)
+  .sort((a, b) => b.data.rating - a.data.rating)
+  .slice(0, 3);
+
+const logoUrl = getLogoUrl(tool.slug);
+const shareUrl = `${SITE.url}/reviews/${tool.slug}`;
+const shareTitle = `${d.name} review on ${SITE.name} — ${d.rating.toFixed(1)}/5`;
 
 const reviewSchema = {
   '@context': 'https://schema.org',
@@ -86,7 +99,13 @@ const updatedFmt = d.updatedDate.toLocaleDateString('en-US', {
     </nav>
 
     <header class="tool-header">
-      <div class="icon" style={`background:${d.iconBg};color:${d.iconColor}`}>{d.icon}</div>
+      <div class="icon" style={`background:${d.iconBg};color:${d.iconColor}`}>
+        {logoUrl ? (
+          <img src={logoUrl} alt={`${d.name} logo`} loading="lazy" decoding="async" width="44" height="44" />
+        ) : (
+          d.icon
+        )}
+      </div>
       <div class="tool-header-info">
         <h1>{d.name}</h1>
         <div class="tool-meta">
@@ -142,5 +161,15 @@ const updatedFmt = d.updatedDate.toLocaleDateString('en-US', {
         <RelatedComparisons items={d.relatedComparisons} />
       </>
     )}
+
+    {relatedTools.length > 0 && (
+      <>
+        <hr class="divider" />
+        <RelatedTools tools={relatedTools} heading={`More ${CATEGORY_LABELS[d.category] || d.category} tools`} />
+      </>
+    )}
+
+    <hr class="divider" />
+    <SocialShare url={shareUrl} title={shareTitle} />
   </div>
 </BaseLayout>

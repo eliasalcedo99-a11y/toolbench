@@ -4,6 +4,8 @@ import BaseLayout from '~/layouts/BaseLayout.astro';
 import CompareTable from '~/components/CompareTable.astro';
 import ScoreWidget from '~/components/ScoreWidget.astro';
 import FAQ from '~/components/FAQ.astro';
+import WhyWon from '~/components/WhyWon.astro';
+import SocialShare from '~/components/SocialShare.astro';
 import { SITE } from '~/data/categories';
 
 export async function getStaticPaths() {
@@ -44,6 +46,8 @@ const updatedFmt = d.updatedDate.toLocaleDateString('en-US', {
   month: 'long',
   day: 'numeric',
 });
+
+const shareUrl = `${SITE.url}/compare/${entry.slug}`;
 ---
 
 <BaseLayout
@@ -85,6 +89,10 @@ const updatedFmt = d.updatedDate.toLocaleDateString('en-US', {
 
     <hr class="divider" />
 
+    <WhyWon toolA={toolA} toolB={toolB} />
+
+    <hr class="divider" />
+
     <ScoreWidget
       toolAName={toolA.data.name}
       toolBName={toolB.data.name}
@@ -114,5 +122,8 @@ const updatedFmt = d.updatedDate.toLocaleDateString('en-US', {
         <FAQ items={d.faq} />
       </>
     )}
+
+    <hr class="divider" />
+    <SocialShare url={shareUrl} title={d.title} />
   </div>
 </BaseLayout>

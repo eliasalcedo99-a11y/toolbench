@@ -3,8 +3,8 @@
 # Required environment variables (set in Netlify dashboard, NOT committed):
 #   RESEND_API_KEY        - From https://resend.com/api-keys
 #   RESEND_AUDIENCE_ID    - From https://resend.com/audiences
-#   RESEND_FROM_EMAIL     - Verified sender (e.g. newsletter@toolbench.netlify.app)
-#   PUBLIC_PLAUSIBLE_DOMAIN - Domain registered in Plausible (e.g. toolbench.netlify.app)
+#   RESEND_FROM_EMAIL     - Verified sender (e.g. onboarding@resend.dev for free tier)
+#   PUBLIC_GA_ID          - Google Analytics 4 measurement ID (e.g. G-XXXXXXXXXX)
 #
 # Newsletter signups POST to /api/newsletter (Netlify Function via @astrojs/netlify).
 # Tool submissions POST to /submit-tool via Netlify Forms (auto-detected at build).

@@ -1,7 +1,9 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '~/layouts/BaseLayout.astro';
+import SocialShare from '~/components/SocialShare.astro';
 import { SITE } from '~/data/categories';
+import { estimateReadingTime } from '~/utils/reading-time';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -17,6 +19,9 @@ interface Props {
 const { post } = Astro.props;
 const { Content, headings } = await post.render();
 const d = post.data;
+
+const computedReadTime = estimateReadingTime(post.body);
+const displayReadTime = d.readTime || computedReadTime;
 
 const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
 
@@ -59,7 +64,7 @@ const dateFmt = d.publishedDate.toLocaleDateString('en-US', {
           <span>{d.author.name}, Editor</span>
         </div>
         <span class="dot"></span>
-        <span>{d.readTime}</span>
+        <span>{displayReadTime}</span>
         <span class="dot"></span>
         <span>{dateFmt}</span>
       </div>
@@ -86,6 +91,9 @@ const dateFmt = d.publishedDate.toLocaleDateString('en-US', {
 
       <article class="article">
         <Content />
+
+        <hr class="divider" />
+        <SocialShare url={`${SITE.url}/blog/${post.slug}`} title={d.title} />
 
         {otherPosts.length > 0 && (
           <div class="related-articles">

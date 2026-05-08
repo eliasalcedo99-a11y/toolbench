@@ -1,0 +1,107 @@
+---
+import { getLogoUrl } from '~/data/ai-logos';
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  toolA: CollectionEntry<'tools'>;
+  toolB: CollectionEntry<'tools'>;
+}
+
+const { toolA, toolB } = Astro.props;
+
+const dimensions = [
+  { key: 'quality',      label: 'Quality',      weight: 0.40 },
+  { key: 'ease',         label: 'Ease of use',  weight: 0.20 },
+  { key: 'integrations', label: 'Integrations', weight: 0.15 },
+  { key: 'support',      label: 'Support',      weight: 0.15 },
+  { key: 'price',        label: 'Price',        weight: 0.10 },
+] as const;
+
+type DimKey = typeof dimensions[number]['key'];
+
+const aScores = toolA.data.scores;
+const bScores = toolB.data.scores;
+
+const aTotal = dimensions.reduce((sum, d) => sum + aScores[d.key as DimKey] * d.weight, 0);
+const bTotal = dimensions.reduce((sum, d) => sum + bScores[d.key as DimKey] * d.weight, 0);
+
+const winner = aTotal > bTotal ? toolA : bTotal > aTotal ? toolB : null;
+const margin = Math.abs(aTotal - bTotal);
+
+// Best 2 dimensions for the winner (where they outperform the loser)
+const winnerKey = winner?.slug === toolA.slug ? 'a' : 'b';
+const winnerScores = winnerKey === 'a' ? aScores : bScores;
+const loserScores  = winnerKey === 'a' ? bScores : aScores;
+
+const wins = dimensions
+  .map((d) => ({
+    label: d.label,
+    diff: winnerScores[d.key as DimKey] - loserScores[d.key as DimKey],
+    winnerScore: winnerScores[d.key as DimKey],
+  }))
+  .filter((x) => x.diff > 0)
+  .sort((a, b) => b.diff - a.diff)
+  .slice(0, 2);
+
+const winnerLogo = winner ? getLogoUrl(winner.slug) : null;
+
+let verdictLine = 'Too close to call — both tools come in within a margin of error.';
+if (winner) {
+  if (margin >= 8) verdictLine = `${winner.data.name} is the clear winner overall.`;
+  else if (margin >= 4) verdictLine = `${winner.data.name} edges ahead.`;
+  else verdictLine = `${winner.data.name} comes out slightly ahead, but it's close.`;
+}
+---
+
+<section class="why-won">
+  <h2 class="section-title">Why {winner ? winner.data.name : 'either tool'} wins</h2>
+
+  <div class="why-won-card">
+    <div class="why-won-head">
+      {winner && (
+        <div class="why-won-badge" style={`background:${winner.data.iconBg};color:${winner.data.iconColor}`}>
+          {winnerLogo ? (
+            <img src={winnerLogo} alt="" loading="lazy" decoding="async" width="32" height="32" />
+          ) : (
+            winner.data.icon
+          )}
+        </div>
+      )}
+      <div class="why-won-text">
+        <div class="why-won-eyebrow">Final score</div>
+        <p class="why-won-verdict">{verdictLine}</p>
+        <div class="why-won-scores">
+          <span class={winnerKey === 'a' ? 'win' : 'lose'}>
+            <strong>{toolA.data.name}</strong>: {aTotal.toFixed(1)}
+          </span>
+          <span class="why-won-vs">vs</span>
+          <span class={winnerKey === 'b' ? 'win' : 'lose'}>
+            <strong>{toolB.data.name}</strong>: {bTotal.toFixed(1)}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    {winner && wins.length > 0 && (
+      <div class="why-won-reasons">
+        <h4>Where {winner.data.name} pulls ahead:</h4>
+        <ul>
+          {wins.map((w) => (
+            <li>
+              <span class="why-won-dim">{w.label}</span>
+              <span class="why-won-bar-wrap" aria-hidden="true">
+                <span class="why-won-bar" style={`width:${w.winnerScore}%`}></span>
+              </span>
+              <span class="why-won-score">{w.winnerScore}<small>/100</small></span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <p class="why-won-note">
+      Score = quality × 0.40 + ease × 0.20 + integrations × 0.15 + support × 0.15 + price × 0.10.
+      <a href="/methodology">See the full methodology →</a>
+    </p>
+  </div>
+</section>

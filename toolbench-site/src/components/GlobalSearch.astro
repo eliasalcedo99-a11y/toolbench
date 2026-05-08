@@ -1,0 +1,181 @@
+---
+// Global search modal — opens with Cmd+K / Ctrl+K or by clicking the search icon.
+// Searches tools + comparisons + blog posts via /search-index.json (built at compile time).
+---
+
+<button class="global-search-trigger" id="search-trigger" aria-label="Open search (Ctrl+K)">
+  <span aria-hidden="true">🔍</span>
+  <span class="search-trigger-text">Search</span>
+  <kbd class="search-trigger-kbd">⌘K</kbd>
+</button>
+
+<div class="search-modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" hidden>
+  <div class="search-backdrop" id="search-backdrop"></div>
+  <div class="search-panel">
+    <div class="search-input-row">
+      <span aria-hidden="true">🔍</span>
+      <input
+        type="search"
+        id="search-modal-input"
+        placeholder="Search tools, comparisons, articles…"
+        aria-label="Search"
+        autocomplete="off"
+      />
+      <kbd class="search-esc-kbd">ESC</kbd>
+    </div>
+    <div class="search-results" id="search-results">
+      <p class="search-empty">Start typing to search across {''}<strong>50 tools</strong>, <strong>1,225 comparisons</strong>, and <strong>articles</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const trigger = document.getElementById('search-trigger');
+  const modal = document.getElementById('search-modal');
+  const backdrop = document.getElementById('search-backdrop');
+  const input = document.getElementById('search-modal-input') as HTMLInputElement | null;
+  const results = document.getElementById('search-results');
+
+  type Item = {
+    type: 'tool' | 'comparison' | 'blog';
+    slug: string;
+    title: string;
+    description: string;
+    url: string;
+    category?: string;
+    icon?: string;
+    iconBg?: string;
+    iconColor?: string;
+    keywords?: string;
+    rating?: number;
+  };
+
+  let index: Item[] = [];
+  let loaded = false;
+
+  async function ensureIndex() {
+    if (loaded) return;
+    try {
+      const res = await fetch('/search-index.json');
+      index = await res.json();
+      loaded = true;
+    } catch {
+      // Silent: search modal will show "no results" state.
+    }
+  }
+
+  function openModal() {
+    if (!modal) return;
+    modal.hidden = false;
+    document.body.classList.add('no-scroll');
+    setTimeout(() => input?.focus(), 50);
+    ensureIndex();
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.hidden = true;
+    document.body.classList.remove('no-scroll');
+    if (input) input.value = '';
+    renderResults('');
+  }
+
+  function escapeHtml(s: string): string {
+    return s.replace(/[&<>"']/g, (m) => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+    }[m]!));
+  }
+
+  function highlight(text: string, q: string): string {
+    if (!q) return escapeHtml(text);
+    const safe = escapeHtml(text);
+    const safeQ = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return safe.replace(new RegExp(safeQ, 'gi'), (m) => `<mark>${m}</mark>`);
+  }
+
+  function score(item: Item, q: string): number {
+    const ql = q.toLowerCase();
+    const title = item.title.toLowerCase();
+    const desc = item.description.toLowerCase();
+    const kw = (item.keywords || '').toLowerCase();
+    if (title === ql) return 100;
+    if (title.startsWith(ql)) return 80;
+    if (title.includes(ql)) return 60;
+    if (kw.includes(ql)) return 40;
+    if (desc.includes(ql)) return 20;
+    return 0;
+  }
+
+  function renderResults(q: string) {
+    if (!results) return;
+    if (!q) {
+      results.innerHTML = '<p class="search-empty">Start typing to search across <strong>50 tools</strong>, <strong>1,225 comparisons</strong>, and <strong>articles</strong>.</p>';
+      return;
+    }
+    const matches = index
+      .map((it) => ({ it, s: score(it, q) }))
+      .filter((x) => x.s > 0)
+      .sort((a, b) => b.s - a.s)
+      .slice(0, 12);
+
+    if (matches.length === 0) {
+      results.innerHTML = `<p class="search-empty">No results for "<strong>${escapeHtml(q)}</strong>". Try a different keyword.</p>`;
+      return;
+    }
+
+    const groups: Record<string, typeof matches> = { tool: [], comparison: [], blog: [] };
+    matches.forEach((m) => groups[m.it.type].push(m));
+
+    const labels: Record<string, string> = {
+      tool: 'Tools',
+      comparison: 'Comparisons',
+      blog: 'Articles',
+    };
+
+    let html = '';
+    (['tool', 'comparison', 'blog'] as const).forEach((type) => {
+      if (groups[type].length === 0) return;
+      html += `<div class="search-group"><h4>${labels[type]}</h4><ul>`;
+      groups[type].forEach(({ it }) => {
+        const iconHtml = it.icon
+          ? `<span class="search-result-icon" style="background:${it.iconBg};color:${it.iconColor}">${it.icon}</span>`
+          : type === 'comparison'
+          ? '<span class="search-result-icon search-icon-cmp">⚔</span>'
+          : '<span class="search-result-icon search-icon-blog">📰</span>';
+        html += `
+          <li>
+            <a href="${it.url}" class="search-result">
+              ${iconHtml}
+              <span class="search-result-body">
+                <span class="search-result-title">${highlight(it.title, q)}</span>
+                <span class="search-result-desc">${highlight(it.description.slice(0, 100), q)}${it.description.length > 100 ? '…' : ''}</span>
+              </span>
+              <span class="search-result-arrow">→</span>
+            </a>
+          </li>`;
+      });
+      html += '</ul></div>';
+    });
+
+    results.innerHTML = html;
+  }
+
+  trigger?.addEventListener('click', openModal);
+  backdrop?.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', (e) => {
+    const isMac = /Mac|iPhone|iPod|iPad/i.test(navigator.userAgent);
+    const cmd = isMac ? e.metaKey : e.ctrlKey;
+    if (cmd && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      modal && !modal.hidden ? closeModal() : openModal();
+    }
+    if (e.key === 'Escape' && modal && !modal.hidden) closeModal();
+  });
+
+  let debounce: number | null = null;
+  input?.addEventListener('input', () => {
+    if (debounce) window.clearTimeout(debounce);
+    debounce = window.setTimeout(() => renderResults(input.value.trim()), 80);
+  });
+</script>

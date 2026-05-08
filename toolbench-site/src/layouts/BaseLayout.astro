@@ -33,12 +33,10 @@ const urlPath = Astro.url.pathname.replace(/^\/|\/$/g, '');
 const ogRoute = urlPath === '' ? 'index' : urlPath;
 const ogImageUrl = new URL(`/og/${ogRoute}.png`, Astro.site || 'https://toolbench.example').toString();
 
-// Plausible analytics — privacy-friendly, no cookies, no PII.
-// Domain is derived from astro.config.mjs `site` setting; toggle via env var
-// PLAUSIBLE_DOMAIN to disable in dev/staging without code changes.
-const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN
-  || (Astro.site ? new URL(Astro.site).hostname : null);
-const plausibleEnabled = !!plausibleDomain && import.meta.env.PROD;
+// Google Analytics 4 — set PUBLIC_GA_ID in Netlify env (e.g. G-XXXXXXXXXX)
+// Only loads in production builds to avoid polluting dev metrics.
+const gaId = import.meta.env.PUBLIC_GA_ID;
+const gaEnabled = !!gaId && import.meta.env.PROD;
 ---
 
 <!doctype html>
@@ -77,13 +75,16 @@ const plausibleEnabled = !!plausibleDomain && import.meta.env.PROD;
       <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
     ))}
 
-    {plausibleEnabled && (
-      <script
-        is:inline
-        defer
-        data-domain={plausibleDomain}
-        src="https://plausible.io/js/script.outbound-links.js"
-      ></script>
+    {gaEnabled && (
+      <>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+        <script is:inline define:vars={{ gaId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', gaId, { anonymize_ip: true });
+        </script>
+      </>
     )}
   </head>
   <body class={bodyClass}>

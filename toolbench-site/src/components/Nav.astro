@@ -1,4 +1,6 @@
 ---
+import GlobalSearch from '~/components/GlobalSearch.astro';
+
 const path = Astro.url.pathname;
 function isActive(prefix: string) {
   if (prefix === '/') return path === '/';
@@ -22,6 +24,7 @@ function isActive(prefix: string) {
       <li><a class="nav-link" href="/compare" aria-current={isActive('/compare') ? 'page' : undefined}>Compare</a></li>
       <li><a class="nav-link" href="/methodology" aria-current={isActive('/methodology') ? 'page' : undefined}>Methodology</a></li>
       <li><a class="nav-link" href="/blog/ai-lists-useless-2026" aria-current={isActive('/blog') ? 'page' : undefined}>Blog</a></li>
+      <li class="nav-search-slot"><GlobalSearch /></li>
       <li><a class="nav-link nav-link-cta" href="/submit-tool">Submit a Tool</a></li>
     </ul>
   </div>

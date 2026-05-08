@@ -1,0 +1,46 @@
+---
+import Stars from './Stars.astro';
+import { getLogoUrl } from '~/data/ai-logos';
+import { CATEGORY_LABELS } from '~/data/categories';
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  tools: CollectionEntry<'tools'>[];
+  heading?: string;
+}
+
+const { tools, heading = 'Similar tools to consider' } = Astro.props;
+---
+
+{tools.length > 0 && (
+  <section class="related-tools-section">
+    <h2 class="section-title">{heading}</h2>
+    <div class="related-tools-grid">
+      {tools.map((t) => {
+        const logoUrl = getLogoUrl(t.slug);
+        return (
+          <a class="related-tool-card" href={`/reviews/${t.slug}`}>
+            <div class="related-tool-head">
+              <div class="related-tool-icon" style={`background:${t.data.iconBg};color:${t.data.iconColor}`}>
+                {logoUrl ? (
+                  <img src={logoUrl} alt={`${t.data.name} logo`} loading="lazy" decoding="async" width="24" height="24" />
+                ) : (
+                  t.data.icon
+                )}
+              </div>
+              <div class="related-tool-meta">
+                <h3>{t.data.name}</h3>
+                <span class="related-tool-cat">{CATEGORY_LABELS[t.data.category] || t.data.category}</span>
+              </div>
+            </div>
+            <p class="related-tool-desc">{t.data.description.slice(0, 120)}{t.data.description.length > 120 ? '…' : ''}</p>
+            <div class="related-tool-footer">
+              <Stars rating={t.data.rating} showNumber={false} />
+              <span class="related-tool-price">{t.data.priceLabel}</span>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+)}

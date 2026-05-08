@@ -1,0 +1,46 @@
+---
+export interface Props {
+  url: string;
+  title: string;
+  variant?: 'inline' | 'sticky';
+}
+
+const { url, title, variant = 'inline' } = Astro.props;
+
+const enc = encodeURIComponent;
+const shareUrls = {
+  twitter: `https://twitter.com/intent/tweet?url=${enc(url)}&text=${enc(title)}`,
+  linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}`,
+  reddit: `https://reddit.com/submit?url=${enc(url)}&title=${enc(title)}`,
+  hn: `https://news.ycombinator.com/submitlink?u=${enc(url)}&t=${enc(title)}`,
+};
+---
+
+<div class={`social-share social-share-${variant}`} data-share-url={url}>
+  <span class="social-share-label">Share:</span>
+  <a class="social-share-btn" href={shareUrls.twitter} rel="noopener" target="_blank" aria-label="Share on Twitter / X">𝕏</a>
+  <a class="social-share-btn" href={shareUrls.linkedin} rel="noopener" target="_blank" aria-label="Share on LinkedIn">in</a>
+  <a class="social-share-btn" href={shareUrls.reddit} rel="noopener" target="_blank" aria-label="Share on Reddit">R</a>
+  <a class="social-share-btn" href={shareUrls.hn} rel="noopener" target="_blank" aria-label="Share on Hacker News">Y</a>
+  <button class="social-share-btn social-share-copy" aria-label="Copy link" type="button">⎘</button>
+  <span class="social-share-copied" aria-live="polite"></span>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLDivElement>('.social-share').forEach((wrap) => {
+    const url = wrap.dataset.shareUrl || window.location.href;
+    const btn = wrap.querySelector<HTMLButtonElement>('.social-share-copy');
+    const status = wrap.querySelector<HTMLSpanElement>('.social-share-copied');
+    btn?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(url);
+        if (status) {
+          status.textContent = 'Copied!';
+          setTimeout(() => { if (status) status.textContent = ''; }, 1800);
+        }
+      } catch {
+        if (status) status.textContent = 'Press Ctrl+C';
+      }
+    });
+  });
+</script>
