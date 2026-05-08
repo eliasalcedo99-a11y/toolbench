@@ -47,7 +47,13 @@ const dateFmt = d.publishedDate.toLocaleDateString('en-US', {
 });
 ---
 
-<BaseLayout title={d.title} description={d.description} ogType="article" jsonLd={articleSchema}>
+<BaseLayout 
+  title={d.title} 
+  description={d.description} 
+  ogType="article" 
+  jsonLd={articleSchema}
+  image={d.image}
+>
   <div class="container-narrow">
     <nav class="crumb" aria-label="Breadcrumb">
       <a href="/">Home</a>

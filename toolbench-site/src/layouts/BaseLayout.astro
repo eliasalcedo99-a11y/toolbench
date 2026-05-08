@@ -11,6 +11,7 @@ export interface Props {
   canonical?: string;
   jsonLd?: object | object[];
   bodyClass?: string;
+  image?: string;
 }
 
 const {
@@ -20,6 +21,7 @@ const {
   canonical,
   jsonLd,
   bodyClass,
+  image,
 } = Astro.props;
 
 const fullTitle = title ? `${title} — ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`;
@@ -31,12 +33,17 @@ const jsonLdArray = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
 
 const urlPath = Astro.url.pathname.replace(/^\/|\/$/g, '');
 const ogRoute = urlPath === '' ? 'index' : urlPath;
-const ogImageUrl = new URL(`/og/${ogRoute}.png`, Astro.site || 'https://toolbench.example').toString();
+const dynamicOgImage = new URL(`/og/${ogRoute}.png`, Astro.site || 'https://toolbench.example').toString();
+const ogImageUrl = image ? new URL(image, Astro.site).toString() : dynamicOgImage;
 
 // Google Analytics 4 — set PUBLIC_GA_ID in Netlify env (e.g. G-XXXXXXXXXX)
 // Only loads in production builds to avoid polluting dev metrics.
 const gaId = import.meta.env.PUBLIC_GA_ID;
 const gaEnabled = !!gaId && import.meta.env.PROD;
+
+// Google AdSense — set PUBLIC_ADSENSE_ID in Netlify env (e.g. ca-pub-XXXXXXXXXXXXXXXX)
+const adsenseId = import.meta.env.PUBLIC_ADSENSE_ID;
+const adsenseEnabled = !!adsenseId && import.meta.env.PROD;
 ---
 
 <!doctype html>
@@ -85,6 +92,15 @@ const gaEnabled = !!gaId && import.meta.env.PROD;
           gtag('config', gaId, { anonymize_ip: true });
         </script>
       </>
+    )}
+
+    {adsenseEnabled && (
+      <script 
+        is:inline 
+        async 
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`}
+        crossorigin="anonymous">
+      </script>
     )}
   </head>
   <body class={bodyClass}>
