@@ -95,12 +95,15 @@ const adsenseEnabled = !!adsenseId && import.meta.env.PROD;
     )}
 
     {adsenseEnabled && (
-      <script 
-        is:inline 
-        async 
-        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`}
-        crossorigin="anonymous">
-      </script>
+      <>
+        <meta name="google-adsense-account" content={adsenseId} />
+        <script 
+          is:inline 
+          async 
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`}
+          crossorigin="anonymous">
+        </script>
+      </>
     )}
   </head>
   <body class={bodyClass}>
