@@ -32,3 +32,8 @@ Thumbs.db
 toolbench-site/dist/
 toolbench-site/node_modules/
 toolbench-site/.astro/
+
+# Local-only reference repos (not deployed)
+blog-template/
+design-systems-ref/
+shadcn-ui-resources/
