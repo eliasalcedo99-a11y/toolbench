@@ -3,6 +3,7 @@ title: "Replit Ghostwriter vs Microsoft 365 Copilot: Which is Better in 2026?"
 description: "Head-to-head comparison of Replit Ghostwriter and Microsoft 365 Copilot across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "replit-ghostwriter"
 toolB: "microsoft-365-copilot"
+noindex: true
 verdict: "Replit Ghostwriter and Microsoft 365 Copilot serve fundamentally different use cases. Choose Replit Ghostwriter for code tasks and Microsoft 365 Copilot for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

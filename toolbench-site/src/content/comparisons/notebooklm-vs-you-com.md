@@ -3,6 +3,7 @@ title: "Google NotebookLM vs You.com: Which is Better in 2026?"
 description: "Head-to-head comparison of Google NotebookLM and You.com across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "notebooklm"
 toolB: "you-com"
+noindex: true
 verdict: "Google NotebookLM and You.com serve fundamentally different use cases. Choose Google NotebookLM for audio tasks and You.com for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

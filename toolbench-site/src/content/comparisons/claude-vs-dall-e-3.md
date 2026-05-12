@@ -3,6 +3,7 @@ title: "Claude vs DALL-E 3: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and DALL-E 3 across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "claude"
 toolB: "dall-e-3"
+noindex: true
 verdict: "Claude and DALL-E 3 serve fundamentally different use cases. Choose Claude for general tasks and DALL-E 3 for image workflows — they complement rather than compete."
 features:
   - label: "Starting price"

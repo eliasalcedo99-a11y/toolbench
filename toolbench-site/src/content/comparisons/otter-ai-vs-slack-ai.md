@@ -3,6 +3,7 @@ title: "Otter.ai vs Slack AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Otter.ai and Slack AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "otter-ai"
 toolB: "slack-ai"
+noindex: true
 verdict: "Otter.ai and Slack AI serve fundamentally different use cases. Choose Otter.ai for audio tasks and Slack AI for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Claude vs Consensus: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and Consensus across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "claude"
 toolB: "consensus"
+noindex: true
 verdict: "Claude and Consensus serve fundamentally different use cases. Choose Claude for general tasks and Consensus for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

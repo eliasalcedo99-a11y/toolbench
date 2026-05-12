@@ -3,6 +3,7 @@ title: "GitHub Copilot vs Opus Clip: Which is Better in 2026?"
 description: "Head-to-head comparison of GitHub Copilot and Opus Clip across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "github-copilot"
 toolB: "opus-clip"
+noindex: true
 verdict: "GitHub Copilot and Opus Clip serve fundamentally different use cases. Choose GitHub Copilot for code tasks and Opus Clip for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

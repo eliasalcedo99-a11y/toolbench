@@ -3,6 +3,7 @@ title: "DALL-E 3 vs Tableau AI: Which is Better in 2026?"
 description: "Head-to-head comparison of DALL-E 3 and Tableau AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "dall-e-3"
 toolB: "tableau-ai"
+noindex: true
 verdict: "DALL-E 3 and Tableau AI serve fundamentally different use cases. Choose DALL-E 3 for image tasks and Tableau AI for business workflows — they complement rather than compete."
 features:
   - label: "Starting price"

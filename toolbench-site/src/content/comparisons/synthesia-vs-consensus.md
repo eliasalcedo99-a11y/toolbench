@@ -3,6 +3,7 @@ title: "Synthesia vs Consensus: Which is Better in 2026?"
 description: "Head-to-head comparison of Synthesia and Consensus across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "synthesia"
 toolB: "consensus"
+noindex: true
 verdict: "Synthesia and Consensus serve fundamentally different use cases. Choose Synthesia for video tasks and Consensus for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

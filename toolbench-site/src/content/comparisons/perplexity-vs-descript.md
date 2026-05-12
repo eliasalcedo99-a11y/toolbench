@@ -3,6 +3,7 @@ title: "Perplexity vs Descript: Which is Better in 2026?"
 description: "Head-to-head comparison of Perplexity and Descript across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "perplexity"
 toolB: "descript"
+noindex: true
 verdict: "Perplexity and Descript serve fundamentally different use cases. Choose Perplexity for general tasks and Descript for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,7 +3,7 @@ title: "Canva Magic Design vs Looka: Which is Better in 2026?"
 description: "Head-to-head comparison of Canva Magic Design and Looka across pricing, quality, ease of use, and integrations for design workflows."
 toolA: "canva-magic-design"
 toolB: "looka"
-verdict: "Canva Magic Design edges ahead on overall quality and integration depth, making it the stronger pick for most users. Looka remains competitive on price and is worth considering if budget is the primary constraint."
+verdict: "When comparing Canva Magic Design and Looka, we found that Canva Magic Design generally delivers better performance and versatility. Looka still holds its ground as a reliable, budget-friendly solution for everyday tasks."
 features:
   - label: "Starting price"
     a: "Free"

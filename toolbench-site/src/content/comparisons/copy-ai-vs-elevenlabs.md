@@ -3,6 +3,7 @@ title: "Copy.ai vs ElevenLabs: Which is Better in 2026?"
 description: "Head-to-head comparison of Copy.ai and ElevenLabs across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "copy-ai"
 toolB: "elevenlabs"
+noindex: true
 verdict: "Copy.ai and ElevenLabs serve fundamentally different use cases. Choose Copy.ai for writing tasks and ElevenLabs for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

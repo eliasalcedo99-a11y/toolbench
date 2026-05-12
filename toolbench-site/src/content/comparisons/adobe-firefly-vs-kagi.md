@@ -3,6 +3,7 @@ title: "Adobe Firefly vs Kagi: Which is Better in 2026?"
 description: "Head-to-head comparison of Adobe Firefly and Kagi across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "adobe-firefly"
 toolB: "kagi"
+noindex: true
 verdict: "Adobe Firefly and Kagi serve fundamentally different use cases. Choose Adobe Firefly for image tasks and Kagi for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

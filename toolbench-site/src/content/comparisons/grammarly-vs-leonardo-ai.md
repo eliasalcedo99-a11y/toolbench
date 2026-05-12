@@ -3,6 +3,7 @@ title: "Grammarly vs Leonardo.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of Grammarly and Leonardo.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "grammarly"
 toolB: "leonardo-ai"
+noindex: true
 verdict: "Grammarly and Leonardo.ai serve fundamentally different use cases. Choose Grammarly for writing tasks and Leonardo.ai for image workflows — they complement rather than compete."
 features:
   - label: "Starting price"

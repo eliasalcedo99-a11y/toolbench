@@ -3,6 +3,7 @@ title: "Consensus vs AIVA: Which is Better in 2026?"
 description: "Head-to-head comparison of Consensus and AIVA across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "consensus"
 toolB: "aiva"
+noindex: true
 verdict: "Consensus and AIVA serve fundamentally different use cases. Choose Consensus for search tasks and AIVA for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

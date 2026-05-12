@@ -3,6 +3,7 @@ title: "Claude vs HeyGen: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and HeyGen across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "claude"
 toolB: "heygen"
+noindex: true
 verdict: "Claude and HeyGen serve fundamentally different use cases. Choose Claude for general tasks and HeyGen for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

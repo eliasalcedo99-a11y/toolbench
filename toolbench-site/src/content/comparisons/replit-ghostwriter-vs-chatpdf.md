@@ -3,6 +3,7 @@ title: "Replit Ghostwriter vs ChatPDF: Which is Better in 2026?"
 description: "Head-to-head comparison of Replit Ghostwriter and ChatPDF across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "replit-ghostwriter"
 toolB: "chatpdf"
+noindex: true
 verdict: "Replit Ghostwriter and ChatPDF serve fundamentally different use cases. Choose Replit Ghostwriter for code tasks and ChatPDF for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

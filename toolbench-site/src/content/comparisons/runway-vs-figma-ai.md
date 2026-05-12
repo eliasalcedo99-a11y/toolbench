@@ -3,6 +3,7 @@ title: "Runway vs Figma AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Runway and Figma AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "runway"
 toolB: "figma-ai"
+noindex: true
 verdict: "Runway and Figma AI serve fundamentally different use cases. Choose Runway for video tasks and Figma AI for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

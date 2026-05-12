@@ -3,6 +3,7 @@ title: "Codeium vs Leonardo.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of Codeium and Leonardo.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "codeium"
 toolB: "leonardo-ai"
+noindex: true
 verdict: "Codeium and Leonardo.ai serve fundamentally different use cases. Choose Codeium for code tasks and Leonardo.ai for image workflows — they complement rather than compete."
 features:
   - label: "Starting price"

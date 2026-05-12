@@ -3,6 +3,7 @@ title: "Murf.ai vs Slack AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Murf.ai and Slack AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "murf-ai"
 toolB: "slack-ai"
+noindex: true
 verdict: "Murf.ai and Slack AI serve fundamentally different use cases. Choose Murf.ai for audio tasks and Slack AI for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

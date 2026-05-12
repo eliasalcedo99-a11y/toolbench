@@ -3,6 +3,7 @@ title: "Runway vs MindStudio: Which is Better in 2026?"
 description: "Head-to-head comparison of Runway and MindStudio across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "runway"
 toolB: "mindstudio"
+noindex: true
 verdict: "Runway and MindStudio serve fundamentally different use cases. Choose Runway for video tasks and MindStudio for business workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "ChatGPT vs Descript: Which is Better in 2026?"
 description: "Head-to-head comparison of ChatGPT and Descript across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "chatgpt"
 toolB: "descript"
+noindex: true
 verdict: "ChatGPT and Descript serve fundamentally different use cases. Choose ChatGPT for general tasks and Descript for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

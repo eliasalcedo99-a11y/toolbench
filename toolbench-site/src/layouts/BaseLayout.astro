@@ -12,6 +12,7 @@ export interface Props {
   jsonLd?: object | object[];
   bodyClass?: string;
   image?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -22,6 +23,7 @@ const {
   jsonLd,
   bodyClass,
   image,
+  noindex = false,
 } = Astro.props;
 
 const fullTitle = title ? `${title} — ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`;
@@ -33,7 +35,25 @@ const jsonLdArray = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
 
 const urlPath = Astro.url.pathname.replace(/^\/|\/$/g, '');
 const ogRoute = urlPath === '' ? 'index' : urlPath;
-const dynamicOgImage = new URL(`/og/${ogRoute}.png`, Astro.site || 'https://toolbench.example').toString();
+
+jsonLdArray.push({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${SITE.url}/#organization`,
+  name: SITE.name,
+  url: SITE.url,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${SITE.url}/favicon.svg`,
+    width: '192',
+    height: '192'
+  },
+  sameAs: [
+    'https://twitter.com/toolbench',
+    'https://linkedin.com/company/toolbench'
+  ]
+});
+const dynamicOgImage = new URL(`/og/${ogRoute}.webp`, Astro.site || 'https://toolbench.example').toString();
 const ogImageUrl = image ? new URL(image, Astro.site).toString() : dynamicOgImage;
 
 // Google Analytics 4 — set PUBLIC_GA_ID in Netlify env (e.g. G-XXXXXXXXXX)
@@ -54,6 +74,7 @@ const adsenseEnabled = !!adsenseId && import.meta.env.PROD;
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0D0F0E" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonicalUrl} />
 
     <meta property="og:type" content={ogType} />
@@ -64,6 +85,7 @@ const adsenseEnabled = !!adsenseId && import.meta.env.PROD;
     <meta property="og:image" content={ogImageUrl} />
 
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@toolbench" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
@@ -74,9 +96,22 @@ const adsenseEnabled = !!adsenseId && import.meta.env.PROD;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     {jsonLdArray.map((schema) => (
       <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />

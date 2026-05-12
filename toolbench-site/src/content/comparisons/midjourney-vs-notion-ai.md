@@ -3,6 +3,7 @@ title: "Midjourney vs Notion AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Midjourney and Notion AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "midjourney"
 toolB: "notion-ai"
+noindex: true
 verdict: "Midjourney and Notion AI serve fundamentally different use cases. Choose Midjourney for image tasks and Notion AI for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

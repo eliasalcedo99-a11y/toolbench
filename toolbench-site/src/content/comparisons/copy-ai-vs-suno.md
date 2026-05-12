@@ -3,6 +3,7 @@ title: "Copy.ai vs Suno: Which is Better in 2026?"
 description: "Head-to-head comparison of Copy.ai and Suno across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "copy-ai"
 toolB: "suno"
+noindex: true
 verdict: "Copy.ai and Suno serve fundamentally different use cases. Choose Copy.ai for writing tasks and Suno for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

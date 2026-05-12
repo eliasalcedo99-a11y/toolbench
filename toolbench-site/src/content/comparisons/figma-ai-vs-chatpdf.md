@@ -3,6 +3,7 @@ title: "Figma AI vs ChatPDF: Which is Better in 2026?"
 description: "Head-to-head comparison of Figma AI and ChatPDF across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "figma-ai"
 toolB: "chatpdf"
+noindex: true
 verdict: "Figma AI and ChatPDF serve fundamentally different use cases. Choose Figma AI for design tasks and ChatPDF for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

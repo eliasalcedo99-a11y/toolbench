@@ -3,6 +3,7 @@ title: "Codeium vs Google Workspace AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Codeium and Google Workspace AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "codeium"
 toolB: "google-workspace-ai"
+noindex: true
 verdict: "Codeium and Google Workspace AI serve fundamentally different use cases. Choose Codeium for code tasks and Google Workspace AI for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

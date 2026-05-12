@@ -3,6 +3,7 @@ title: "Microsoft Copilot vs Runway: Which is Better in 2026?"
 description: "Head-to-head comparison of Microsoft Copilot and Runway across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "copilot"
 toolB: "runway"
+noindex: true
 verdict: "Microsoft Copilot and Runway serve fundamentally different use cases. Choose Microsoft Copilot for general tasks and Runway for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Stable Diffusion vs AIVA: Which is Better in 2026?"
 description: "Head-to-head comparison of Stable Diffusion and AIVA across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "stable-diffusion"
 toolB: "aiva"
+noindex: true
 verdict: "Stable Diffusion and AIVA serve fundamentally different use cases. Choose Stable Diffusion for image tasks and AIVA for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

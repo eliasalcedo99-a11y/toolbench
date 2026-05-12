@@ -3,6 +3,7 @@ title: "Microsoft Copilot vs GitHub Copilot: Which is Better in 2026?"
 description: "Head-to-head comparison of Microsoft Copilot and GitHub Copilot across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "copilot"
 toolB: "github-copilot"
+noindex: true
 verdict: "Microsoft Copilot and GitHub Copilot serve fundamentally different use cases. Choose Microsoft Copilot for general tasks and GitHub Copilot for code workflows — they complement rather than compete."
 features:
   - label: "Starting price"

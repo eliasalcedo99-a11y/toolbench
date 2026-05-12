@@ -3,6 +3,7 @@ title: "Grammarly vs AIVA: Which is Better in 2026?"
 description: "Head-to-head comparison of Grammarly and AIVA across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "grammarly"
 toolB: "aiva"
+noindex: true
 verdict: "Grammarly and AIVA serve fundamentally different use cases. Choose Grammarly for writing tasks and AIVA for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

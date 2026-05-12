@@ -3,6 +3,7 @@ title: "Quillbot vs Consensus: Which is Better in 2026?"
 description: "Head-to-head comparison of Quillbot and Consensus across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "quillbot"
 toolB: "consensus"
+noindex: true
 verdict: "Quillbot and Consensus serve fundamentally different use cases. Choose Quillbot for writing tasks and Consensus for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

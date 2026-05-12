@@ -3,6 +3,7 @@ title: "Synthesia vs AIVA: Which is Better in 2026?"
 description: "Head-to-head comparison of Synthesia and AIVA across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "synthesia"
 toolB: "aiva"
+noindex: true
 verdict: "Synthesia and AIVA serve fundamentally different use cases. Choose Synthesia for video tasks and AIVA for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

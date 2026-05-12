@@ -3,6 +3,7 @@ title: "Quillbot vs HeyGen: Which is Better in 2026?"
 description: "Head-to-head comparison of Quillbot and HeyGen across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "quillbot"
 toolB: "heygen"
+noindex: true
 verdict: "Quillbot and HeyGen serve fundamentally different use cases. Choose Quillbot for writing tasks and HeyGen for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

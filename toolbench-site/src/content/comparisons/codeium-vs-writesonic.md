@@ -3,6 +3,7 @@ title: "Codeium vs Writesonic: Which is Better in 2026?"
 description: "Head-to-head comparison of Codeium and Writesonic across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "codeium"
 toolB: "writesonic"
+noindex: true
 verdict: "Codeium and Writesonic serve fundamentally different use cases. Choose Codeium for code tasks and Writesonic for writing workflows — they complement rather than compete."
 features:
   - label: "Starting price"

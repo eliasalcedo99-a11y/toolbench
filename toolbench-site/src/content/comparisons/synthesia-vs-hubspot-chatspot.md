@@ -3,6 +3,7 @@ title: "Synthesia vs HubSpot ChatSpot: Which is Better in 2026?"
 description: "Head-to-head comparison of Synthesia and HubSpot ChatSpot across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "synthesia"
 toolB: "hubspot-chatspot"
+noindex: true
 verdict: "Synthesia and HubSpot ChatSpot serve fundamentally different use cases. Choose Synthesia for video tasks and HubSpot ChatSpot for business workflows — they complement rather than compete."
 features:
   - label: "Starting price"

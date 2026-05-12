@@ -3,6 +3,7 @@ title: "DALL-E 3 vs AIVA: Which is Better in 2026?"
 description: "Head-to-head comparison of DALL-E 3 and AIVA across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "dall-e-3"
 toolB: "aiva"
+noindex: true
 verdict: "DALL-E 3 and AIVA serve fundamentally different use cases. Choose DALL-E 3 for image tasks and AIVA for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

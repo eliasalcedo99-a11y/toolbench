@@ -3,6 +3,7 @@ title: "Codeium vs Kagi: Which is Better in 2026?"
 description: "Head-to-head comparison of Codeium and Kagi across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "codeium"
 toolB: "kagi"
+noindex: true
 verdict: "Codeium and Kagi serve fundamentally different use cases. Choose Codeium for code tasks and Kagi for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

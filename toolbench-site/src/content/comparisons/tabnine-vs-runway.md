@@ -3,6 +3,7 @@ title: "Tabnine vs Runway: Which is Better in 2026?"
 description: "Head-to-head comparison of Tabnine and Runway across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "tabnine"
 toolB: "runway"
+noindex: true
 verdict: "Tabnine and Runway serve fundamentally different use cases. Choose Tabnine for code tasks and Runway for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

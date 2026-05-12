@@ -3,6 +3,7 @@ title: "ElevenLabs vs Consensus: Which is Better in 2026?"
 description: "Head-to-head comparison of ElevenLabs and Consensus across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "elevenlabs"
 toolB: "consensus"
+noindex: true
 verdict: "ElevenLabs and Consensus serve fundamentally different use cases. Choose ElevenLabs for audio tasks and Consensus for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

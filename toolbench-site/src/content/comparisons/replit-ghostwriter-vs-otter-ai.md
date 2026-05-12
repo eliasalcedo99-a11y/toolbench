@@ -3,6 +3,7 @@ title: "Replit Ghostwriter vs Otter.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of Replit Ghostwriter and Otter.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "replit-ghostwriter"
 toolB: "otter-ai"
+noindex: true
 verdict: "Replit Ghostwriter and Otter.ai serve fundamentally different use cases. Choose Replit Ghostwriter for code tasks and Otter.ai for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

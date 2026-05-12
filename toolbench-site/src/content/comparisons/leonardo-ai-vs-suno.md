@@ -3,6 +3,7 @@ title: "Leonardo.ai vs Suno: Which is Better in 2026?"
 description: "Head-to-head comparison of Leonardo.ai and Suno across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "leonardo-ai"
 toolB: "suno"
+noindex: true
 verdict: "Leonardo.ai and Suno serve fundamentally different use cases. Choose Leonardo.ai for image tasks and Suno for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

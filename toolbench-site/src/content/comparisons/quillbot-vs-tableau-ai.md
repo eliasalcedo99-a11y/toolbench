@@ -3,6 +3,7 @@ title: "Quillbot vs Tableau AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Quillbot and Tableau AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "quillbot"
 toolB: "tableau-ai"
+noindex: true
 verdict: "Quillbot and Tableau AI serve fundamentally different use cases. Choose Quillbot for writing tasks and Tableau AI for business workflows — they complement rather than compete."
 features:
   - label: "Starting price"

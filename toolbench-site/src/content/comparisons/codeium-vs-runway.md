@@ -3,6 +3,7 @@ title: "Codeium vs Runway: Which is Better in 2026?"
 description: "Head-to-head comparison of Codeium and Runway across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "codeium"
 toolB: "runway"
+noindex: true
 verdict: "Codeium and Runway serve fundamentally different use cases. Choose Codeium for code tasks and Runway for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "GitHub Copilot vs Leonardo.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of GitHub Copilot and Leonardo.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "github-copilot"
 toolB: "leonardo-ai"
+noindex: true
 verdict: "GitHub Copilot and Leonardo.ai serve fundamentally different use cases. Choose GitHub Copilot for code tasks and Leonardo.ai for image workflows — they complement rather than compete."
 features:
   - label: "Starting price"

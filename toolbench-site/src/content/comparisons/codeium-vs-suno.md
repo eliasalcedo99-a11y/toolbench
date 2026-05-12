@@ -3,6 +3,7 @@ title: "Codeium vs Suno: Which is Better in 2026?"
 description: "Head-to-head comparison of Codeium and Suno across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "codeium"
 toolB: "suno"
+noindex: true
 verdict: "Codeium and Suno serve fundamentally different use cases. Choose Codeium for code tasks and Suno for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

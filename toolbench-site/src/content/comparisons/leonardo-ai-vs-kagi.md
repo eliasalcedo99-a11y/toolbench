@@ -3,6 +3,7 @@ title: "Leonardo.ai vs Kagi: Which is Better in 2026?"
 description: "Head-to-head comparison of Leonardo.ai and Kagi across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "leonardo-ai"
 toolB: "kagi"
+noindex: true
 verdict: "Leonardo.ai and Kagi serve fundamentally different use cases. Choose Leonardo.ai for image tasks and Kagi for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

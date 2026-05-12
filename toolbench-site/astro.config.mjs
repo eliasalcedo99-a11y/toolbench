@@ -15,9 +15,21 @@ export default defineConfig({
       changefreq: 'weekly',
       priority: 0.8,
       lastmod: new Date(),
+      serialize(item) {
+        if (item.url === 'https://toolbench.netlify.app/') {
+          item.priority = 1.0;
+          item.changefreq = 'daily';
+        }
+        if (item.url === 'https://toolbench.netlify.app/ai-comparator' || item.url === 'https://toolbench.netlify.app/ai-comparator/') {
+          item.priority = 1.0;
+          item.changefreq = 'daily';
+        }
+        return item;
+      },
     }),
   ],
   build: {
+    format: 'file',
     inlineStylesheets: 'auto',
   },
   prefetch: {

@@ -3,6 +3,7 @@ title: "Synthesia vs Canva Magic Design: Which is Better in 2026?"
 description: "Head-to-head comparison of Synthesia and Canva Magic Design across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "synthesia"
 toolB: "canva-magic-design"
+noindex: true
 verdict: "Synthesia and Canva Magic Design serve fundamentally different use cases. Choose Synthesia for video tasks and Canva Magic Design for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

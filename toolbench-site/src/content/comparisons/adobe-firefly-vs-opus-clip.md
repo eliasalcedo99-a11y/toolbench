@@ -3,6 +3,7 @@ title: "Adobe Firefly vs Opus Clip: Which is Better in 2026?"
 description: "Head-to-head comparison of Adobe Firefly and Opus Clip across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "adobe-firefly"
 toolB: "opus-clip"
+noindex: true
 verdict: "Adobe Firefly and Opus Clip serve fundamentally different use cases. Choose Adobe Firefly for image tasks and Opus Clip for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

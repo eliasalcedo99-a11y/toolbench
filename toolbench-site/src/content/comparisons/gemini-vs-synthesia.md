@@ -3,6 +3,7 @@ title: "Gemini vs Synthesia: Which is Better in 2026?"
 description: "Head-to-head comparison of Gemini and Synthesia across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "gemini"
 toolB: "synthesia"
+noindex: true
 verdict: "Gemini and Synthesia serve fundamentally different use cases. Choose Gemini for general tasks and Synthesia for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

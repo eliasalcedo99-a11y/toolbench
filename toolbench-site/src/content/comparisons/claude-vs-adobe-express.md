@@ -3,6 +3,7 @@ title: "Claude vs Adobe Express: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and Adobe Express across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "claude"
 toolB: "adobe-express"
+noindex: true
 verdict: "Claude and Adobe Express serve fundamentally different use cases. Choose Claude for general tasks and Adobe Express for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

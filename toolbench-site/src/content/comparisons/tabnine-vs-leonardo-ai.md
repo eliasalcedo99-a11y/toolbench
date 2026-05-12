@@ -3,6 +3,7 @@ title: "Tabnine vs Leonardo.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of Tabnine and Leonardo.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "tabnine"
 toolB: "leonardo-ai"
+noindex: true
 verdict: "Tabnine and Leonardo.ai serve fundamentally different use cases. Choose Tabnine for code tasks and Leonardo.ai for image workflows — they complement rather than compete."
 features:
   - label: "Starting price"

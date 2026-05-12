@@ -3,6 +3,7 @@ title: "Figma AI vs Notion AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Figma AI and Notion AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "figma-ai"
 toolB: "notion-ai"
+noindex: true
 verdict: "Figma AI and Notion AI serve fundamentally different use cases. Choose Figma AI for design tasks and Notion AI for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

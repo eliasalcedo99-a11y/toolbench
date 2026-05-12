@@ -3,6 +3,7 @@ title: "Perplexity vs Copy.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of Perplexity and Copy.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "perplexity"
 toolB: "copy-ai"
+noindex: true
 verdict: "Perplexity and Copy.ai serve fundamentally different use cases. Choose Perplexity for general tasks and Copy.ai for writing workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Codeium vs You.com: Which is Better in 2026?"
 description: "Head-to-head comparison of Codeium and You.com across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "codeium"
 toolB: "you-com"
+noindex: true
 verdict: "Codeium and You.com serve fundamentally different use cases. Choose Codeium for code tasks and You.com for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

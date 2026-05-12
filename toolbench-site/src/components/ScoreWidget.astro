@@ -48,15 +48,16 @@ const scoresJson = JSON.stringify({ a: toolAScores, b: toolBScores });
   <div class="scores">
     <div class="score-card" data-tool="a">
       <div class="name">{toolAName}</div>
-      <div class="num" data-num="a">0.0</div>
+      <div class="num" data-num="a" aria-hidden="true">0.0</div>
       <div class="scale">out of 100</div>
     </div>
     <div class="score-card" data-tool="b">
       <div class="name">{toolBName}</div>
-      <div class="num" data-num="b">0.0</div>
+      <div class="num" data-num="b" aria-hidden="true">0.0</div>
       <div class="scale">out of 100</div>
     </div>
   </div>
+  <p class="sr-only" aria-live="polite" data-score-readout></p>
 </div>
 
 <script>
@@ -70,6 +71,11 @@ const scoresJson = JSON.stringify({ a: toolAScores, b: toolBScores });
     const numB = widget.querySelector<HTMLDivElement>('[data-num="b"]')!;
     const cardA = widget.querySelector<HTMLDivElement>('[data-tool="a"]')!;
     const cardB = widget.querySelector<HTMLDivElement>('[data-tool="b"]')!;
+    const readout = widget.querySelector<HTMLParagraphElement>('[data-score-readout]');
+    const nameA = (cardA.querySelector('.name')?.textContent || 'Tool A').trim();
+    const nameB = (cardB.querySelector('.name')?.textContent || 'Tool B').trim();
+
+    let readoutTimer: number | null = null;
 
     function compute() {
       const weights: Record<string, number> = {};
@@ -90,6 +96,14 @@ const scoresJson = JSON.stringify({ a: toolAScores, b: toolBScores });
       numB.textContent = b.toFixed(1);
       cardA.classList.toggle('win', a >= b);
       cardB.classList.toggle('win', b > a);
+
+      // Throttle the live-region update so SR isn't spammed on slider drag.
+      if (readout) {
+        if (readoutTimer) window.clearTimeout(readoutTimer);
+        readoutTimer = window.setTimeout(() => {
+          readout.textContent = `${nameA} scores ${a.toFixed(1)}, ${nameB} scores ${b.toFixed(1)} out of 100.`;
+        }, 350);
+      }
     }
 
     sliders.forEach((s) => s.addEventListener('input', compute));

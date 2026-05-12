@@ -3,6 +3,7 @@ title: "Replit Ghostwriter vs Leonardo.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of Replit Ghostwriter and Leonardo.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "replit-ghostwriter"
 toolB: "leonardo-ai"
+noindex: true
 verdict: "Replit Ghostwriter and Leonardo.ai serve fundamentally different use cases. Choose Replit Ghostwriter for code tasks and Leonardo.ai for image workflows — they complement rather than compete."
 features:
   - label: "Starting price"

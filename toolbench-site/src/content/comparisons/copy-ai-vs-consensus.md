@@ -3,6 +3,7 @@ title: "Copy.ai vs Consensus: Which is Better in 2026?"
 description: "Head-to-head comparison of Copy.ai and Consensus across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "copy-ai"
 toolB: "consensus"
+noindex: true
 verdict: "Copy.ai and Consensus serve fundamentally different use cases. Choose Copy.ai for writing tasks and Consensus for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

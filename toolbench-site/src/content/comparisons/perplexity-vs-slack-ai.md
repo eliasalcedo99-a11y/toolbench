@@ -3,6 +3,7 @@ title: "Perplexity vs Slack AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Perplexity and Slack AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "perplexity"
 toolB: "slack-ai"
+noindex: true
 verdict: "Perplexity and Slack AI serve fundamentally different use cases. Choose Perplexity for general tasks and Slack AI for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

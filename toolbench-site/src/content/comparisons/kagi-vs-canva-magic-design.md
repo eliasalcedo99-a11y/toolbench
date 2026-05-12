@@ -3,6 +3,7 @@ title: "Kagi vs Canva Magic Design: Which is Better in 2026?"
 description: "Head-to-head comparison of Kagi and Canva Magic Design across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "kagi"
 toolB: "canva-magic-design"
+noindex: true
 verdict: "Kagi and Canva Magic Design serve fundamentally different use cases. Choose Kagi for search tasks and Canva Magic Design for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

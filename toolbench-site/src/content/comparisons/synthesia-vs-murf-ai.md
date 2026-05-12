@@ -3,6 +3,7 @@ title: "Synthesia vs Murf.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of Synthesia and Murf.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "synthesia"
 toolB: "murf-ai"
+noindex: true
 verdict: "Synthesia and Murf.ai serve fundamentally different use cases. Choose Synthesia for video tasks and Murf.ai for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

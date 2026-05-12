@@ -3,6 +3,7 @@ title: "Claude vs Runway: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and Runway across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "claude"
 toolB: "runway"
+noindex: true
 verdict: "Claude and Runway serve fundamentally different use cases. Choose Claude for general tasks and Runway for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

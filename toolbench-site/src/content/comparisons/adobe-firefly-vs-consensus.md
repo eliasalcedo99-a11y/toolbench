@@ -3,6 +3,7 @@ title: "Adobe Firefly vs Consensus: Which is Better in 2026?"
 description: "Head-to-head comparison of Adobe Firefly and Consensus across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "adobe-firefly"
 toolB: "consensus"
+noindex: true
 verdict: "Adobe Firefly and Consensus serve fundamentally different use cases. Choose Adobe Firefly for image tasks and Consensus for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Claude vs Leonardo.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and Leonardo.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "claude"
 toolB: "leonardo-ai"
+noindex: true
 verdict: "Claude and Leonardo.ai serve fundamentally different use cases. Choose Claude for general tasks and Leonardo.ai for image workflows — they complement rather than compete."
 features:
   - label: "Starting price"

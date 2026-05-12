@@ -3,6 +3,7 @@ title: "HeyGen vs Looka: Which is Better in 2026?"
 description: "Head-to-head comparison of HeyGen and Looka across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "heygen"
 toolB: "looka"
+noindex: true
 verdict: "HeyGen and Looka serve fundamentally different use cases. Choose HeyGen for video tasks and Looka for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

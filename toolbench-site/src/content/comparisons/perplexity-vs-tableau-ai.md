@@ -3,6 +3,7 @@ title: "Perplexity vs Tableau AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Perplexity and Tableau AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "perplexity"
 toolB: "tableau-ai"
+noindex: true
 verdict: "Perplexity and Tableau AI serve fundamentally different use cases. Choose Perplexity for general tasks and Tableau AI for business workflows — they complement rather than compete."
 features:
   - label: "Starting price"

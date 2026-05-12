@@ -3,6 +3,16 @@ Allow: /
 Disallow: /api/
 Disallow: /submit-tool/thanks
 
+# Explicitly allow standard search and human-focused assistants
+User-agent: Googlebot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 # Block AI training crawlers (set to your preference)
 User-agent: GPTBot
 Disallow: /

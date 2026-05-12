@@ -3,6 +3,7 @@ title: "ChatGPT vs Murf.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of ChatGPT and Murf.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "chatgpt"
 toolB: "murf-ai"
+noindex: true
 verdict: "ChatGPT and Murf.ai serve fundamentally different use cases. Choose ChatGPT for general tasks and Murf.ai for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

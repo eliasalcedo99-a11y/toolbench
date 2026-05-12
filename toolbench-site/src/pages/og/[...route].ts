@@ -44,6 +44,7 @@ const { getStaticPaths, GET } = await OGImageRoute({
   getImageOptions: (_path, page) => ({
     title: page.title,
     description: page.description,
+    format: 'webp',
     logo: {
       path: './public/favicon.svg',
       size: [100],

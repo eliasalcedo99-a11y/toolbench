@@ -3,6 +3,7 @@ title: "Gemini vs Tableau AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Gemini and Tableau AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "gemini"
 toolB: "tableau-ai"
+noindex: true
 verdict: "Gemini and Tableau AI serve fundamentally different use cases. Choose Gemini for general tasks and Tableau AI for business workflows — they complement rather than compete."
 features:
   - label: "Starting price"

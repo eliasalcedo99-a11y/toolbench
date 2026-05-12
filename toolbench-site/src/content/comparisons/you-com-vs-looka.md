@@ -3,6 +3,7 @@ title: "You.com vs Looka: Which is Better in 2026?"
 description: "Head-to-head comparison of You.com and Looka across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "you-com"
 toolB: "looka"
+noindex: true
 verdict: "You.com and Looka serve fundamentally different use cases. Choose You.com for search tasks and Looka for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

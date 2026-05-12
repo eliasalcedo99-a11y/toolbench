@@ -3,6 +3,7 @@ title: "Runway vs Murf.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of Runway and Murf.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "runway"
 toolB: "murf-ai"
+noindex: true
 verdict: "Runway and Murf.ai serve fundamentally different use cases. Choose Runway for video tasks and Murf.ai for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

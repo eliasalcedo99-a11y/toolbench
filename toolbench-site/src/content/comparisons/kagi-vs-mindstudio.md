@@ -3,6 +3,7 @@ title: "Kagi vs MindStudio: Which is Better in 2026?"
 description: "Head-to-head comparison of Kagi and MindStudio across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "kagi"
 toolB: "mindstudio"
+noindex: true
 verdict: "Kagi and MindStudio serve fundamentally different use cases. Choose Kagi for search tasks and MindStudio for business workflows — they complement rather than compete."
 features:
   - label: "Starting price"

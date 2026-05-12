@@ -3,6 +3,7 @@ title: "Gemini vs Adobe Firefly: Which is Better in 2026?"
 description: "Head-to-head comparison of Gemini and Adobe Firefly across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "gemini"
 toolB: "adobe-firefly"
+noindex: true
 verdict: "Gemini and Adobe Firefly serve fundamentally different use cases. Choose Gemini for general tasks and Adobe Firefly for image workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Claude vs Anyword: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and Anyword across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "claude"
 toolB: "anyword"
+noindex: true
 verdict: "Claude and Anyword serve fundamentally different use cases. Choose Claude for general tasks and Anyword for writing workflows — they complement rather than compete."
 features:
   - label: "Starting price"

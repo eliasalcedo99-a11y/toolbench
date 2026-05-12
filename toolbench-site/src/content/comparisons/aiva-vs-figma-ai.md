@@ -3,6 +3,7 @@ title: "AIVA vs Figma AI: Which is Better in 2026?"
 description: "Head-to-head comparison of AIVA and Figma AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "aiva"
 toolB: "figma-ai"
+noindex: true
 verdict: "AIVA and Figma AI serve fundamentally different use cases. Choose AIVA for music tasks and Figma AI for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

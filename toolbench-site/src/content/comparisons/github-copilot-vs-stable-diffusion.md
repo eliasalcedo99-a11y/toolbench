@@ -3,6 +3,7 @@ title: "GitHub Copilot vs Stable Diffusion: Which is Better in 2026?"
 description: "Head-to-head comparison of GitHub Copilot and Stable Diffusion across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "github-copilot"
 toolB: "stable-diffusion"
+noindex: true
 verdict: "GitHub Copilot and Stable Diffusion serve fundamentally different use cases. Choose GitHub Copilot for code tasks and Stable Diffusion for image workflows — they complement rather than compete."
 features:
   - label: "Starting price"

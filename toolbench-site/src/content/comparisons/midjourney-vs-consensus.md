@@ -3,6 +3,7 @@ title: "Midjourney vs Consensus: Which is Better in 2026?"
 description: "Head-to-head comparison of Midjourney and Consensus across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "midjourney"
 toolB: "consensus"
+noindex: true
 verdict: "Midjourney and Consensus serve fundamentally different use cases. Choose Midjourney for image tasks and Consensus for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

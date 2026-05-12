@@ -3,6 +3,7 @@ title: "Otter.ai vs Scholarcy: Which is Better in 2026?"
 description: "Head-to-head comparison of Otter.ai and Scholarcy across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "otter-ai"
 toolB: "scholarcy"
+noindex: true
 verdict: "Otter.ai and Scholarcy serve fundamentally different use cases. Choose Otter.ai for audio tasks and Scholarcy for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

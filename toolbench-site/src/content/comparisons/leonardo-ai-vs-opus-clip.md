@@ -3,6 +3,7 @@ title: "Leonardo.ai vs Opus Clip: Which is Better in 2026?"
 description: "Head-to-head comparison of Leonardo.ai and Opus Clip across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "leonardo-ai"
 toolB: "opus-clip"
+noindex: true
 verdict: "Leonardo.ai and Opus Clip serve fundamentally different use cases. Choose Leonardo.ai for image tasks and Opus Clip for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

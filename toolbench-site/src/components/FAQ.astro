@@ -7,19 +7,23 @@ export interface Props {
   items: Item[];
 }
 const { items } = Astro.props;
+const faqId = `faq-${Math.random().toString(36).slice(2, 9)}`;
 ---
 
 <div class="faq">
   <h2 class="section-title">Frequently asked</h2>
-  {items.map((item) => (
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false">
-        <span>{item.q}</span>
-        <span class="ico" aria-hidden="true">+</span>
-      </button>
-      <div class="faq-a">{item.a}</div>
-    </div>
-  ))}
+  {items.map((item, i) => {
+    const answerId = `${faqId}-a-${i}`;
+    return (
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls={answerId}>
+          <span>{item.q}</span>
+          <span class="ico" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a" id={answerId} role="region">{item.a}</div>
+      </div>
+    );
+  })}
 </div>
 
 <script>

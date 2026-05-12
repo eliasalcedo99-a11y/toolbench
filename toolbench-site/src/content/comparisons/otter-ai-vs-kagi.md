@@ -3,6 +3,7 @@ title: "Otter.ai vs Kagi: Which is Better in 2026?"
 description: "Head-to-head comparison of Otter.ai and Kagi across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "otter-ai"
 toolB: "kagi"
+noindex: true
 verdict: "Otter.ai and Kagi serve fundamentally different use cases. Choose Otter.ai for audio tasks and Kagi for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

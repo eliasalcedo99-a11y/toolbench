@@ -3,6 +3,7 @@ title: "Perplexity vs Figma AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Perplexity and Figma AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "perplexity"
 toolB: "figma-ai"
+noindex: true
 verdict: "Perplexity and Figma AI serve fundamentally different use cases. Choose Perplexity for general tasks and Figma AI for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

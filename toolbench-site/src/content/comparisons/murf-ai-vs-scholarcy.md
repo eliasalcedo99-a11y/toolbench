@@ -3,6 +3,7 @@ title: "Murf.ai vs Scholarcy: Which is Better in 2026?"
 description: "Head-to-head comparison of Murf.ai and Scholarcy across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "murf-ai"
 toolB: "scholarcy"
+noindex: true
 verdict: "Murf.ai and Scholarcy serve fundamentally different use cases. Choose Murf.ai for audio tasks and Scholarcy for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

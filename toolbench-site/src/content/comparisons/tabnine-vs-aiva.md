@@ -3,6 +3,7 @@ title: "Tabnine vs AIVA: Which is Better in 2026?"
 description: "Head-to-head comparison of Tabnine and AIVA across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "tabnine"
 toolB: "aiva"
+noindex: true
 verdict: "Tabnine and AIVA serve fundamentally different use cases. Choose Tabnine for code tasks and AIVA for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Codeium vs Google NotebookLM: Which is Better in 2026?"
 description: "Head-to-head comparison of Codeium and Google NotebookLM across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "codeium"
 toolB: "notebooklm"
+noindex: true
 verdict: "Codeium and Google NotebookLM serve fundamentally different use cases. Choose Codeium for code tasks and Google NotebookLM for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

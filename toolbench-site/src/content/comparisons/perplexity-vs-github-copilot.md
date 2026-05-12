@@ -3,6 +3,7 @@ title: "Perplexity vs GitHub Copilot: Which is Better in 2026?"
 description: "Head-to-head comparison of Perplexity and GitHub Copilot across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "perplexity"
 toolB: "github-copilot"
+noindex: true
 verdict: "Perplexity and GitHub Copilot serve fundamentally different use cases. Choose Perplexity for general tasks and GitHub Copilot for code workflows — they complement rather than compete."
 features:
   - label: "Starting price"

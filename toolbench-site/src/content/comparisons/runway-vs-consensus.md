@@ -3,6 +3,7 @@ title: "Runway vs Consensus: Which is Better in 2026?"
 description: "Head-to-head comparison of Runway and Consensus across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "runway"
 toolB: "consensus"
+noindex: true
 verdict: "Runway and Consensus serve fundamentally different use cases. Choose Runway for video tasks and Consensus for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

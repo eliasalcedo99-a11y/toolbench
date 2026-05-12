@@ -3,6 +3,7 @@ title: "Gemini vs Runway: Which is Better in 2026?"
 description: "Head-to-head comparison of Gemini and Runway across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "gemini"
 toolB: "runway"
+noindex: true
 verdict: "Gemini and Runway serve fundamentally different use cases. Choose Gemini for general tasks and Runway for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Anyword vs Synthesia: Which is Better in 2026?"
 description: "Head-to-head comparison of Anyword and Synthesia across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "anyword"
 toolB: "synthesia"
+noindex: true
 verdict: "Anyword and Synthesia serve fundamentally different use cases. Choose Anyword for writing tasks and Synthesia for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,7 +3,7 @@ title: "Claude vs Gemini: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and Gemini across pricing, quality, ease of use, and integrations for general workflows."
 toolA: "claude"
 toolB: "gemini"
-verdict: "Gemini edges ahead on overall quality and integration depth, making it the stronger pick for most users. Claude remains competitive on price and is worth considering if budget is the primary constraint."
+verdict: "While both Gemini and Claude offer robust capabilities, Gemini stands out for its comprehensive feature set and overall performance. However, Claude is a highly capable alternative that may better suit teams with strict budget requirements."
 features:
   - label: "Starting price"
     a: "Free"

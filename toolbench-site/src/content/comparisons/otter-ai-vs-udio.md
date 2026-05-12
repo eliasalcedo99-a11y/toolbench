@@ -3,6 +3,7 @@ title: "Otter.ai vs Udio: Which is Better in 2026?"
 description: "Head-to-head comparison of Otter.ai and Udio across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "otter-ai"
 toolB: "udio"
+noindex: true
 verdict: "Otter.ai and Udio serve fundamentally different use cases. Choose Otter.ai for audio tasks and Udio for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

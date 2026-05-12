@@ -3,6 +3,7 @@ title: "GitHub Copilot vs Kagi: Which is Better in 2026?"
 description: "Head-to-head comparison of GitHub Copilot and Kagi across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "github-copilot"
 toolB: "kagi"
+noindex: true
 verdict: "GitHub Copilot and Kagi serve fundamentally different use cases. Choose GitHub Copilot for code tasks and Kagi for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

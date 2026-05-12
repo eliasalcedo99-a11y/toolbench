@@ -3,6 +3,7 @@ title: "Perplexity vs Scholarcy: Which is Better in 2026?"
 description: "Head-to-head comparison of Perplexity and Scholarcy across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "perplexity"
 toolB: "scholarcy"
+noindex: true
 verdict: "Perplexity and Scholarcy serve fundamentally different use cases. Choose Perplexity for general tasks and Scholarcy for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "ChatGPT vs Opus Clip: Which is Better in 2026?"
 description: "Head-to-head comparison of ChatGPT and Opus Clip across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "chatgpt"
 toolB: "opus-clip"
+noindex: true
 verdict: "ChatGPT and Opus Clip serve fundamentally different use cases. Choose ChatGPT for general tasks and Opus Clip for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

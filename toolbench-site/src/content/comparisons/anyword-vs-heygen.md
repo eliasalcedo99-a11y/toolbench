@@ -3,6 +3,7 @@ title: "Anyword vs HeyGen: Which is Better in 2026?"
 description: "Head-to-head comparison of Anyword and HeyGen across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "anyword"
 toolB: "heygen"
+noindex: true
 verdict: "Anyword and HeyGen serve fundamentally different use cases. Choose Anyword for writing tasks and HeyGen for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

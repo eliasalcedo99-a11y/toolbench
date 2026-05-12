@@ -4,10 +4,16 @@ import ToolCard from '~/components/ToolCard.astro';
 import CategoryFilter from '~/components/CategoryFilter.astro';
 import Stats from '~/components/Stats.astro';
 import { getCollection } from 'astro:content';
-import { SITE, USE_CASES } from '~/data/categories';
+import { SITE, USE_CASES, CATEGORIES } from '~/data/categories';
 
 const tools = await getCollection('tools');
-tools.sort((a, b) => b.data.rating - a.data.rating);
+// Group tools by category
+const toolsByCategory = CATEGORIES.filter(c => c.id !== 'all').map(cat => {
+  const catTools = tools.filter(t => t.data.category === cat.id);
+  // Sort by rating within category
+  catTools.sort((a, b) => b.data.rating - a.data.rating);
+  return { cat, tools: catTools };
+}).filter(group => group.tools.length > 0);
 
 const websiteSchema = {
   '@context': 'https://schema.org',
@@ -21,14 +27,26 @@ const websiteSchema = {
     'query-input': 'required name=search_term_string',
   },
   publisher: {
-    '@type': 'Organization',
-    name: SITE.name,
-    slogan: SITE.tagline,
+    '@id': `${SITE.url}/#organization`,
   },
+};
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: tools.map((t, idx) => ({
+    '@type': 'ListItem',
+    position: idx + 1,
+    item: {
+      '@type': 'SoftwareApplication',
+      name: t.data.name,
+      url: `${SITE.url}/reviews/${t.slug}`,
+      applicationCategory: 'BusinessApplication'
+    }
+  }))
 };
 ---
 
-<BaseLayout title={undefined} jsonLd={websiteSchema}>
+<BaseLayout title={undefined} jsonLd={[websiteSchema, itemListSchema]}>
   <div class="container">
     <section class="hero">
       <div class="eyebrow">AI Tools Directory — 2026</div>
@@ -69,29 +87,36 @@ const websiteSchema = {
 
     <CategoryFilter />
 
-    <div class="tools-grid" id="tools-grid">
-      {tools.map((tool) => (
-        <ToolCard
-          slug={tool.slug}
-          name={tool.data.name}
-          category={tool.data.category}
-          icon={tool.data.icon}
-          iconBg={tool.data.iconBg}
-          iconColor={tool.data.iconColor}
-          badge={tool.data.badge}
-          rating={tool.data.rating}
-          priceLabel={tool.data.priceLabel}
-          description={tool.data.description}
-          keywords={tool.data.keywords}
-        />
+    <div id="tools-container">
+      {toolsByCategory.map(group => (
+        <section class="category-section" data-cat-section={group.cat.id} style="margin-bottom:var(--s5);">
+          <h2 class="section-title" style="margin-bottom:var(--s3);">{group.cat.icon} {group.cat.label} AI Tools</h2>
+          <div class="tools-grid">
+            {group.tools.map((tool) => (
+              <ToolCard
+                slug={tool.slug}
+                name={tool.data.name}
+                category={tool.data.category}
+                icon={tool.data.icon}
+                iconBg={tool.data.iconBg}
+                iconColor={tool.data.iconColor}
+                badge={tool.data.badge}
+                rating={tool.data.rating}
+                priceLabel={tool.data.priceLabel}
+                description={tool.data.description}
+                keywords={tool.data.keywords}
+              />
+            ))}
+          </div>
+        </section>
       ))}
-      <div class="no-results" id="no-results" style="display:none">
+      <div class="no-results" id="no-results" style="display:none; text-align:center; padding:var(--s4);">
         No tools match your search. Try a different keyword or
-        <a href="#" id="reset-filters" style="color:var(--amber)">reset filters</a>.
+        <button type="button" id="reset-filters" class="link-style">reset filters</button>.
       </div>
     </div>
 
-    <a class="cta-banner" href="/compare/chatgpt-vs-claude">
+    <a class="cta-banner" href="/compare/chatgpt-vs-claude" style="margin-top:var(--s5);">
       <div class="cta-banner-text">
         <div class="cta-banner-eyebrow">Trending Comparison · This week</div>
         <div class="cta-banner-title">ChatGPT vs Claude — which is the better all-rounder in 2026?</div>
@@ -103,8 +128,9 @@ const websiteSchema = {
   </div>
 
   <script>
-    const grid = document.getElementById('tools-grid');
-    const cards = grid?.querySelectorAll<HTMLAnchorElement>('.card[data-cat]') ?? [];
+    const container = document.getElementById('tools-container');
+    const cards = container?.querySelectorAll<HTMLAnchorElement>('.card[data-cat]') ?? [];
+    const sections = container?.querySelectorAll<HTMLElement>('.category-section') ?? [];
     const pills = document.querySelectorAll<HTMLButtonElement>('.pill');
     const noResults = document.getElementById('no-results');
     const searchForm = document.getElementById('search-form') as HTMLFormElement | null;
@@ -115,22 +141,35 @@ const websiteSchema = {
     let activeQuery = '';
 
     function applyFilter() {
-      let visible = 0;
-      cards.forEach((c) => {
-        const catMatch = activeCat === 'all' || c.dataset.cat === activeCat;
-        const q = activeQuery.toLowerCase().trim();
-        const text = c.dataset.search || '';
-        const queryMatch = !q || text.includes(q);
-        const show = catMatch && queryMatch;
-        c.classList.toggle('hidden', !show);
-        if (show) {
-          c.classList.remove('fade-in');
-          void c.offsetWidth;
-          c.classList.add('fade-in');
-          visible++;
-        }
+      let totalVisible = 0;
+      
+      sections.forEach(sec => {
+        let sectionVisibleCards = 0;
+        const sectionCat = sec.dataset.catSection;
+        const catMatch = activeCat === 'all' || sectionCat === activeCat;
+        
+        const secCards = sec.querySelectorAll<HTMLAnchorElement>('.card');
+        secCards.forEach(c => {
+          const q = activeQuery.toLowerCase().trim();
+          const text = c.dataset.search || '';
+          const queryMatch = !q || text.includes(q);
+          const show = catMatch && queryMatch;
+          
+          c.classList.toggle('hidden', !show);
+          if (show) {
+            c.classList.remove('fade-in');
+            void c.offsetWidth;
+            c.classList.add('fade-in');
+            sectionVisibleCards++;
+            totalVisible++;
+          }
+        });
+        
+        // Hide entire section if no cards are visible
+        sec.style.display = sectionVisibleCards > 0 ? 'block' : 'none';
       });
-      if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
+
+      if (noResults) noResults.style.display = totalVisible === 0 ? 'block' : 'none';
     }
 
     pills.forEach((p) => {
@@ -152,8 +191,7 @@ const websiteSchema = {
       applyFilter();
     });
 
-    resetLink?.addEventListener('click', (e) => {
-      e.preventDefault();
+    resetLink?.addEventListener('click', () => {
       activeCat = 'all';
       activeQuery = '';
       if (searchInput) searchInput.value = '';

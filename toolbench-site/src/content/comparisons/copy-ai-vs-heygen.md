@@ -3,6 +3,7 @@ title: "Copy.ai vs HeyGen: Which is Better in 2026?"
 description: "Head-to-head comparison of Copy.ai and HeyGen across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "copy-ai"
 toolB: "heygen"
+noindex: true
 verdict: "Copy.ai and HeyGen serve fundamentally different use cases. Choose Copy.ai for writing tasks and HeyGen for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

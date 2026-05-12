@@ -3,6 +3,7 @@ title: "Gemini vs Grammarly: Which is Better in 2026?"
 description: "Head-to-head comparison of Gemini and Grammarly across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "gemini"
 toolB: "grammarly"
+noindex: true
 verdict: "Gemini and Grammarly serve fundamentally different use cases. Choose Gemini for general tasks and Grammarly for writing workflows — they complement rather than compete."
 features:
   - label: "Starting price"

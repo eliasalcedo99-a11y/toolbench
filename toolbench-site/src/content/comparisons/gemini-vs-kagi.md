@@ -3,6 +3,7 @@ title: "Gemini vs Kagi: Which is Better in 2026?"
 description: "Head-to-head comparison of Gemini and Kagi across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "gemini"
 toolB: "kagi"
+noindex: true
 verdict: "Gemini and Kagi serve fundamentally different use cases. Choose Gemini for general tasks and Kagi for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

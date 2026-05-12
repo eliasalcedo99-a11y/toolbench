@@ -3,6 +3,7 @@ title: "Gemini vs Midjourney: Which is Better in 2026?"
 description: "Head-to-head comparison of Gemini and Midjourney across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "gemini"
 toolB: "midjourney"
+noindex: true
 verdict: "Gemini and Midjourney serve fundamentally different use cases. Choose Gemini for general tasks and Midjourney for image workflows — they complement rather than compete."
 features:
   - label: "Starting price"

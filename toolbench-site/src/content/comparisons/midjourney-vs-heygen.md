@@ -3,6 +3,7 @@ title: "Midjourney vs HeyGen: Which is Better in 2026?"
 description: "Head-to-head comparison of Midjourney and HeyGen across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "midjourney"
 toolB: "heygen"
+noindex: true
 verdict: "Midjourney and HeyGen serve fundamentally different use cases. Choose Midjourney for image tasks and HeyGen for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

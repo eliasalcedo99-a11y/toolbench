@@ -3,6 +3,7 @@ title: "Anyword vs Figma AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Anyword and Figma AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "anyword"
 toolB: "figma-ai"
+noindex: true
 verdict: "Anyword and Figma AI serve fundamentally different use cases. Choose Anyword for writing tasks and Figma AI for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

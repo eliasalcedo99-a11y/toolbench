@@ -3,6 +3,7 @@ title: "Figma AI vs Tableau AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Figma AI and Tableau AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "figma-ai"
 toolB: "tableau-ai"
+noindex: true
 verdict: "Figma AI and Tableau AI serve fundamentally different use cases. Choose Figma AI for design tasks and Tableau AI for business workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "HeyGen vs Consensus: Which is Better in 2026?"
 description: "Head-to-head comparison of HeyGen and Consensus across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "heygen"
 toolB: "consensus"
+noindex: true
 verdict: "HeyGen and Consensus serve fundamentally different use cases. Choose HeyGen for video tasks and Consensus for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

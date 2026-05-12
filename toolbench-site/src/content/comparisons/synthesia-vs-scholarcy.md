@@ -3,6 +3,7 @@ title: "Synthesia vs Scholarcy: Which is Better in 2026?"
 description: "Head-to-head comparison of Synthesia and Scholarcy across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "synthesia"
 toolB: "scholarcy"
+noindex: true
 verdict: "Synthesia and Scholarcy serve fundamentally different use cases. Choose Synthesia for video tasks and Scholarcy for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

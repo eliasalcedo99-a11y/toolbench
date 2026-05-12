@@ -3,6 +3,7 @@ title: "Claude vs ElevenLabs: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and ElevenLabs across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "claude"
 toolB: "elevenlabs"
+noindex: true
 verdict: "Claude and ElevenLabs serve fundamentally different use cases. Choose Claude for general tasks and ElevenLabs for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

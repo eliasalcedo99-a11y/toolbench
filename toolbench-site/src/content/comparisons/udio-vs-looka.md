@@ -3,6 +3,7 @@ title: "Udio vs Looka: Which is Better in 2026?"
 description: "Head-to-head comparison of Udio and Looka across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "udio"
 toolB: "looka"
+noindex: true
 verdict: "Udio and Looka serve fundamentally different use cases. Choose Udio for music tasks and Looka for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

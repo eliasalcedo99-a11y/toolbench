@@ -3,6 +3,7 @@ title: "Midjourney vs Descript: Which is Better in 2026?"
 description: "Head-to-head comparison of Midjourney and Descript across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "midjourney"
 toolB: "descript"
+noindex: true
 verdict: "Midjourney and Descript serve fundamentally different use cases. Choose Midjourney for image tasks and Descript for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

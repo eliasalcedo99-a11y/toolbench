@@ -3,6 +3,7 @@ title: "DALL-E 3 vs Consensus: Which is Better in 2026?"
 description: "Head-to-head comparison of DALL-E 3 and Consensus across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "dall-e-3"
 toolB: "consensus"
+noindex: true
 verdict: "DALL-E 3 and Consensus serve fundamentally different use cases. Choose DALL-E 3 for image tasks and Consensus for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

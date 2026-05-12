@@ -3,6 +3,7 @@ title: "Midjourney vs Suno: Which is Better in 2026?"
 description: "Head-to-head comparison of Midjourney and Suno across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "midjourney"
 toolB: "suno"
+noindex: true
 verdict: "Midjourney and Suno serve fundamentally different use cases. Choose Midjourney for image tasks and Suno for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

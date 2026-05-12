@@ -3,6 +3,7 @@ title: "GitHub Copilot vs Adobe Firefly: Which is Better in 2026?"
 description: "Head-to-head comparison of GitHub Copilot and Adobe Firefly across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "github-copilot"
 toolB: "adobe-firefly"
+noindex: true
 verdict: "GitHub Copilot and Adobe Firefly serve fundamentally different use cases. Choose GitHub Copilot for code tasks and Adobe Firefly for image workflows — they complement rather than compete."
 features:
   - label: "Starting price"

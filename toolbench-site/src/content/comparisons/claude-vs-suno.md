@@ -3,6 +3,7 @@ title: "Claude vs Suno: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and Suno across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "claude"
 toolB: "suno"
+noindex: true
 verdict: "Claude and Suno serve fundamentally different use cases. Choose Claude for general tasks and Suno for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

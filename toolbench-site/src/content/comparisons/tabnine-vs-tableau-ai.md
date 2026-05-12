@@ -3,6 +3,7 @@ title: "Tabnine vs Tableau AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Tabnine and Tableau AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "tabnine"
 toolB: "tableau-ai"
+noindex: true
 verdict: "Tabnine and Tableau AI serve fundamentally different use cases. Choose Tabnine for code tasks and Tableau AI for business workflows — they complement rather than compete."
 features:
   - label: "Starting price"

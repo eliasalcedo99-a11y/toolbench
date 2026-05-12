@@ -3,6 +3,7 @@ title: "Codeium vs Quillbot: Which is Better in 2026?"
 description: "Head-to-head comparison of Codeium and Quillbot across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "codeium"
 toolB: "quillbot"
+noindex: true
 verdict: "Codeium and Quillbot serve fundamentally different use cases. Choose Codeium for code tasks and Quillbot for writing workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Synthesia vs Udio: Which is Better in 2026?"
 description: "Head-to-head comparison of Synthesia and Udio across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "synthesia"
 toolB: "udio"
+noindex: true
 verdict: "Synthesia and Udio serve fundamentally different use cases. Choose Synthesia for video tasks and Udio for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

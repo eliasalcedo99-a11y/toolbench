@@ -3,6 +3,7 @@ title: "Stable Diffusion vs Runway: Which is Better in 2026?"
 description: "Head-to-head comparison of Stable Diffusion and Runway across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "stable-diffusion"
 toolB: "runway"
+noindex: true
 verdict: "Stable Diffusion and Runway serve fundamentally different use cases. Choose Stable Diffusion for image tasks and Runway for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

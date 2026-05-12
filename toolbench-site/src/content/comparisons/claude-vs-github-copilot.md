@@ -3,6 +3,7 @@ title: "Claude vs GitHub Copilot: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and GitHub Copilot across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "claude"
 toolB: "github-copilot"
+noindex: true
 verdict: "Claude and GitHub Copilot serve fundamentally different use cases. Choose Claude for general tasks and GitHub Copilot for code workflows — they complement rather than compete."
 features:
   - label: "Starting price"

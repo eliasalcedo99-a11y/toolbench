@@ -3,6 +3,7 @@ title: "Anyword vs Consensus: Which is Better in 2026?"
 description: "Head-to-head comparison of Anyword and Consensus across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "anyword"
 toolB: "consensus"
+noindex: true
 verdict: "Anyword and Consensus serve fundamentally different use cases. Choose Anyword for writing tasks and Consensus for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

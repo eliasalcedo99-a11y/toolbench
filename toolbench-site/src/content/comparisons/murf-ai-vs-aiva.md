@@ -3,6 +3,7 @@ title: "Murf.ai vs AIVA: Which is Better in 2026?"
 description: "Head-to-head comparison of Murf.ai and AIVA across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "murf-ai"
 toolB: "aiva"
+noindex: true
 verdict: "Murf.ai and AIVA serve fundamentally different use cases. Choose Murf.ai for audio tasks and AIVA for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

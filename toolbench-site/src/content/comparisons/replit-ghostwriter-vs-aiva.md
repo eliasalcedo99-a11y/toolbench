@@ -3,6 +3,7 @@ title: "Replit Ghostwriter vs AIVA: Which is Better in 2026?"
 description: "Head-to-head comparison of Replit Ghostwriter and AIVA across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "replit-ghostwriter"
 toolB: "aiva"
+noindex: true
 verdict: "Replit Ghostwriter and AIVA serve fundamentally different use cases. Choose Replit Ghostwriter for code tasks and AIVA for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

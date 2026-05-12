@@ -3,6 +3,7 @@ title: "Quillbot vs Runway: Which is Better in 2026?"
 description: "Head-to-head comparison of Quillbot and Runway across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "quillbot"
 toolB: "runway"
+noindex: true
 verdict: "Quillbot and Runway serve fundamentally different use cases. Choose Quillbot for writing tasks and Runway for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

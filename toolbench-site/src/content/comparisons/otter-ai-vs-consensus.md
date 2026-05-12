@@ -3,6 +3,7 @@ title: "Otter.ai vs Consensus: Which is Better in 2026?"
 description: "Head-to-head comparison of Otter.ai and Consensus across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "otter-ai"
 toolB: "consensus"
+noindex: true
 verdict: "Otter.ai and Consensus serve fundamentally different use cases. Choose Otter.ai for audio tasks and Consensus for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

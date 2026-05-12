@@ -3,6 +3,7 @@ title: "Scholarcy vs Udio: Which is Better in 2026?"
 description: "Head-to-head comparison of Scholarcy and Udio across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "scholarcy"
 toolB: "udio"
+noindex: true
 verdict: "Scholarcy and Udio serve fundamentally different use cases. Choose Scholarcy for search tasks and Udio for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

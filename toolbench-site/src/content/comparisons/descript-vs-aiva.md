@@ -3,6 +3,7 @@ title: "Descript vs AIVA: Which is Better in 2026?"
 description: "Head-to-head comparison of Descript and AIVA across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "descript"
 toolB: "aiva"
+noindex: true
 verdict: "Descript and AIVA serve fundamentally different use cases. Choose Descript for audio tasks and AIVA for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

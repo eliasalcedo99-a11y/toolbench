@@ -3,6 +3,7 @@ title: "Grammarly vs Kagi: Which is Better in 2026?"
 description: "Head-to-head comparison of Grammarly and Kagi across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "grammarly"
 toolB: "kagi"
+noindex: true
 verdict: "Grammarly and Kagi serve fundamentally different use cases. Choose Grammarly for writing tasks and Kagi for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

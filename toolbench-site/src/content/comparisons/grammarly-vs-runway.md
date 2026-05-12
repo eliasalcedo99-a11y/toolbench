@@ -3,6 +3,7 @@ title: "Grammarly vs Runway: Which is Better in 2026?"
 description: "Head-to-head comparison of Grammarly and Runway across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "grammarly"
 toolB: "runway"
+noindex: true
 verdict: "Grammarly and Runway serve fundamentally different use cases. Choose Grammarly for writing tasks and Runway for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

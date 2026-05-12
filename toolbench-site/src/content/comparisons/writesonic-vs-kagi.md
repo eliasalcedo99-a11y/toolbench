@@ -3,6 +3,7 @@ title: "Writesonic vs Kagi: Which is Better in 2026?"
 description: "Head-to-head comparison of Writesonic and Kagi across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "writesonic"
 toolB: "kagi"
+noindex: true
 verdict: "Writesonic and Kagi serve fundamentally different use cases. Choose Writesonic for writing tasks and Kagi for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

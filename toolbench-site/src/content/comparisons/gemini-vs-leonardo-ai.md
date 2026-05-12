@@ -3,6 +3,7 @@ title: "Gemini vs Leonardo.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of Gemini and Leonardo.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "gemini"
 toolB: "leonardo-ai"
+noindex: true
 verdict: "Gemini and Leonardo.ai serve fundamentally different use cases. Choose Gemini for general tasks and Leonardo.ai for image workflows — they complement rather than compete."
 features:
   - label: "Starting price"

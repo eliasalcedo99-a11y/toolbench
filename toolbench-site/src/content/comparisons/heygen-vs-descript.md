@@ -3,6 +3,7 @@ title: "HeyGen vs Descript: Which is Better in 2026?"
 description: "Head-to-head comparison of HeyGen and Descript across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "heygen"
 toolB: "descript"
+noindex: true
 verdict: "HeyGen and Descript serve fundamentally different use cases. Choose HeyGen for video tasks and Descript for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "HeyGen vs Udio: Which is Better in 2026?"
 description: "Head-to-head comparison of HeyGen and Udio across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "heygen"
 toolB: "udio"
+noindex: true
 verdict: "HeyGen and Udio serve fundamentally different use cases. Choose HeyGen for video tasks and Udio for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

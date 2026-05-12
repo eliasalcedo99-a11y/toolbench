@@ -3,6 +3,7 @@ title: "GitHub Copilot vs Looka: Which is Better in 2026?"
 description: "Head-to-head comparison of GitHub Copilot and Looka across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "github-copilot"
 toolB: "looka"
+noindex: true
 verdict: "GitHub Copilot and Looka serve fundamentally different use cases. Choose GitHub Copilot for code tasks and Looka for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Runway vs Tableau AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Runway and Tableau AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "runway"
 toolB: "tableau-ai"
+noindex: true
 verdict: "Runway and Tableau AI serve fundamentally different use cases. Choose Runway for video tasks and Tableau AI for business workflows — they complement rather than compete."
 features:
   - label: "Starting price"

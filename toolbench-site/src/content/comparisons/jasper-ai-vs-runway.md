@@ -3,6 +3,7 @@ title: "Jasper AI vs Runway: Which is Better in 2026?"
 description: "Head-to-head comparison of Jasper AI and Runway across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "jasper-ai"
 toolB: "runway"
+noindex: true
 verdict: "Jasper AI and Runway serve fundamentally different use cases. Choose Jasper AI for writing tasks and Runway for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

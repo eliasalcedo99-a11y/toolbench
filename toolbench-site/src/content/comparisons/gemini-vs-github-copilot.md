@@ -3,6 +3,7 @@ title: "Gemini vs GitHub Copilot: Which is Better in 2026?"
 description: "Head-to-head comparison of Gemini and GitHub Copilot across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "gemini"
 toolB: "github-copilot"
+noindex: true
 verdict: "Gemini and GitHub Copilot serve fundamentally different use cases. Choose Gemini for general tasks and GitHub Copilot for code workflows — they complement rather than compete."
 features:
   - label: "Starting price"

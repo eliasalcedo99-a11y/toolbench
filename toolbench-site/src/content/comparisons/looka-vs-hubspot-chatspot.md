@@ -3,6 +3,7 @@ title: "Looka vs HubSpot ChatSpot: Which is Better in 2026?"
 description: "Head-to-head comparison of Looka and HubSpot ChatSpot across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "looka"
 toolB: "hubspot-chatspot"
+noindex: true
 verdict: "Looka and HubSpot ChatSpot serve fundamentally different use cases. Choose Looka for design tasks and HubSpot ChatSpot for business workflows — they complement rather than compete."
 features:
   - label: "Starting price"

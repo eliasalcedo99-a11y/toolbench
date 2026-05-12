@@ -3,6 +3,7 @@ title: "Codeium vs Looka: Which is Better in 2026?"
 description: "Head-to-head comparison of Codeium and Looka across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "codeium"
 toolB: "looka"
+noindex: true
 verdict: "Codeium and Looka serve fundamentally different use cases. Choose Codeium for code tasks and Looka for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

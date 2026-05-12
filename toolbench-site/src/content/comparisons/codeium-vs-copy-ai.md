@@ -3,6 +3,7 @@ title: "Codeium vs Copy.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of Codeium and Copy.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "codeium"
 toolB: "copy-ai"
+noindex: true
 verdict: "Codeium and Copy.ai serve fundamentally different use cases. Choose Codeium for code tasks and Copy.ai for writing workflows — they complement rather than compete."
 features:
   - label: "Starting price"

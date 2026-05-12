@@ -3,6 +3,7 @@ title: "Murf.ai vs Kagi: Which is Better in 2026?"
 description: "Head-to-head comparison of Murf.ai and Kagi across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "murf-ai"
 toolB: "kagi"
+noindex: true
 verdict: "Murf.ai and Kagi serve fundamentally different use cases. Choose Murf.ai for audio tasks and Kagi for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

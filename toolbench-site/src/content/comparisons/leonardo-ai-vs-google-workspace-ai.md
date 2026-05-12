@@ -3,6 +3,7 @@ title: "Leonardo.ai vs Google Workspace AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Leonardo.ai and Google Workspace AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "leonardo-ai"
 toolB: "google-workspace-ai"
+noindex: true
 verdict: "Leonardo.ai and Google Workspace AI serve fundamentally different use cases. Choose Leonardo.ai for image tasks and Google Workspace AI for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

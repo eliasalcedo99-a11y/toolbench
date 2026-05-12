@@ -3,6 +3,7 @@ title: "Perplexity vs Grammarly: Which is Better in 2026?"
 description: "Head-to-head comparison of Perplexity and Grammarly across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "perplexity"
 toolB: "grammarly"
+noindex: true
 verdict: "Perplexity and Grammarly serve fundamentally different use cases. Choose Perplexity for general tasks and Grammarly for writing workflows — they complement rather than compete."
 features:
   - label: "Starting price"

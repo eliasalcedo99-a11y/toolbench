@@ -3,6 +3,7 @@ title: "ElevenLabs vs AIVA: Which is Better in 2026?"
 description: "Head-to-head comparison of ElevenLabs and AIVA across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "elevenlabs"
 toolB: "aiva"
+noindex: true
 verdict: "ElevenLabs and AIVA serve fundamentally different use cases. Choose ElevenLabs for audio tasks and AIVA for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

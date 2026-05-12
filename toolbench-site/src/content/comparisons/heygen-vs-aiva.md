@@ -3,6 +3,7 @@ title: "HeyGen vs AIVA: Which is Better in 2026?"
 description: "Head-to-head comparison of HeyGen and AIVA across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "heygen"
 toolB: "aiva"
+noindex: true
 verdict: "HeyGen and AIVA serve fundamentally different use cases. Choose HeyGen for video tasks and AIVA for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Synthesia vs You.com: Which is Better in 2026?"
 description: "Head-to-head comparison of Synthesia and You.com across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "synthesia"
 toolB: "you-com"
+noindex: true
 verdict: "Synthesia and You.com serve fundamentally different use cases. Choose Synthesia for video tasks and You.com for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

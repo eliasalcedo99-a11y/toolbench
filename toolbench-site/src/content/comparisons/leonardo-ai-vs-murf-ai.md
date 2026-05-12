@@ -3,6 +3,7 @@ title: "Leonardo.ai vs Murf.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of Leonardo.ai and Murf.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "leonardo-ai"
 toolB: "murf-ai"
+noindex: true
 verdict: "Leonardo.ai and Murf.ai serve fundamentally different use cases. Choose Leonardo.ai for image tasks and Murf.ai for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

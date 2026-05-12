@@ -3,6 +3,7 @@ title: "Microsoft Copilot vs Murf.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of Microsoft Copilot and Murf.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "copilot"
 toolB: "murf-ai"
+noindex: true
 verdict: "Microsoft Copilot and Murf.ai serve fundamentally different use cases. Choose Microsoft Copilot for general tasks and Murf.ai for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

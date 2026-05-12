@@ -3,6 +3,7 @@ title: "Perplexity vs HeyGen: Which is Better in 2026?"
 description: "Head-to-head comparison of Perplexity and HeyGen across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "perplexity"
 toolB: "heygen"
+noindex: true
 verdict: "Perplexity and HeyGen serve fundamentally different use cases. Choose Perplexity for general tasks and HeyGen for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

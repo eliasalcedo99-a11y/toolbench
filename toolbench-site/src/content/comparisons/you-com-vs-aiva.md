@@ -3,6 +3,7 @@ title: "You.com vs AIVA: Which is Better in 2026?"
 description: "Head-to-head comparison of You.com and AIVA across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "you-com"
 toolB: "aiva"
+noindex: true
 verdict: "You.com and AIVA serve fundamentally different use cases. Choose You.com for search tasks and AIVA for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

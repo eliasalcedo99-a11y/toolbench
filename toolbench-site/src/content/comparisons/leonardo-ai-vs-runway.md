@@ -3,6 +3,7 @@ title: "Leonardo.ai vs Runway: Which is Better in 2026?"
 description: "Head-to-head comparison of Leonardo.ai and Runway across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "leonardo-ai"
 toolB: "runway"
+noindex: true
 verdict: "Leonardo.ai and Runway serve fundamentally different use cases. Choose Leonardo.ai for image tasks and Runway for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

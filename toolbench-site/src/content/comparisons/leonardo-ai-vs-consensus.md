@@ -3,6 +3,7 @@ title: "Leonardo.ai vs Consensus: Which is Better in 2026?"
 description: "Head-to-head comparison of Leonardo.ai and Consensus across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "leonardo-ai"
 toolB: "consensus"
+noindex: true
 verdict: "Leonardo.ai and Consensus serve fundamentally different use cases. Choose Leonardo.ai for image tasks and Consensus for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

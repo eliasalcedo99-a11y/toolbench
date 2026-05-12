@@ -3,6 +3,7 @@ title: "Midjourney vs Figma AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Midjourney and Figma AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "midjourney"
 toolB: "figma-ai"
+noindex: true
 verdict: "Midjourney and Figma AI serve fundamentally different use cases. Choose Midjourney for image tasks and Figma AI for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

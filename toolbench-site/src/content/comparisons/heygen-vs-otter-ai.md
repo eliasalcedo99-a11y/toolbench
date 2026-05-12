@@ -3,6 +3,7 @@ title: "HeyGen vs Otter.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of HeyGen and Otter.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "heygen"
 toolB: "otter-ai"
+noindex: true
 verdict: "HeyGen and Otter.ai serve fundamentally different use cases. Choose HeyGen for video tasks and Otter.ai for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

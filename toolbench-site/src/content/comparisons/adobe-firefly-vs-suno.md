@@ -3,6 +3,7 @@ title: "Adobe Firefly vs Suno: Which is Better in 2026?"
 description: "Head-to-head comparison of Adobe Firefly and Suno across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "adobe-firefly"
 toolB: "suno"
+noindex: true
 verdict: "Adobe Firefly and Suno serve fundamentally different use cases. Choose Adobe Firefly for image tasks and Suno for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

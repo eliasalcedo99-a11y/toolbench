@@ -3,6 +3,7 @@ title: "Figma AI vs Slack AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Figma AI and Slack AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "figma-ai"
 toolB: "slack-ai"
+noindex: true
 verdict: "Figma AI and Slack AI serve fundamentally different use cases. Choose Figma AI for design tasks and Slack AI for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

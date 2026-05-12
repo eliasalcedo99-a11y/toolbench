@@ -3,6 +3,7 @@ title: "Tabnine vs Adobe Firefly: Which is Better in 2026?"
 description: "Head-to-head comparison of Tabnine and Adobe Firefly across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "tabnine"
 toolB: "adobe-firefly"
+noindex: true
 verdict: "Tabnine and Adobe Firefly serve fundamentally different use cases. Choose Tabnine for code tasks and Adobe Firefly for image workflows — they complement rather than compete."
 features:
   - label: "Starting price"

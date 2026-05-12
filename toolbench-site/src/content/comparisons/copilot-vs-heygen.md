@@ -3,6 +3,7 @@ title: "Microsoft Copilot vs HeyGen: Which is Better in 2026?"
 description: "Head-to-head comparison of Microsoft Copilot and HeyGen across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "copilot"
 toolB: "heygen"
+noindex: true
 verdict: "Microsoft Copilot and HeyGen serve fundamentally different use cases. Choose Microsoft Copilot for general tasks and HeyGen for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

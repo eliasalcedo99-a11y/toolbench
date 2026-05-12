@@ -3,6 +3,7 @@ title: "Replit Ghostwriter vs ElevenLabs: Which is Better in 2026?"
 description: "Head-to-head comparison of Replit Ghostwriter and ElevenLabs across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "replit-ghostwriter"
 toolB: "elevenlabs"
+noindex: true
 verdict: "Replit Ghostwriter and ElevenLabs serve fundamentally different use cases. Choose Replit Ghostwriter for code tasks and ElevenLabs for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

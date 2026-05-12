@@ -3,6 +3,7 @@ title: "GitHub Copilot vs AIVA: Which is Better in 2026?"
 description: "Head-to-head comparison of GitHub Copilot and AIVA across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "github-copilot"
 toolB: "aiva"
+noindex: true
 verdict: "GitHub Copilot and AIVA serve fundamentally different use cases. Choose GitHub Copilot for code tasks and AIVA for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

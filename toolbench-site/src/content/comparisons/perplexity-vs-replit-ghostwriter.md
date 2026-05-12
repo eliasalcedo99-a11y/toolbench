@@ -3,6 +3,7 @@ title: "Perplexity vs Replit Ghostwriter: Which is Better in 2026?"
 description: "Head-to-head comparison of Perplexity and Replit Ghostwriter across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "perplexity"
 toolB: "replit-ghostwriter"
+noindex: true
 verdict: "Perplexity and Replit Ghostwriter serve fundamentally different use cases. Choose Perplexity for general tasks and Replit Ghostwriter for code workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -2,11 +2,35 @@
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { SITE } from '~/data/categories';
 
-const title = `Methodology - ${SITE.name}`;
-const description = 'How we test, review, and score AI tools for small businesses.';
+const title = 'How We Test AI Tools — ToolBench Methodology';
+const description = 'Our rigorous 3-stage AI evaluation process (Sandbox, Stress, and Workflow testing) to ensure accurate ratings and unbiased reviews for small businesses.';
+
+const aboutSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: title,
+  description: description,
+  url: `${SITE.url}/methodology`,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `${SITE.url}/methodology`
+  },
+  author: {
+    '@type': 'Organization',
+    name: SITE.name
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: SITE.name,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE.url}/favicon.svg`
+    }
+  }
+};
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={aboutSchema}>
   <div class="container">
     <section class="hero" style="padding-bottom: 2rem;">
       <div class="eyebrow">Behind the Scenes</div>
@@ -32,25 +56,25 @@ const description = 'How we test, review, and score AI tools for small businesse
         <h2>2. Scoring Criteria</h2>
         <p>Our overall rating out of 5 stars is an aggregate of five distinct dimensions, each scored from 0 to 100:</p>
         <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
-          <div style="background: var(--surface); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+          <div style="background: var(--bg-elev); padding: 1.5rem; border-radius: var(--r-lg); border: 1px solid var(--border);">
             <h3 style="margin: 0 0 0.5rem; color: var(--amber); font-size: 1.1rem;">Quality (0-100)</h3>
-            <p style="margin: 0; font-size: 0.95rem; color: var(--text-muted);">The accuracy, reliability, and nuance of the AI outputs. Does it hallucinate? Are the responses generic or highly contextual?</p>
+            <p style="margin: 0; font-size: 0.95rem; color: var(--muted);">The accuracy, reliability, and nuance of the AI outputs. Does it hallucinate? Are the responses generic or highly contextual?</p>
           </div>
-          <div style="background: var(--surface); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+          <div style="background: var(--bg-elev); padding: 1.5rem; border-radius: var(--r-lg); border: 1px solid var(--border);">
             <h3 style="margin: 0 0 0.5rem; color: var(--amber); font-size: 1.1rem;">Ease of Use (0-100)</h3>
-            <p style="margin: 0; font-size: 0.95rem; color: var(--text-muted);">UX/UI design, onboarding friction, and learning curve. How fast can a non-technical user get value from the tool?</p>
+            <p style="margin: 0; font-size: 0.95rem; color: var(--muted);">UX/UI design, onboarding friction, and learning curve. How fast can a non-technical user get value from the tool?</p>
           </div>
-          <div style="background: var(--surface); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+          <div style="background: var(--bg-elev); padding: 1.5rem; border-radius: var(--r-lg); border: 1px solid var(--border);">
             <h3 style="margin: 0 0 0.5rem; color: var(--amber); font-size: 1.1rem;">Integrations (0-100)</h3>
-            <p style="margin: 0; font-size: 0.95rem; color: var(--text-muted);">How well it plays with the rest of your stack. We look for native integrations, API availability, and webhook support.</p>
+            <p style="margin: 0; font-size: 0.95rem; color: var(--muted);">How well it plays with the rest of your stack. We look for native integrations, API availability, and webhook support.</p>
           </div>
-          <div style="background: var(--surface); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+          <div style="background: var(--bg-elev); padding: 1.5rem; border-radius: var(--r-lg); border: 1px solid var(--border);">
             <h3 style="margin: 0 0 0.5rem; color: var(--amber); font-size: 1.1rem;">Support (0-100)</h3>
-            <p style="margin: 0; font-size: 0.95rem; color: var(--text-muted);">Documentation quality, community forums, and responsiveness of customer service. Is there enterprise-grade support available?</p>
+            <p style="margin: 0; font-size: 0.95rem; color: var(--muted);">Documentation quality, community forums, and responsiveness of customer service. Is there enterprise-grade support available?</p>
           </div>
-          <div style="background: var(--surface); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+          <div style="background: var(--bg-elev); padding: 1.5rem; border-radius: var(--r-lg); border: 1px solid var(--border);">
             <h3 style="margin: 0 0 0.5rem; color: var(--amber); font-size: 1.1rem;">Price & Value (0-100)</h3>
-            <p style="margin: 0; font-size: 0.95rem; color: var(--text-muted);">Not just how cheap it is, but the return on investment. We evaluate hidden limits, overage charges, and free tier utility.</p>
+            <p style="margin: 0; font-size: 0.95rem; color: var(--muted);">Not just how cheap it is, but the return on investment. We evaluate hidden limits, overage charges, and free tier utility.</p>
           </div>
         </div>
       </section>
@@ -71,15 +95,15 @@ const description = 'How we test, review, and score AI tools for small businesse
         <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.5rem;">
           <div>
             <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem;">Do you accept payments for reviews?</h4>
-            <p style="margin: 0; color: var(--text-muted);">No. We do not accept sponsored placements, paid reviews, or "fast-track" requests. If a tool is listed here, it's because we believe it's worth evaluating.</p>
+            <p style="margin: 0; color: var(--muted);">No. We do not accept sponsored placements, paid reviews, or "fast-track" requests. If a tool is listed here, it's because we believe it's worth evaluating.</p>
           </div>
           <div>
             <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem;">How do you make money?</h4>
-            <p style="margin: 0; color: var(--text-muted);">ToolBench is currently a reader-supported passion project. We may introduce premium features in the future, but the core directory will remain free and objective.</p>
+            <p style="margin: 0; color: var(--muted);">ToolBench is currently a reader-supported passion project. We may introduce premium features in the future, but the core directory will remain free and objective.</p>
           </div>
           <div>
             <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem;">How often are scores updated?</h4>
-            <p style="margin: 0; color: var(--text-muted);">AI moves fast. We aim to revisit our top comparisons and highest-rated tools every quarter, or immediately after a major model update (e.g., a new Claude or GPT release).</p>
+            <p style="margin: 0; color: var(--muted);">AI moves fast. We aim to revisit our top comparisons and highest-rated tools every quarter, or immediately after a major model update (e.g., a new Claude or GPT release).</p>
           </div>
         </div>
       </section>
@@ -97,10 +121,10 @@ const description = 'How we test, review, and score AI tools for small businesse
   }
   p {
     line-height: 1.6;
-    color: var(--text-muted);
+    color: var(--muted);
   }
   ul li {
-    color: var(--text-muted);
+    color: var(--muted);
     line-height: 1.5;
   }
   ul li strong {

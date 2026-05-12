@@ -3,6 +3,7 @@ title: "Copy.ai vs HubSpot ChatSpot: Which is Better in 2026?"
 description: "Head-to-head comparison of Copy.ai and HubSpot ChatSpot across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "copy-ai"
 toolB: "hubspot-chatspot"
+noindex: true
 verdict: "Copy.ai and HubSpot ChatSpot serve fundamentally different use cases. Choose Copy.ai for writing tasks and HubSpot ChatSpot for business workflows — they complement rather than compete."
 features:
   - label: "Starting price"

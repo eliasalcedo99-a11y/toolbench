@@ -3,6 +3,7 @@ title: "AIVA vs Looka: Which is Better in 2026?"
 description: "Head-to-head comparison of AIVA and Looka across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "aiva"
 toolB: "looka"
+noindex: true
 verdict: "AIVA and Looka serve fundamentally different use cases. Choose AIVA for music tasks and Looka for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

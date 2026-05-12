@@ -1,0 +1,389 @@
+{
+  "_meta": {
+    "site": "https://toolbench.netlify.app",
+    "generated": "2026-05-12",
+    "notes": [
+      "Pegar cada bloque dentro de <script type=\"application/ld+json\">...</script> en el <head> de la página correspondiente.",
+      "Sustituir los placeholders entre << >> con valores reales.",
+      "Para sitios publisher como ToolBench, FAQPage NO produce rich result en Google (restringido a gov/health desde Aug 2023). No se incluye en este pack."
+    ]
+  },
+
+  "01_organization_global": {
+    "_target": "Layout global (todas las páginas) — sustituir o complementar el `publisher` anidado del WebSite actual.",
+    "_required_fields": ["name", "url", "logo"],
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://toolbench.netlify.app/#organization",
+      "name": "ToolBench",
+      "url": "https://toolbench.netlify.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://toolbench.netlify.app/favicon.svg",
+        "width": "192",
+        "height": "192"
+      },
+      "description": "Independent AI tool reviews and comparisons for US small business owners. 57 tools tested, 1,225+ comparisons. No vendor sponsorships, no affiliate kickbacks.",
+      "slogan": "Find the right AI tool for your business, not the hype.",
+      "foundingDate": "<<YYYY-MM-DD>>",
+      "sameAs": [
+        "<<https://twitter.com/your-handle>>",
+        "<<https://github.com/your-org>>",
+        "<<https://www.linkedin.com/company/your-org>>"
+      ]
+    }
+  },
+
+  "02_website_homepage": {
+    "_target": "Reemplazar el bloque WebSite actual en `/`. Mantiene SearchAction y referencia a Organization por @id.",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://toolbench.netlify.app/#website",
+      "name": "ToolBench",
+      "url": "https://toolbench.netlify.app/",
+      "description": "Independent AI tool reviews and comparisons for US small business owners.",
+      "publisher": { "@id": "https://toolbench.netlify.app/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://toolbench.netlify.app/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      },
+      "inLanguage": "en-US"
+    }
+  },
+
+  "03_itemlist_homepage_tools": {
+    "_target": "`/` — Añadir como bloque adicional para hacer elegible el rich result de Carousel. Generar dinámicamente con los 57 tools en build time.",
+    "_template_note": "Repetir el bloque itemListElement por cada tool. Position empieza en 1.",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": "https://toolbench.netlify.app/#tools-list",
+      "name": "Top AI Tools for Small Business 2026",
+      "description": "57 AI tools tested for small business workflows.",
+      "numberOfItems": 57,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://toolbench.netlify.app/reviews/chatgpt",
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "ChatGPT",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web, iOS, Android",
+            "image": "https://toolbench.netlify.app/logos/chatgpt.svg",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.7",
+              "bestRating": "5",
+              "ratingCount": "<<integer>>"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://toolbench.netlify.app/reviews/claude",
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Claude",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web, iOS, Android",
+            "image": "https://toolbench.netlify.app/logos/claude.svg"
+          }
+        }
+      ]
+    }
+  },
+
+  "04_breadcrumb_compare": {
+    "_target": "`/compare/X-vs-Y/` — Falta hoy. Generar dinámicamente.",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://toolbench.netlify.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Compare",
+          "item": "https://toolbench.netlify.app/compare/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "<<Tool A>> vs <<Tool B>>",
+          "item": "https://toolbench.netlify.app/compare/<<slug>>/"
+        }
+      ]
+    }
+  },
+
+  "05_article_compare_improved": {
+    "_target": "`/compare/X-vs-Y/` — Reemplazar el Article actual. Añade image, mainEntityOfPage, y about con los dos SoftwareApplication.",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": "https://toolbench.netlify.app/compare/<<slug>>/#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://toolbench.netlify.app/compare/<<slug>>/"
+      },
+      "headline": "<<Tool A>> vs <<Tool B>>: Which is Better in 2026?",
+      "description": "Head-to-head comparison of <<Tool A>> and <<Tool B>> across pricing, quality, ease of use, and integrations.",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://toolbench.netlify.app/og/compare/<<slug>>.png",
+        "width": "1200",
+        "height": "630"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "<<Author Name>>",
+        "url": "https://toolbench.netlify.app/authors/<<slug>>/",
+        "affiliation": { "@id": "https://toolbench.netlify.app/#organization" }
+      },
+      "publisher": { "@id": "https://toolbench.netlify.app/#organization" },
+      "datePublished": "<<YYYY-MM-DD>>",
+      "dateModified": "<<YYYY-MM-DD>>",
+      "about": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "<<Tool A>>",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "<<Tool B>>",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web"
+        }
+      ]
+    }
+  },
+
+  "06_review_softwareapplication_full": {
+    "_target": "`/reviews/X` — Reemplazar Review actual. Añade offers, aggregateRating, image, y conecta con Organization vía @id.",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "Review",
+      "@id": "https://toolbench.netlify.app/reviews/<<slug>>#review",
+      "itemReviewed": {
+        "@type": "SoftwareApplication",
+        "name": "<<Tool Name>>",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, iOS, Android",
+        "image": "https://toolbench.netlify.app/logos/<<slug>>.svg",
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "USD",
+          "lowPrice": "0",
+          "highPrice": "200",
+          "offerCount": "<<integer>>"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "<<4.7>>",
+          "bestRating": "5",
+          "ratingCount": "<<integer>>"
+        }
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "<<4.7>>",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "<<Reviewer Name>>",
+        "url": "https://toolbench.netlify.app/authors/<<slug>>/"
+      },
+      "publisher": { "@id": "https://toolbench.netlify.app/#organization" },
+      "datePublished": "<<YYYY-MM-DD>>",
+      "dateModified": "<<YYYY-MM-DD>>",
+      "reviewBody": "<<bottom-line text from review>>"
+    }
+  },
+
+  "07_breadcrumb_review_fix": {
+    "_target": "`/reviews/X` — Reemplazar BreadcrumbList actual. Corrige el item de categoría usando URL limpia `/category/<slug>/` en vez de `/?cat=<slug>`.",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://toolbench.netlify.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "<<Category Name>>",
+          "item": "https://toolbench.netlify.app/category/<<category-slug>>/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "<<Tool Name>>",
+          "item": "https://toolbench.netlify.app/reviews/<<slug>>"
+        }
+      ]
+    }
+  },
+
+  "08_blogposting_improved": {
+    "_target": "`/blog/X` — Reemplazar Article. Usa BlogPosting (subtipo más específico) + image + mainEntityOfPage + articleSection.",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "@id": "https://toolbench.netlify.app/blog/<<slug>>#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://toolbench.netlify.app/blog/<<slug>>"
+      },
+      "headline": "<<Post Title>>",
+      "description": "<<160-char description>>",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://toolbench.netlify.app/og/blog/<<slug>>.png",
+        "width": "1200",
+        "height": "630"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Elias",
+        "url": "https://toolbench.netlify.app/authors/elias/",
+        "affiliation": { "@id": "https://toolbench.netlify.app/#organization" }
+      },
+      "publisher": { "@id": "https://toolbench.netlify.app/#organization" },
+      "datePublished": "<<YYYY-MM-DD>>",
+      "dateModified": "<<YYYY-MM-DD>>",
+      "articleSection": "<<Comparison|Guide|How-to|Opinion>>",
+      "keywords": ["<<keyword1>>", "<<keyword2>>"],
+      "wordCount": "<<integer>>",
+      "inLanguage": "en-US"
+    }
+  },
+
+  "09_breadcrumb_blog": {
+    "_target": "`/blog/X` — Falta hoy.",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://toolbench.netlify.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://toolbench.netlify.app/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "<<Post Title>>",
+          "item": "https://toolbench.netlify.app/blog/<<slug>>"
+        }
+      ]
+    }
+  },
+
+  "10_aboutpage_methodology": {
+    "_target": "`/methodology` — Hoy 0 schema. AboutPage envolviendo Article.",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "@id": "https://toolbench.netlify.app/methodology#about",
+      "url": "https://toolbench.netlify.app/methodology",
+      "name": "How We Test AI Tools — ToolBench Methodology",
+      "description": "How we test, review, and score AI tools for small businesses: three-stage testing (sandbox, stress, workflow) and a five-dimension scoring rubric.",
+      "mainEntity": {
+        "@type": "Article",
+        "headline": "Our Methodology",
+        "author": { "@id": "https://toolbench.netlify.app/#organization" },
+        "publisher": { "@id": "https://toolbench.netlify.app/#organization" },
+        "datePublished": "<<YYYY-MM-DD>>",
+        "dateModified": "<<YYYY-MM-DD>>",
+        "image": "https://toolbench.netlify.app/og/methodology.png"
+      },
+      "isPartOf": { "@id": "https://toolbench.netlify.app/#website" }
+    }
+  },
+
+  "11_collectionpage_category_improved": {
+    "_target": "`/category/<slug>` — Reemplazar CollectionPage actual. Añade mainEntity: ItemList con los tools de la categoría.",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": "https://toolbench.netlify.app/category/<<slug>>#collection",
+      "url": "https://toolbench.netlify.app/category/<<slug>>",
+      "name": "Best <<Category>> AI Tools",
+      "description": "<<150-char description>>",
+      "isPartOf": { "@id": "https://toolbench.netlify.app/#website" },
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Top <<Category>> AI Tools 2026",
+        "numberOfItems": "<<count>>",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://toolbench.netlify.app/reviews/<<tool-slug>>",
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "<<Tool>>",
+              "applicationCategory": "BusinessApplication",
+              "operatingSystem": "Web"
+            }
+          }
+        ]
+      }
+    }
+  },
+
+  "12_profilepage_author": {
+    "_target": "Crear `/authors/<slug>/` para cada autor (E-E-A-T). Hoy no existe.",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "@id": "https://toolbench.netlify.app/authors/<<slug>>/#profile",
+      "url": "https://toolbench.netlify.app/authors/<<slug>>/",
+      "name": "<<Author Name>> — Author at ToolBench",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "<<Author Name>>",
+        "url": "https://toolbench.netlify.app/authors/<<slug>>/",
+        "image": "https://toolbench.netlify.app/authors/<<slug>>.jpg",
+        "jobTitle": "<<Editor|Senior Reviewer|...>>",
+        "description": "<<bio paragraph>>",
+        "affiliation": { "@id": "https://toolbench.netlify.app/#organization" },
+        "sameAs": [
+          "<<https://twitter.com/handle>>",
+          "<<https://www.linkedin.com/in/handle>>"
+        ],
+        "knowsAbout": ["Artificial Intelligence", "SaaS Tools", "Small Business Software"]
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ title: "Claude vs Tabnine: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and Tabnine across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "claude"
 toolB: "tabnine"
+noindex: true
 verdict: "Claude and Tabnine serve fundamentally different use cases. Choose Claude for general tasks and Tabnine for code workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "ElevenLabs vs You.com: Which is Better in 2026?"
 description: "Head-to-head comparison of ElevenLabs and You.com across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "elevenlabs"
 toolB: "you-com"
+noindex: true
 verdict: "ElevenLabs and You.com serve fundamentally different use cases. Choose ElevenLabs for audio tasks and You.com for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

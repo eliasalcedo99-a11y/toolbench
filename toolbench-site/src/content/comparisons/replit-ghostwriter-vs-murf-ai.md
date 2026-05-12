@@ -3,6 +3,7 @@ title: "Replit Ghostwriter vs Murf.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of Replit Ghostwriter and Murf.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "replit-ghostwriter"
 toolB: "murf-ai"
+noindex: true
 verdict: "Replit Ghostwriter and Murf.ai serve fundamentally different use cases. Choose Replit Ghostwriter for code tasks and Murf.ai for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

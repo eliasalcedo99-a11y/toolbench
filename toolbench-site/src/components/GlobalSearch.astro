@@ -10,6 +10,7 @@
 </button>
 
 <div class="search-modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-label" hidden>
+  <h2 id="search-modal-label" class="sr-only">Site search</h2>
   <div class="search-backdrop" id="search-backdrop"></div>
   <div class="search-panel">
     <div class="search-input-row">
@@ -18,7 +19,7 @@
         type="search"
         id="search-modal-input"
         placeholder="Search tools, comparisons, articles…"
-        aria-label="Search"
+        aria-label="Search tools, comparisons, articles"
         autocomplete="off"
       />
       <kbd class="search-esc-kbd">ESC</kbd>
@@ -52,6 +53,7 @@
 
   let index: Item[] = [];
   let loaded = false;
+  let lastFocused: HTMLElement | null = null;
 
   async function ensureIndex() {
     if (loaded) return;
@@ -64,10 +66,32 @@
     }
   }
 
+  // Mark all top-level body children except the modal as inert while open,
+  // so screen-readers and keyboard tab order ignore the underlying page.
+  function setBackgroundInert(on: boolean) {
+    if (!modal) return;
+    Array.from(document.body.children).forEach((el) => {
+      if (el === modal) return;
+      if (on) el.setAttribute('inert', '');
+      else el.removeAttribute('inert');
+    });
+  }
+
+  function getFocusable(): HTMLElement[] {
+    if (!modal) return [];
+    return Array.from(
+      modal.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+    ).filter((el) => !el.hasAttribute('hidden'));
+  }
+
   function openModal() {
     if (!modal) return;
+    lastFocused = (document.activeElement as HTMLElement) || null;
     modal.hidden = false;
     document.body.classList.add('no-scroll');
+    setBackgroundInert(true);
     setTimeout(() => input?.focus(), 50);
     ensureIndex();
   }
@@ -76,8 +100,11 @@
     if (!modal) return;
     modal.hidden = true;
     document.body.classList.remove('no-scroll');
+    setBackgroundInert(false);
     if (input) input.value = '';
     renderResults('');
+    lastFocused?.focus();
+    lastFocused = null;
   }
 
   function escapeHtml(s: string): string {
@@ -171,6 +198,23 @@
       modal && !modal.hidden ? closeModal() : openModal();
     }
     if (e.key === 'Escape' && modal && !modal.hidden) closeModal();
+    if (e.key === 'Tab' && modal && !modal.hidden) {
+      const focusable = getFocusable();
+      if (focusable.length === 0) {
+        e.preventDefault();
+        return;
+      }
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+      if (e.shiftKey && active === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
   });
 
   let debounce: number | null = null;

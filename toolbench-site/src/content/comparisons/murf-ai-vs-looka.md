@@ -3,6 +3,7 @@ title: "Murf.ai vs Looka: Which is Better in 2026?"
 description: "Head-to-head comparison of Murf.ai and Looka across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "murf-ai"
 toolB: "looka"
+noindex: true
 verdict: "Murf.ai and Looka serve fundamentally different use cases. Choose Murf.ai for audio tasks and Looka for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

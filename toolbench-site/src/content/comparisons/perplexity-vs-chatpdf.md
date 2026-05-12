@@ -3,6 +3,7 @@ title: "Perplexity vs ChatPDF: Which is Better in 2026?"
 description: "Head-to-head comparison of Perplexity and ChatPDF across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "perplexity"
 toolB: "chatpdf"
+noindex: true
 verdict: "Perplexity and ChatPDF serve fundamentally different use cases. Choose Perplexity for general tasks and ChatPDF for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Google NotebookLM vs Kagi: Which is Better in 2026?"
 description: "Head-to-head comparison of Google NotebookLM and Kagi across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "notebooklm"
 toolB: "kagi"
+noindex: true
 verdict: "Google NotebookLM and Kagi serve fundamentally different use cases. Choose Google NotebookLM for audio tasks and Kagi for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

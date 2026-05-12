@@ -3,6 +3,7 @@ title: "Microsoft Copilot vs Kagi: Which is Better in 2026?"
 description: "Head-to-head comparison of Microsoft Copilot and Kagi across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "copilot"
 toolB: "kagi"
+noindex: true
 verdict: "Microsoft Copilot and Kagi serve fundamentally different use cases. Choose Microsoft Copilot for general tasks and Kagi for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

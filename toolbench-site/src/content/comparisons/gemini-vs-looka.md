@@ -3,6 +3,7 @@ title: "Gemini vs Looka: Which is Better in 2026?"
 description: "Head-to-head comparison of Gemini and Looka across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "gemini"
 toolB: "looka"
+noindex: true
 verdict: "Gemini and Looka serve fundamentally different use cases. Choose Gemini for general tasks and Looka for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

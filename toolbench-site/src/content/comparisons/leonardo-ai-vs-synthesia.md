@@ -3,6 +3,7 @@ title: "Leonardo.ai vs Synthesia: Which is Better in 2026?"
 description: "Head-to-head comparison of Leonardo.ai and Synthesia across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "leonardo-ai"
 toolB: "synthesia"
+noindex: true
 verdict: "Leonardo.ai and Synthesia serve fundamentally different use cases. Choose Leonardo.ai for image tasks and Synthesia for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

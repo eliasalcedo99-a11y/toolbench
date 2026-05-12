@@ -3,6 +3,7 @@ title: "Claude vs Copy.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and Copy.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "claude"
 toolB: "copy-ai"
+noindex: true
 verdict: "Claude and Copy.ai serve fundamentally different use cases. Choose Claude for general tasks and Copy.ai for writing workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Scholarcy vs ChatPDF: Which is Better in 2026?"
 description: "Head-to-head comparison of Scholarcy and ChatPDF across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "scholarcy"
 toolB: "chatpdf"
+noindex: true
 verdict: "Scholarcy and ChatPDF serve fundamentally different use cases. Choose Scholarcy for search tasks and ChatPDF for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

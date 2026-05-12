@@ -3,6 +3,7 @@ title: "Claude vs AIVA: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and AIVA across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "claude"
 toolB: "aiva"
+noindex: true
 verdict: "Claude and AIVA serve fundamentally different use cases. Choose Claude for general tasks and AIVA for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -27,11 +27,15 @@ const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
 
 const articleSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Article',
+  '@type': 'BlogPosting',
   headline: d.title,
   description: d.description,
-  author: { '@type': 'Person', name: d.author.name, affiliation: SITE.name },
-  publisher: { '@type': 'Organization', name: SITE.name },
+  author: { 
+    '@type': 'Person', 
+    name: d.author.name, 
+    affiliation: { '@id': `${SITE.url}/#organization` }
+  },
+  publisher: { '@id': `${SITE.url}/#organization` },
   datePublished: d.publishedDate.toISOString().slice(0, 10),
   dateModified: (d.updatedDate ?? d.publishedDate).toISOString().slice(0, 10),
 };
@@ -45,13 +49,33 @@ const dateFmt = d.publishedDate.toLocaleDateString('en-US', {
   month: 'long',
   day: 'numeric',
 });
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Blog',
+      item: `${SITE.url}/blog`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: d.title,
+      item: `${SITE.url}/blog/${post.slug}`,
+    },
+  ],
+};
 ---
 
 <BaseLayout 
   title={d.title} 
   description={d.description} 
   ogType="article" 
-  jsonLd={articleSchema}
+  jsonLd={[articleSchema, breadcrumbSchema]}
   image={d.image}
 >
   <div class="container-narrow">
@@ -75,6 +99,11 @@ const dateFmt = d.publishedDate.toLocaleDateString('en-US', {
         <span>{dateFmt}</span>
       </div>
     </header>
+    {d.image && (
+      <div style="margin-top: var(--s4); border-radius: var(--r-xl); overflow: hidden; border: 1px solid var(--border);">
+        <img src={d.image} alt={d.title} style="width: 100%; height: auto; display: block; max-height: 500px; object-fit: cover;" />
+      </div>
+    )}
   </div>
 
   <div class="container">

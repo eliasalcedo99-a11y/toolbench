@@ -3,6 +3,7 @@ title: "Anyword vs Midjourney: Which is Better in 2026?"
 description: "Head-to-head comparison of Anyword and Midjourney across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "anyword"
 toolB: "midjourney"
+noindex: true
 verdict: "Anyword and Midjourney serve fundamentally different use cases. Choose Anyword for writing tasks and Midjourney for image workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Gemini vs Stable Diffusion: Which is Better in 2026?"
 description: "Head-to-head comparison of Gemini and Stable Diffusion across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "gemini"
 toolB: "stable-diffusion"
+noindex: true
 verdict: "Gemini and Stable Diffusion serve fundamentally different use cases. Choose Gemini for general tasks and Stable Diffusion for image workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Anyword vs Runway: Which is Better in 2026?"
 description: "Head-to-head comparison of Anyword and Runway across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "anyword"
 toolB: "runway"
+noindex: true
 verdict: "Anyword and Runway serve fundamentally different use cases. Choose Anyword for writing tasks and Runway for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

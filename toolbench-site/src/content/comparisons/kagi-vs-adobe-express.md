@@ -3,6 +3,7 @@ title: "Kagi vs Adobe Express: Which is Better in 2026?"
 description: "Head-to-head comparison of Kagi and Adobe Express across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "kagi"
 toolB: "adobe-express"
+noindex: true
 verdict: "Kagi and Adobe Express serve fundamentally different use cases. Choose Kagi for search tasks and Adobe Express for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Murf.ai vs Google Workspace AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Murf.ai and Google Workspace AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "murf-ai"
 toolB: "google-workspace-ai"
+noindex: true
 verdict: "Murf.ai and Google Workspace AI serve fundamentally different use cases. Choose Murf.ai for audio tasks and Google Workspace AI for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Otter.ai vs Canva Magic Design: Which is Better in 2026?"
 description: "Head-to-head comparison of Otter.ai and Canva Magic Design across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "otter-ai"
 toolB: "canva-magic-design"
+noindex: true
 verdict: "Otter.ai and Canva Magic Design serve fundamentally different use cases. Choose Otter.ai for audio tasks and Canva Magic Design for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

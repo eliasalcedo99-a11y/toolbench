@@ -3,6 +3,7 @@ title: "Claude vs Scholarcy: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and Scholarcy across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "claude"
 toolB: "scholarcy"
+noindex: true
 verdict: "Claude and Scholarcy serve fundamentally different use cases. Choose Claude for general tasks and Scholarcy for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

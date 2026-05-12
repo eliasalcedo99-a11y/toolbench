@@ -65,6 +65,7 @@ const comparisons = defineCollection({
     description: z.string(),
     toolA: z.string(),
     toolB: z.string(),
+    noindex: z.boolean().optional(),
     verdict: z.string(),
     features: z
       .array(

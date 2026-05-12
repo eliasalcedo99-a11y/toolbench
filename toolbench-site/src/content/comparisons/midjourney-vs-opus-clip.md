@@ -3,6 +3,7 @@ title: "Midjourney vs Opus Clip: Which is Better in 2026?"
 description: "Head-to-head comparison of Midjourney and Opus Clip across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "midjourney"
 toolB: "opus-clip"
+noindex: true
 verdict: "Midjourney and Opus Clip serve fundamentally different use cases. Choose Midjourney for image tasks and Opus Clip for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Perplexity vs Looka: Which is Better in 2026?"
 description: "Head-to-head comparison of Perplexity and Looka across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "perplexity"
 toolB: "looka"
+noindex: true
 verdict: "Perplexity and Looka serve fundamentally different use cases. Choose Perplexity for general tasks and Looka for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

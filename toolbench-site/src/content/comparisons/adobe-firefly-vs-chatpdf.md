@@ -3,6 +3,7 @@ title: "Adobe Firefly vs ChatPDF: Which is Better in 2026?"
 description: "Head-to-head comparison of Adobe Firefly and ChatPDF across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "adobe-firefly"
 toolB: "chatpdf"
+noindex: true
 verdict: "Adobe Firefly and ChatPDF serve fundamentally different use cases. Choose Adobe Firefly for image tasks and ChatPDF for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Grammarly vs Google Workspace AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Grammarly and Google Workspace AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "grammarly"
 toolB: "google-workspace-ai"
+noindex: true
 verdict: "Grammarly and Google Workspace AI serve fundamentally different use cases. Choose Grammarly for writing tasks and Google Workspace AI for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

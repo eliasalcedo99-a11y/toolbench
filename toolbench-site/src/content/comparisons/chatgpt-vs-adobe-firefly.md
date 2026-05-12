@@ -3,6 +3,7 @@ title: "ChatGPT vs Adobe Firefly: Which is Better in 2026?"
 description: "Head-to-head comparison of ChatGPT and Adobe Firefly across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "chatgpt"
 toolB: "adobe-firefly"
+noindex: true
 verdict: "ChatGPT and Adobe Firefly serve fundamentally different use cases. Choose ChatGPT for general tasks and Adobe Firefly for image workflows — they complement rather than compete."
 features:
   - label: "Starting price"

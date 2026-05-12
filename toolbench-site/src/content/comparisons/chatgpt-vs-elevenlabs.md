@@ -3,6 +3,7 @@ title: "ChatGPT vs ElevenLabs: Which is Better in 2026?"
 description: "Head-to-head comparison of ChatGPT and ElevenLabs across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "chatgpt"
 toolB: "elevenlabs"
+noindex: true
 verdict: "ChatGPT and ElevenLabs serve fundamentally different use cases. Choose ChatGPT for general tasks and ElevenLabs for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

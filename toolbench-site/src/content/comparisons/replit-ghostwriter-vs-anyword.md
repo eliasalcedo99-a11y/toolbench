@@ -3,6 +3,7 @@ title: "Replit Ghostwriter vs Anyword: Which is Better in 2026?"
 description: "Head-to-head comparison of Replit Ghostwriter and Anyword across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "replit-ghostwriter"
 toolB: "anyword"
+noindex: true
 verdict: "Replit Ghostwriter and Anyword serve fundamentally different use cases. Choose Replit Ghostwriter for code tasks and Anyword for writing workflows — they complement rather than compete."
 features:
   - label: "Starting price"

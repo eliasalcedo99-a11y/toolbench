@@ -3,6 +3,7 @@ title: "Anyword vs Adobe Firefly: Which is Better in 2026?"
 description: "Head-to-head comparison of Anyword and Adobe Firefly across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "anyword"
 toolB: "adobe-firefly"
+noindex: true
 verdict: "Anyword and Adobe Firefly serve fundamentally different use cases. Choose Anyword for writing tasks and Adobe Firefly for image workflows — they complement rather than compete."
 features:
   - label: "Starting price"

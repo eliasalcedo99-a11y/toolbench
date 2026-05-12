@@ -3,6 +3,7 @@ title: "You.com vs Tableau AI: Which is Better in 2026?"
 description: "Head-to-head comparison of You.com and Tableau AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "you-com"
 toolB: "tableau-ai"
+noindex: true
 verdict: "You.com and Tableau AI serve fundamentally different use cases. Choose You.com for search tasks and Tableau AI for business workflows — they complement rather than compete."
 features:
   - label: "Starting price"

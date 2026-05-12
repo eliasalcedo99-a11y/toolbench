@@ -3,6 +3,7 @@ title: "ChatGPT vs Kagi: Which is Better in 2026?"
 description: "Head-to-head comparison of ChatGPT and Kagi across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "chatgpt"
 toolB: "kagi"
+noindex: true
 verdict: "ChatGPT and Kagi serve fundamentally different use cases. Choose ChatGPT for general tasks and Kagi for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -1,0 +1,43 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { SITE } from '~/data/categories';
+
+const authorSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Elias',
+    jobTitle: 'Editor',
+    worksFor: { '@id': `${SITE.url}/#organization` },
+    sameAs: [
+      'https://linkedin.com/in/elias',
+      'https://twitter.com/elias'
+    ]
+  }
+};
+---
+
+<BaseLayout 
+  title={`Elias — Editor at ${SITE.name}`}
+  description="Learn more about Elias, Editor and AI tool reviewer at ToolBench."
+  jsonLd={authorSchema}
+>
+  <div class="container-narrow">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <span>Authors</span>
+      <span class="sep">/</span>
+      <span>Elias</span>
+    </nav>
+    <header style="margin-top:var(--s4);text-align:center;">
+      <div style="width:100px;height:100px;border-radius:50%;background:var(--amber);display:inline-flex;align-items:center;justify-content:center;font-size:40px;font-weight:700;color:var(--bg);">E</div>
+      <h1 style="margin-top:var(--s2);">Elias</h1>
+      <p class="lead">Editor & AI Tools Reviewer</p>
+    </header>
+    <div class="article" style="margin-top:var(--s4);">
+      <p>Elias is a technology analyst and editor at ToolBench. With a background in web architecture and business operations, Elias specializes in evaluating AI tools through rigorous, real-world testing scenarios designed specifically for small and medium-sized businesses.</p>
+    </div>
+  </div>
+</BaseLayout>

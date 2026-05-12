@@ -3,6 +3,7 @@ title: "Claude vs Tableau AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and Tableau AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "claude"
 toolB: "tableau-ai"
+noindex: true
 verdict: "Claude and Tableau AI serve fundamentally different use cases. Choose Claude for general tasks and Tableau AI for business workflows — they complement rather than compete."
 features:
   - label: "Starting price"

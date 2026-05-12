@@ -3,6 +3,7 @@ title: "Claude vs Jasper AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and Jasper AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "claude"
 toolB: "jasper-ai"
+noindex: true
 verdict: "Claude and Jasper AI serve fundamentally different use cases. Choose Claude for general tasks and Jasper AI for writing workflows — they complement rather than compete."
 features:
   - label: "Starting price"

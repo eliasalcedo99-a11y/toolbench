@@ -3,6 +3,7 @@ title: "Kagi vs Tableau AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Kagi and Tableau AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "kagi"
 toolB: "tableau-ai"
+noindex: true
 verdict: "Kagi and Tableau AI serve fundamentally different use cases. Choose Kagi for search tasks and Tableau AI for business workflows — they complement rather than compete."
 features:
   - label: "Starting price"

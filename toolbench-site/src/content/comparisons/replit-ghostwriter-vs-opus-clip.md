@@ -3,6 +3,7 @@ title: "Replit Ghostwriter vs Opus Clip: Which is Better in 2026?"
 description: "Head-to-head comparison of Replit Ghostwriter and Opus Clip across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "replit-ghostwriter"
 toolB: "opus-clip"
+noindex: true
 verdict: "Replit Ghostwriter and Opus Clip serve fundamentally different use cases. Choose Replit Ghostwriter for code tasks and Opus Clip for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Midjourney vs Canva Magic Design: Which is Better in 2026?"
 description: "Head-to-head comparison of Midjourney and Canva Magic Design across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "midjourney"
 toolB: "canva-magic-design"
+noindex: true
 verdict: "Midjourney and Canva Magic Design serve fundamentally different use cases. Choose Midjourney for image tasks and Canva Magic Design for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

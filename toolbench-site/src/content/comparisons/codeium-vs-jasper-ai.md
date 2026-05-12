@@ -3,6 +3,7 @@ title: "Codeium vs Jasper AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Codeium and Jasper AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "codeium"
 toolB: "jasper-ai"
+noindex: true
 verdict: "Codeium and Jasper AI serve fundamentally different use cases. Choose Codeium for code tasks and Jasper AI for writing workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Perplexity vs Writesonic: Which is Better in 2026?"
 description: "Head-to-head comparison of Perplexity and Writesonic across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "perplexity"
 toolB: "writesonic"
+noindex: true
 verdict: "Perplexity and Writesonic serve fundamentally different use cases. Choose Perplexity for general tasks and Writesonic for writing workflows — they complement rather than compete."
 features:
   - label: "Starting price"

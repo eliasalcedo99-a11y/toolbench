@@ -3,6 +3,7 @@ title: "Anyword vs Looka: Which is Better in 2026?"
 description: "Head-to-head comparison of Anyword and Looka across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "anyword"
 toolB: "looka"
+noindex: true
 verdict: "Anyword and Looka serve fundamentally different use cases. Choose Anyword for writing tasks and Looka for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

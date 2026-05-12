@@ -3,6 +3,7 @@ title: "AIVA vs Notion AI: Which is Better in 2026?"
 description: "Head-to-head comparison of AIVA and Notion AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "aiva"
 toolB: "notion-ai"
+noindex: true
 verdict: "AIVA and Notion AI serve fundamentally different use cases. Choose AIVA for music tasks and Notion AI for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Figma AI vs Microsoft 365 Copilot: Which is Better in 2026?"
 description: "Head-to-head comparison of Figma AI and Microsoft 365 Copilot across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "figma-ai"
 toolB: "microsoft-365-copilot"
+noindex: true
 verdict: "Figma AI and Microsoft 365 Copilot serve fundamentally different use cases. Choose Figma AI for design tasks and Microsoft 365 Copilot for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

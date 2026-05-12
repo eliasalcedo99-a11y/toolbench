@@ -3,6 +3,7 @@ title: "Stable Diffusion vs Kagi: Which is Better in 2026?"
 description: "Head-to-head comparison of Stable Diffusion and Kagi across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "stable-diffusion"
 toolB: "kagi"
+noindex: true
 verdict: "Stable Diffusion and Kagi serve fundamentally different use cases. Choose Stable Diffusion for image tasks and Kagi for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

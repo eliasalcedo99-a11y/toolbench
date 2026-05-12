@@ -3,6 +3,7 @@ title: "ChatGPT vs Midjourney: Which is Better in 2026?"
 description: "Head-to-head comparison of ChatGPT and Midjourney across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "chatgpt"
 toolB: "midjourney"
+noindex: true
 verdict: "ChatGPT and Midjourney serve fundamentally different use cases. Choose ChatGPT for general tasks and Midjourney for image workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Runway vs Descript: Which is Better in 2026?"
 description: "Head-to-head comparison of Runway and Descript across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "runway"
 toolB: "descript"
+noindex: true
 verdict: "Runway and Descript serve fundamentally different use cases. Choose Runway for video tasks and Descript for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

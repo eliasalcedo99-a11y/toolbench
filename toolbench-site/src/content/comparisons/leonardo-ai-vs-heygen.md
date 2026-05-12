@@ -3,6 +3,7 @@ title: "Leonardo.ai vs HeyGen: Which is Better in 2026?"
 description: "Head-to-head comparison of Leonardo.ai and HeyGen across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "leonardo-ai"
 toolB: "heygen"
+noindex: true
 verdict: "Leonardo.ai and HeyGen serve fundamentally different use cases. Choose Leonardo.ai for image tasks and HeyGen for video workflows — they complement rather than compete."
 features:
   - label: "Starting price"

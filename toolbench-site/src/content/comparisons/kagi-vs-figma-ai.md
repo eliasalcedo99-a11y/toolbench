@@ -3,6 +3,7 @@ title: "Kagi vs Figma AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Kagi and Figma AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "kagi"
 toolB: "figma-ai"
+noindex: true
 verdict: "Kagi and Figma AI serve fundamentally different use cases. Choose Kagi for search tasks and Figma AI for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

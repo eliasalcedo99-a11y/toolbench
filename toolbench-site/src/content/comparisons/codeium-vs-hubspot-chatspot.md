@@ -3,6 +3,7 @@ title: "Codeium vs HubSpot ChatSpot: Which is Better in 2026?"
 description: "Head-to-head comparison of Codeium and HubSpot ChatSpot across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "codeium"
 toolB: "hubspot-chatspot"
+noindex: true
 verdict: "Codeium and HubSpot ChatSpot serve fundamentally different use cases. Choose Codeium for code tasks and HubSpot ChatSpot for business workflows — they complement rather than compete."
 features:
   - label: "Starting price"

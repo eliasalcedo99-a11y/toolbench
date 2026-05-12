@@ -3,6 +3,7 @@ title: "Stable Diffusion vs Murf.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of Stable Diffusion and Murf.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "stable-diffusion"
 toolB: "murf-ai"
+noindex: true
 verdict: "Stable Diffusion and Murf.ai serve fundamentally different use cases. Choose Stable Diffusion for image tasks and Murf.ai for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

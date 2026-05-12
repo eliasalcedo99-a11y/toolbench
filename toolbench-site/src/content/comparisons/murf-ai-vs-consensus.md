@@ -3,6 +3,7 @@ title: "Murf.ai vs Consensus: Which is Better in 2026?"
 description: "Head-to-head comparison of Murf.ai and Consensus across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "murf-ai"
 toolB: "consensus"
+noindex: true
 verdict: "Murf.ai and Consensus serve fundamentally different use cases. Choose Murf.ai for audio tasks and Consensus for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

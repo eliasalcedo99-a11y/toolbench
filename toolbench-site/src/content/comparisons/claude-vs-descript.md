@@ -3,6 +3,7 @@ title: "Claude vs Descript: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and Descript across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "claude"
 toolB: "descript"
+noindex: true
 verdict: "Claude and Descript serve fundamentally different use cases. Choose Claude for general tasks and Descript for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

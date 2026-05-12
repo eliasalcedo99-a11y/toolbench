@@ -3,6 +3,7 @@ title: "Adobe Firefly vs Notion AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Adobe Firefly and Notion AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "adobe-firefly"
 toolB: "notion-ai"
+noindex: true
 verdict: "Adobe Firefly and Notion AI serve fundamentally different use cases. Choose Adobe Firefly for image tasks and Notion AI for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

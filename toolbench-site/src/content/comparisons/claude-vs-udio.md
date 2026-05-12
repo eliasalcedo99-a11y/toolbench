@@ -3,6 +3,7 @@ title: "Claude vs Udio: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and Udio across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "claude"
 toolB: "udio"
+noindex: true
 verdict: "Claude and Udio serve fundamentally different use cases. Choose Claude for general tasks and Udio for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

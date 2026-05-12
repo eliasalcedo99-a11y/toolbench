@@ -3,6 +3,7 @@ title: "Copy.ai vs Otter.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of Copy.ai and Otter.ai across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "copy-ai"
 toolB: "otter-ai"
+noindex: true
 verdict: "Copy.ai and Otter.ai serve fundamentally different use cases. Choose Copy.ai for writing tasks and Otter.ai for audio workflows — they complement rather than compete."
 features:
   - label: "Starting price"

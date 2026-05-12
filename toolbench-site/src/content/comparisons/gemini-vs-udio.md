@@ -3,6 +3,7 @@ title: "Gemini vs Udio: Which is Better in 2026?"
 description: "Head-to-head comparison of Gemini and Udio across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "gemini"
 toolB: "udio"
+noindex: true
 verdict: "Gemini and Udio serve fundamentally different use cases. Choose Gemini for general tasks and Udio for music workflows — they complement rather than compete."
 features:
   - label: "Starting price"

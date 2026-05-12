@@ -3,6 +3,7 @@ title: "Kagi vs ChatPDF: Which is Better in 2026?"
 description: "Head-to-head comparison of Kagi and ChatPDF across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "kagi"
 toolB: "chatpdf"
+noindex: true
 verdict: "Kagi and ChatPDF serve fundamentally different use cases. Choose Kagi for search tasks and ChatPDF for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

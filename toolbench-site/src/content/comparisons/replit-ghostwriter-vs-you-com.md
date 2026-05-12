@@ -3,6 +3,7 @@ title: "Replit Ghostwriter vs You.com: Which is Better in 2026?"
 description: "Head-to-head comparison of Replit Ghostwriter and You.com across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "replit-ghostwriter"
 toolB: "you-com"
+noindex: true
 verdict: "Replit Ghostwriter and You.com serve fundamentally different use cases. Choose Replit Ghostwriter for code tasks and You.com for search workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "HubSpot ChatSpot vs Google Workspace AI: Which is Better in 2026?"
 description: "Head-to-head comparison of HubSpot ChatSpot and Google Workspace AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "hubspot-chatspot"
 toolB: "google-workspace-ai"
+noindex: true
 verdict: "HubSpot ChatSpot and Google Workspace AI serve fundamentally different use cases. Choose HubSpot ChatSpot for business tasks and Google Workspace AI for productivity workflows — they complement rather than compete."
 features:
   - label: "Starting price"

@@ -3,6 +3,7 @@ title: "Midjourney vs Tableau AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Midjourney and Tableau AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "midjourney"
 toolB: "tableau-ai"
+noindex: true
 verdict: "Midjourney and Tableau AI serve fundamentally different use cases. Choose Midjourney for image tasks and Tableau AI for business workflows — they complement rather than compete."
 features:
   - label: "Starting price"

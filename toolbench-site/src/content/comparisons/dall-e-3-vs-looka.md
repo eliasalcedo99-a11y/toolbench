@@ -3,6 +3,7 @@ title: "DALL-E 3 vs Looka: Which is Better in 2026?"
 description: "Head-to-head comparison of DALL-E 3 and Looka across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "dall-e-3"
 toolB: "looka"
+noindex: true
 verdict: "DALL-E 3 and Looka serve fundamentally different use cases. Choose DALL-E 3 for image tasks and Looka for design workflows — they complement rather than compete."
 features:
   - label: "Starting price"

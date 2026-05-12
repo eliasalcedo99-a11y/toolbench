@@ -3,6 +3,7 @@ title: "Codeium vs Tableau AI: Which is Better in 2026?"
 description: "Head-to-head comparison of Codeium and Tableau AI across pricing, quality, ease of use, and integrations for AI workflows."
 toolA: "codeium"
 toolB: "tableau-ai"
+noindex: true
 verdict: "Codeium and Tableau AI serve fundamentally different use cases. Choose Codeium for code tasks and Tableau AI for business workflows — they complement rather than compete."
 features:
   - label: "Starting price"
