@@ -49,7 +49,7 @@ const itemListSchema = {
 <BaseLayout title={undefined} jsonLd={[websiteSchema, itemListSchema]}>
   <div class="container">
     <section class="hero">
-      <div class="eyebrow">AI Tools Directory — 2026</div>
+      <div class="eyebrow">AI Tools Directory · 2026</div>
       <h1>
         Real <em class="accent">verdicts</em> on the AI tools small businesses actually use.
       </h1>
@@ -60,7 +60,7 @@ const itemListSchema = {
         <input
           id="search-input"
           type="search"
-          placeholder={`Search ${SITE.totals.toolsReviewed} tools — 'chatgpt', 'midjourney', 'image'...`}
+          placeholder={`Search ${SITE.totals.toolsReviewed} tools: 'chatgpt', 'midjourney', 'image'...`}
           aria-label="Search tools"
         />
         <button type="submit">Search</button>
@@ -73,7 +73,7 @@ const itemListSchema = {
         <div class="comparator-promo-text">
           <div class="comparator-promo-eyebrow">⚡ NEW · AI Matrix</div>
           <div class="comparator-promo-title">Find the best AI for any task</div>
-          <div class="comparator-promo-sub">{tools.length} AI tools ranked across {USE_CASES.length} use cases — code, writing, images, video, and more.</div>
+          <div class="comparator-promo-sub">{tools.length} AI tools ranked across {USE_CASES.length} use cases: code, writing, images, video, and more.</div>
         </div>
         <div class="comparator-promo-chips">
           {USE_CASES.slice(0, 6).map(uc => (
@@ -88,38 +88,46 @@ const itemListSchema = {
     <CategoryFilter />
 
     <div id="tools-container">
-      {toolsByCategory.map(group => (
-        <section class="category-section" data-cat-section={group.cat.id} style="margin-bottom:var(--s5);">
-          <h2 class="section-title" style="margin-bottom:var(--s3);">{group.cat.icon} {group.cat.label} AI Tools</h2>
-          <div class="tools-grid">
-            {group.tools.map((tool) => (
-              <ToolCard
-                slug={tool.slug}
-                name={tool.data.name}
-                category={tool.data.category}
-                icon={tool.data.icon}
-                iconBg={tool.data.iconBg}
-                iconColor={tool.data.iconColor}
-                badge={tool.data.badge}
-                rating={tool.data.rating}
-                priceLabel={tool.data.priceLabel}
-                description={tool.data.description}
-                keywords={tool.data.keywords}
-              />
-            ))}
-          </div>
-        </section>
-      ))}
-      <div class="no-results" id="no-results" style="display:none; text-align:center; padding:var(--s4);">
+      {(() => {
+        let ordinal = 0;
+        return toolsByCategory.map(group => (
+          <section class="category-section" data-cat-section={group.cat.id}>
+            <h2 class="section-title">{group.cat.icon} {group.cat.label} AI Tools</h2>
+            <div class="tools-grid">
+              {group.tools.map((tool) => {
+                const priority = ordinal < 6;
+                ordinal++;
+                return (
+                  <ToolCard
+                    slug={tool.slug}
+                    name={tool.data.name}
+                    category={tool.data.category}
+                    icon={tool.data.icon}
+                    iconBg={tool.data.iconBg}
+                    iconColor={tool.data.iconColor}
+                    badge={tool.data.badge}
+                    rating={tool.data.rating}
+                    priceLabel={tool.data.priceLabel}
+                    description={tool.data.description}
+                    keywords={tool.data.keywords}
+                    priority={priority}
+                  />
+                );
+              })}
+            </div>
+          </section>
+        ));
+      })()}
+      <div class="no-results" id="no-results" hidden>
         No tools match your search. Try a different keyword or
         <button type="button" id="reset-filters" class="link-style">reset filters</button>.
       </div>
     </div>
 
-    <a class="cta-banner" href="/compare/chatgpt-vs-claude" style="margin-top:var(--s5);">
+    <a class="cta-banner" href="/compare/chatgpt-vs-claude">
       <div class="cta-banner-text">
         <div class="cta-banner-eyebrow">Trending Comparison · This week</div>
-        <div class="cta-banner-title">ChatGPT vs Claude — which is the better all-rounder in 2026?</div>
+        <div class="cta-banner-title">ChatGPT vs Claude: which is the better all-rounder in 2026?</div>
       </div>
       <span class="btn btn-primary">Compare side-by-side →</span>
     </a>
@@ -129,7 +137,6 @@ const itemListSchema = {
 
   <script>
     const container = document.getElementById('tools-container');
-    const cards = container?.querySelectorAll<HTMLAnchorElement>('.card[data-cat]') ?? [];
     const sections = container?.querySelectorAll<HTMLElement>('.category-section') ?? [];
     const pills = document.querySelectorAll<HTMLButtonElement>('.pill');
     const noResults = document.getElementById('no-results');
@@ -169,7 +176,7 @@ const itemListSchema = {
         sec.style.display = sectionVisibleCards > 0 ? 'block' : 'none';
       });
 
-      if (noResults) noResults.style.display = totalVisible === 0 ? 'block' : 'none';
+      if (noResults) noResults.hidden = totalVisible !== 0;
     }
 
     pills.forEach((p) => {

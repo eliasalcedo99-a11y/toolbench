@@ -11,7 +11,7 @@ const visibleCats = CATEGORIES.filter((c) => c.id !== 'all').slice(0, 8);
     <div class="footer-newsletter" id="newsletter">
       <div class="footer-newsletter-text">
         <h4>Get the weekly verdict.</h4>
-        <p>One short email. The best AI tool we tested this week — and one we'd skip. No spam, no affiliate fluff.</p>
+        <p>One short email. The best AI tool we tested this week, plus one we'd skip. No spam, no affiliate fluff.</p>
       </div>
       <form class="footer-newsletter-form" id="newsletter-form" novalidate>
         <input type="text" name="botfield" tabindex="-1" autocomplete="off" aria-hidden="true" class="honeypot" />
@@ -32,10 +32,14 @@ const visibleCats = CATEGORIES.filter((c) => c.id !== 'all').slice(0, 8);
       <div>
         <a class="logo" href="/">ToolBench<span class="logo-dot" aria-hidden="true"></span></a>
         <p class="footer-tag">{SITE.tagline} Independent AI tool reviews and comparisons.</p>
-        <div class="footer-social" aria-label="Social links">
-          <a href="https://twitter.com" aria-label="Twitter / X" rel="me noopener">𝕏</a>
-          <a href="https://github.com" aria-label="GitHub" rel="me noopener">⌨</a>
-          <a href="/rss.xml" aria-label="RSS feed">📡</a>
+        <div class="footer-social" aria-label="Subscribe">
+          <a href="/rss.xml" aria-label="RSS feed">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+              <path d="M4 4v3a13 13 0 0113 13h3A16 16 0 004 4z"/>
+              <path d="M4 11v3a6 6 0 016 6h3a9 9 0 00-9-9z"/>
+              <circle cx="5.5" cy="18.5" r="2"/>
+            </svg>
+          </a>
         </div>
       </div>
       <div class="footer-col">

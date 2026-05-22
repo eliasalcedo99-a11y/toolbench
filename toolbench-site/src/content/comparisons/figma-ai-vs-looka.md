@@ -1,9 +1,10 @@
----
+﻿---
+noindex: true
 title: "Figma AI vs Looka: Which is Better in 2026?"
 description: "Head-to-head comparison of Figma AI and Looka across pricing, quality, ease of use, and integrations for design workflows."
 toolA: "figma-ai"
 toolB: "looka"
-verdict: "For users demanding the highest level of integration and quality, Figma AI is the clear winner in this comparison. Looka remains a strong contender, particularly for those who prioritize affordability over advanced edge-case features."
+verdict: "Figma AI pulls ahead on integrations (90/100 vs 35/100), while Looka still wins on value for money (85/100). Default to Figma AI; Looka only makes sense when value for money dominates your decision."
 features:
   - label: "Starting price"
     a: "Free"

@@ -48,11 +48,27 @@ export const SITE = {
   name: 'ToolBench',
   tagline: 'Find the right AI tool for your business, not the hype.',
   description:
-    'Independent AI tool reviews and comparisons for US small business owners. 57 tools tested, 1,225+ comparisons. No vendor sponsorships, no affiliate kickbacks.',
+    'Independent AI tool reviews and comparisons for US small business owners. 57 tools tested, 90+ side-by-side comparisons. No vendor sponsorships, no affiliate kickbacks.',
   url: 'https://toolbench.netlify.app',
   totals: {
     toolsReviewed: 57,
-    comparisons: '1,225+',
+    comparisons: '90+',
     independence: '100%',
+  },
+  // Fill these in only when the real profiles exist. Empty values are omitted
+  // from Organization.sameAs / twitter:site to avoid pointing search engines
+  // at dead handles (a negative E-E-A-T signal).
+  social: {
+    twitterHandle: '', // e.g. 'toolbench' (without @)
+    twitterUrl: '',    // e.g. 'https://twitter.com/toolbench'
+    linkedinUrl: '',   // e.g. 'https://www.linkedin.com/company/toolbench'
+    githubUrl: '',     // e.g. 'https://github.com/toolbench'
+  },
+  authors: {
+    elias: {
+      name: 'Elias',
+      twitterUrl: '',  // fill when real handle exists
+      linkedinUrl: '', // fill when real handle exists
+    },
   },
 };

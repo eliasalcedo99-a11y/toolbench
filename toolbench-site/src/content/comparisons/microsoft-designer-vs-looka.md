@@ -1,9 +1,10 @@
----
+﻿---
+noindex: true
 title: "Microsoft Designer vs Looka: Which is Better in 2026?"
 description: "Head-to-head comparison of Microsoft Designer and Looka across pricing, quality, ease of use, and integrations for design workflows."
 toolA: "microsoft-designer"
 toolB: "looka"
-verdict: "When comparing Microsoft Designer and Looka, we found that Microsoft Designer generally delivers better performance and versatility. Looka still holds its ground as a reliable, budget-friendly solution for everyday tasks."
+verdict: "Microsoft Designer pulls ahead on integrations (75/100 vs 35/100), while Looka still wins on ease of use (92/100). Microsoft Designer is the safer bet for most teams; Looka wins for buyers prioritising ease of use."
 features:
   - label: "Starting price"
     a: "Free"

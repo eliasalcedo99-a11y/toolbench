@@ -1,9 +1,10 @@
----
+﻿---
+noindex: true
 title: "ChatGPT vs Microsoft Copilot: Which is Better in 2026?"
 description: "Head-to-head comparison of ChatGPT and Microsoft Copilot across pricing, quality, ease of use, and integrations for general workflows."
 toolA: "chatgpt"
 toolB: "copilot"
-verdict: "While both ChatGPT and Microsoft Copilot offer robust capabilities, ChatGPT stands out for its comprehensive feature set and overall performance. However, Microsoft Copilot is a highly capable alternative that may better suit teams with strict budget requirements."
+verdict: "ChatGPT pulls ahead on value for money (82/100 vs 62/100), while Microsoft Copilot still wins on support (82/100). ChatGPT is the safer bet for most teams; Microsoft Copilot wins for buyers prioritising support."
 features:
   - label: "Starting price"
     a: "Free"

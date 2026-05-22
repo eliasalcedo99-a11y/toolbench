@@ -2,24 +2,25 @@
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { SITE } from '~/data/categories';
 
+const author = SITE.authors.elias;
+const authorSameAs = [author.linkedinUrl, author.twitterUrl].filter(Boolean);
+const personSchema: Record<string, unknown> = {
+  '@type': 'Person',
+  name: author.name,
+  jobTitle: 'Editor',
+  worksFor: { '@id': `${SITE.url}/#organization` },
+};
+if (authorSameAs.length > 0) personSchema.sameAs = authorSameAs;
+
 const authorSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfilePage',
-  mainEntity: {
-    '@type': 'Person',
-    name: 'Elias',
-    jobTitle: 'Editor',
-    worksFor: { '@id': `${SITE.url}/#organization` },
-    sameAs: [
-      'https://linkedin.com/in/elias',
-      'https://twitter.com/elias'
-    ]
-  }
+  mainEntity: personSchema,
 };
 ---
 
 <BaseLayout 
-  title={`Elias — Editor at ${SITE.name}`}
+  title={`Elias · Editor at ${SITE.name}`}
   description="Learn more about Elias, Editor and AI tool reviewer at ToolBench."
   jsonLd={authorSchema}
 >

@@ -1,0 +1,169 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { SITE } from '~/data/categories';
+
+const title = 'Privacy Policy';
+const description = 'How ToolBench handles your data: cookies, Google AdSense and Analytics, the newsletter, and the choices you have over your information.';
+const lastUpdated = 'May 21, 2026';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: `${title} · ${SITE.name}`,
+  description,
+  url: `${SITE.url}/privacy`,
+  publisher: { '@id': `${SITE.url}/#organization` },
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <div class="container">
+    <section class="hero" style="padding-bottom: 1.5rem;">
+      <div class="eyebrow">Legal</div>
+      <h1>Privacy <em class="accent">Policy</em></h1>
+      <p class="hero-sub" style="max-width: 760px;">
+        ToolBench is an independent editorial site. This page explains, in plain language, what information we collect, why, and how you stay in control of it.
+      </p>
+      <p class="legal-meta">Last updated: {lastUpdated}</p>
+    </section>
+
+    <article class="legal">
+      <section>
+        <h2>1. Who we are</h2>
+        <p>
+          ToolBench ("we", "us", "the site") publishes independent reviews and comparisons of AI tools for small business owners. The site is operated from the United States and is reachable through our <a href="/contact">contact page</a>. For the purposes of data protection law, ToolBench is the data controller for the limited personal information described below.
+        </p>
+      </section>
+
+      <section>
+        <h2>2. What we collect, and what we don't</h2>
+        <p>We deliberately collect as little as possible. We do not ask you to create an account, and we do not sell personal data to anyone. The only information that touches our systems is:</p>
+        <ul>
+          <li><strong>Newsletter email:</strong> if, and only if, you submit it through one of our subscribe forms. We use it to send the weekly email and nothing else.</li>
+          <li><strong>Messages you send us:</strong> the contents of any email or contact form you choose to send, so we can reply.</li>
+          <li><strong>Anonymous usage data:</strong> aggregate, non-identifying analytics about which pages are read, described in section 4.</li>
+        </ul>
+        <p>We do not knowingly collect names, addresses, payment details, or any "special category" data. We never ask for them.</p>
+      </section>
+
+      <section>
+        <h2>3. Cookies and advertising (Google AdSense)</h2>
+        <p>
+          ToolBench is reader-supported and partially funded by display advertising served through Google AdSense. This is the most important section of this policy, so we keep it specific:
+        </p>
+        <ul>
+          <li>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this and other websites.</li>
+          <li>Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to ToolBench and other sites on the internet.</li>
+          <li>You can opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" rel="nofollow noopener" target="_blank">Google Ads Settings</a>. You can also opt out of a third party vendor's use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info/choices/" rel="nofollow noopener" target="_blank">aboutads.info</a>.</li>
+          <li>For visitors in the EEA, UK, and Switzerland, Google and its partners ask for consent before setting non-essential cookies, through a consent message that appears on first visit. You can change or withdraw that consent at any time.</li>
+        </ul>
+        <p>
+          More detail on how Google uses information from sites that use its services is available in <a href="https://policies.google.com/technologies/partner-sites" rel="nofollow noopener" target="_blank">Google's "How Google uses information from sites or apps that use our services"</a> page.
+        </p>
+      </section>
+
+      <section>
+        <h2>4. Analytics</h2>
+        <p>
+          We use Google Analytics 4 to understand, in aggregate, which articles are useful and where readers struggle. IP addresses are anonymized. We look at trends (page views, reading time, broad location at the country level), never at individuals. We do not combine analytics data with any attempt to identify you. You can prevent analytics collection with the <a href="https://tools.google.com/dlpage/gaoptout" rel="nofollow noopener" target="_blank">Google Analytics opt-out browser add-on</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2>5. The newsletter</h2>
+        <p>
+          If you subscribe, we store your email address solely to send the newsletter. Every email includes a one-click unsubscribe link, and unsubscribing deletes your address from the active list. We will never share or sell that list.
+        </p>
+      </section>
+
+      <section>
+        <h2>6. Links to other sites</h2>
+        <p>
+          Reviews and comparisons link out to the tools we cover. These links are editorial, not affiliate links: we earn nothing if you click them or sign up. Once you leave ToolBench, the privacy practices of those sites are their own, and this policy no longer applies. We encourage you to read theirs.
+        </p>
+      </section>
+
+      <section>
+        <h2>7. Your rights and choices</h2>
+        <p>Depending on where you live, you may have the right to access, correct, or delete the personal data we hold about you, and to object to certain processing. In practice, the data we hold is minimal, so most requests come down to:</p>
+        <ul>
+          <li>Unsubscribing from the newsletter (one click in any email).</li>
+          <li>Opting out of personalized ads through the links in section 3.</li>
+          <li>Asking us to delete a message you sent us.</li>
+        </ul>
+        <p>To make any request, email us through the <a href="/contact">contact page</a>. We will respond within a reasonable time.</p>
+      </section>
+
+      <section>
+        <h2>8. Children</h2>
+        <p>
+          ToolBench is written for business owners and is not directed at children under 13 (or the equivalent minimum age in your country). We do not knowingly collect data from children. If you believe a child has sent us personal information, contact us and we will delete it.
+        </p>
+      </section>
+
+      <section>
+        <h2>9. Changes to this policy</h2>
+        <p>
+          We will update this page when our practices change, for example if we add a new analytics or advertising provider. When we do, we will revise the "last updated" date at the top. Material changes will be noted clearly.
+        </p>
+      </section>
+
+      <section>
+        <h2>10. Contact</h2>
+        <p>
+          Questions about privacy, or a request about your data? Reach us through the <a href="/contact">contact page</a>. We read everything.
+        </p>
+      </section>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal-meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+  }
+  .legal {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 1rem 0 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .legal h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0.85rem;
+    color: var(--text);
+  }
+  .legal p {
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 0.85rem;
+  }
+  .legal ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 0.5rem 0 0.85rem;
+    padding-left: 1.2rem;
+  }
+  .legal li {
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .legal strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+  .legal a {
+    color: var(--amber);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .legal a:hover {
+    opacity: 0.85;
+  }
+</style>

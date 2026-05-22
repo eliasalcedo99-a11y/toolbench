@@ -32,9 +32,16 @@ const relatedTools = allTools
   .sort((a, b) => b.data.rating - a.data.rating)
   .slice(0, 3);
 
+// Drop any related-comparison links that point at excluded noindex pairs so the
+// review never links to a 404.
+const servedComparisonSlugs = new Set(
+  (await getCollection('comparisons', ({ data }) => !data.noindex)).map((c) => c.slug)
+);
+const relatedComparisons = d.relatedComparisons.filter((rc) => servedComparisonSlugs.has(rc.slug));
+
 const logoUrl = getLogoUrl(tool.slug);
 const shareUrl = `${SITE.url}/reviews/${tool.slug}`;
-const shareTitle = `${d.name} review on ${SITE.name} — ${d.rating.toFixed(1)}/5`;
+const shareTitle = `${d.name} review on ${SITE.name}: ${d.rating.toFixed(1)}/5`;
 
 const reviewSchema = {
   '@context': 'https://schema.org',
@@ -53,7 +60,7 @@ const reviewSchema = {
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'USD',
-      lowPrice: d.pricing[0]?.price.match(/[\d.]+/) ? d.pricing[0].price.match(/[\d.]+/)[0] : '0',
+      lowPrice: d.pricing[0]?.price.match(/[\d.]+/)?.[0] ?? '0',
       offerCount: d.pricing.length.toString(),
       offers: d.pricing.map(p => {
         const priceMatch = p.price.match(/[\d.]+/);
@@ -148,8 +155,8 @@ const optimizedDescription = d.verdict.length > 155
               Visit {d.name} →
             </a>
           )}
-          {d.relatedComparisons.length > 0 && (
-            <a class="btn btn-secondary" href={`/compare/${d.relatedComparisons[0].slug}`}>
+          {relatedComparisons.length > 0 && (
+            <a class="btn btn-secondary" href={`/compare/${relatedComparisons[0].slug}`}>
               Compare with alternatives
             </a>
           )}
@@ -179,11 +186,11 @@ const optimizedDescription = d.verdict.length > 155
       </>
     )}
 
-    {d.relatedComparisons.length > 0 && (
+    {relatedComparisons.length > 0 && (
       <>
         <hr class="divider" />
         <h2 class="section-title" style="margin-top:var(--s5)">Related comparisons</h2>
-        <RelatedComparisons items={d.relatedComparisons} />
+        <RelatedComparisons items={relatedComparisons} />
       </>
     )}
 

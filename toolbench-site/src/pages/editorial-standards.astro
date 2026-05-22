@@ -1,0 +1,123 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { SITE } from '~/data/categories';
+
+const title = 'Editorial Standards';
+const description = 'How ToolBench keeps its reviews honest: our independence policy, conflict-of-interest rules, sourcing, corrections process, and how the site is funded.';
+const lastUpdated = 'May 21, 2026';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: `${title} · ${SITE.name}`,
+  description,
+  url: `${SITE.url}/editorial-standards`,
+  publisher: { '@id': `${SITE.url}/#organization` },
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <div class="container">
+    <section class="hero" style="padding-bottom: 1.5rem;">
+      <div class="eyebrow">Trust</div>
+      <h1>Editorial <em class="accent">Standards</em></h1>
+      <p class="hero-sub" style="max-width: 780px;">
+        These are the rules our reviews are held to. They exist so you can trust a verdict without having to take our word for it.
+      </p>
+      <p class="legal-meta">Last updated: {lastUpdated}</p>
+    </section>
+
+    <article class="legal">
+      <section>
+        <h2>Independence</h2>
+        <p>
+          No company can pay for a review, a rating, a recommendation, or placement on a list. We accept no sponsored posts, no "fast-track" review fees, and no gifts contingent on coverage. If a tool appears on ToolBench, it is because we decided it was worth evaluating, full stop.
+        </p>
+      </section>
+
+      <section>
+        <h2>How we are funded</h2>
+        <p>
+          ToolBench is reader-supported and carries display advertising served through Google AdSense. Ads are clearly distinguishable from editorial content, and advertisers have zero influence over what we cover or how we score it. We do not use affiliate links, so we earn nothing when you sign up for a tool we mention. Our <a href="/privacy">privacy policy</a> explains how advertising cookies work and how to opt out.
+        </p>
+      </section>
+
+      <section>
+        <h2>Conflicts of interest</h2>
+        <p>
+          If we ever have a relationship with a company we write about, beyond being paying or free-tier users of the product, we will disclose it directly in the relevant article. We do not hold equity in the tools we review. Where a conflict cannot be neutralized, we recuse ourselves from covering that tool.
+        </p>
+      </section>
+
+      <section>
+        <h2>How we reach a verdict</h2>
+        <p>
+          Verdicts come from hands-on testing against realistic small business tasks, scored across quality, ease of use, integrations, support, and price. The detailed process lives on our <a href="/methodology">methodology page</a>. We combine that testing with aggregate sentiment from real user communities so a review reflects more than one person's afternoon with a demo.
+        </p>
+      </section>
+
+      <section>
+        <h2>Accuracy and sourcing</h2>
+        <p>
+          Pricing, feature, and plan details are taken from the vendor's own materials at the time of writing and dated accordingly. AI tools change quickly, so figures can drift between updates. When something is our opinion, we frame it as opinion. When it is a measured result, we say how we measured it.
+        </p>
+      </section>
+
+      <section>
+        <h2>Use of AI in production</h2>
+        <p>
+          We cover AI tools, and we use them in our own workflow, for drafting, formatting, and data wrangling. Every published review is directed, fact-checked, and signed off by a human editor who is accountable for it. AI does not get the final say on a verdict; a person does.
+        </p>
+      </section>
+
+      <section>
+        <h2>Corrections</h2>
+        <p>
+          We fix mistakes. If you spot an error, factual, a stale price, a broken claim, tell us through the <a href="/contact">contact page</a> and we will verify and correct it. Substantive corrections are reflected in the article's "last updated" date so the change is visible, not buried.
+        </p>
+      </section>
+
+      <section>
+        <h2>Updates</h2>
+        <p>
+          We aim to revisit our highest-traffic reviews and comparisons every quarter, and sooner after a major model or pricing change. The goal is simple: a review you read today should still be true today.
+        </p>
+      </section>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal-meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+  }
+  .legal {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1rem 0 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .legal h2 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 0.85rem;
+    color: var(--text);
+  }
+  .legal p {
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 0.85rem;
+  }
+  .legal a {
+    color: var(--amber);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .legal a:hover {
+    opacity: 0.85;
+  }
+</style>

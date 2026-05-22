@@ -1,0 +1,123 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { SITE } from '~/data/categories';
+
+const title = 'Contact';
+const description = 'Reach the ToolBench desk: corrections, tool submissions, press, and general questions. We read everything and reply to real messages.';
+
+// NOTE for Elias: this is the public contact address AdSense and readers will
+// use. Swap it for a custom-domain inbox (e.g. hello@yourdomain) when you have
+// one. It is just this one line.
+const contactEmail = 'eliasalcedo99@gmail.com';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: `${title} · ${SITE.name}`,
+  description,
+  url: `${SITE.url}/contact`,
+  publisher: { '@id': `${SITE.url}/#organization` },
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <div class="container">
+    <section class="hero" style="padding-bottom: 1.5rem;">
+      <div class="eyebrow">Contact</div>
+      <h1>Get in <em class="accent">touch</em></h1>
+      <p class="hero-sub" style="max-width: 760px;">
+        ToolBench is a small, independent desk, so your message reaches a person, not a ticket queue. Here is how to reach us and what to expect.
+      </p>
+    </section>
+
+    <article class="legal">
+      <section>
+        <h2>Email us</h2>
+        <p>The fastest way to reach the desk is email. We aim to reply to genuine messages within two business days.</p>
+        <p class="contact-email">
+          <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>What to write about</h2>
+        <ul>
+          <li><strong>Corrections:</strong> spotted a stale price, a wrong feature, or a claim that no longer holds? Tell us and we will verify and fix it. See our <a href="/editorial-standards">editorial standards</a> for how corrections work.</li>
+          <li><strong>Suggest a tool:</strong> want a tool considered for review? The structured form at <a href="/submit-tool">submit a tool</a> is the best route, it captures everything we need to evaluate it.</li>
+          <li><strong>Press and partnerships:</strong> media questions and editorial collaborations are welcome. Note that we do not accept paid placements or sponsored reviews of any kind.</li>
+          <li><strong>Privacy requests:</strong> anything about your data, covered in our <a href="/privacy">privacy policy</a>, comes to the same address.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>The weekly email</h2>
+        <p>
+          If you would rather hear from us than write to us, the newsletter sign-up sits at the bottom of every page. One short email a week: the best AI tool we tested and one we'd skip. No spam, no affiliate fluff, unsubscribe in one click.
+        </p>
+      </section>
+
+      <section>
+        <h2>A note on what we can't do</h2>
+        <p>
+          We can't offer one-on-one tool support for products we review, that is the vendor's job, and we can't guarantee a tool you submit will be reviewed. What we can promise is that we read every message and that we take corrections seriously.
+        </p>
+      </section>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 1rem 0 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .legal h2 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 0.85rem;
+    color: var(--text);
+  }
+  .legal p {
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 0.85rem;
+  }
+  .legal ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 0.5rem 0 0.85rem;
+    padding-left: 1.2rem;
+  }
+  .legal li {
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .legal strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+  .legal a {
+    color: var(--amber);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .legal a:hover {
+    opacity: 0.85;
+  }
+  .contact-email {
+    font-size: 1.25rem;
+    font-family: "DM Serif Display", Georgia, serif;
+  }
+  .contact-email a {
+    color: var(--amber);
+    text-decoration: none;
+  }
+  .contact-email a:hover {
+    text-decoration: underline;
+  }
+</style>

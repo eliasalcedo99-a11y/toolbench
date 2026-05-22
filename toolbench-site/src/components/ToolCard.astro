@@ -14,9 +14,12 @@ export interface Props {
   priceLabel: string;
   description: string;
   keywords: string[];
+  /** If true, the logo loads eagerly with high fetch priority. Use for the
+   *  first ~6 cards above the fold so they aren't withheld from LCP. */
+  priority?: boolean;
 }
 
-const { slug, name, category, icon, iconBg, iconColor, badge, rating, priceLabel, description, keywords } =
+const { slug, name, category, icon, iconBg, iconColor, badge, rating, priceLabel, description, keywords, priority = false } =
   Astro.props;
 
 const badgeText = badge === 'top' ? 'Top Rated' : badge === 'new' ? 'New' : badge === 'free' ? 'Free Tier' : '';
@@ -34,7 +37,15 @@ const logoUrl = getLogoUrl(slug);
   <div class="card-head">
     <div class="icon" style={`background:${iconBg};color:${iconColor}`}>
       {logoUrl ? (
-        <img src={logoUrl} alt={`${name} logo`} loading="lazy" decoding="async" width="28" height="28" />
+        <img
+          src={logoUrl}
+          alt={`${name} logo`}
+          loading={priority ? 'eager' : 'lazy'}
+          decoding={priority ? 'auto' : 'async'}
+          fetchpriority={priority ? 'high' : 'auto'}
+          width="28"
+          height="28"
+        />
       ) : (
         icon
       )}

@@ -1,9 +1,10 @@
----
+﻿---
+noindex: true
 title: "Google Workspace AI vs ChatPDF: Which is Better in 2026?"
 description: "Head-to-head comparison of Google Workspace AI and ChatPDF across pricing, quality, ease of use, and integrations for productivity workflows."
 toolA: "google-workspace-ai"
 toolB: "chatpdf"
-verdict: "In our analysis, Google Workspace AI takes the lead due to its superior output quality and extensive ecosystem. On the other hand, ChatPDF provides an excellent price-to-value ratio, making it an attractive option for cost-conscious users."
+verdict: "Google Workspace AI pulls ahead on integrations (90/100 vs 30/100), while ChatPDF still wins on ease of use (95/100). Pick Google Workspace AI unless ease of use is your top constraint."
 features:
   - label: "Starting price"
     a: "$7"

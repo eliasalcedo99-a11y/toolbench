@@ -94,12 +94,72 @@ export const AI_LOGOS: Record<string, AILogo> = {
   'slack-ai':             { slug: null,               color: '4A154B', fallback: '💬' },
 };
 
+const LOCAL_EXTENSIONS: Record<string, string> = {
+  "adobe-express": ".webp",
+  "adobe-firefly": ".webp",
+  "aiva": ".png",
+  "anyword": ".avif",
+  "canva-magic-design": ".webp",
+  "chatgpt": ".webp",
+  "chatpdf": ".svg",
+  "claude": ".png",
+  "copilot": ".png",
+  "copy-ai": ".svg",
+  "dall-e-3": ".webp",
+  "descript": ".webp",
+  "figma-ai": ".webp",
+  "gemini": ".webp",
+  "github-copilot": ".webp",
+  "google-workspace-ai": ".webp",
+  "grammarly": ".webp",
+  "gusto": ".webp",
+  "heygen": ".webp",
+  "hubspot-chatspot": ".webp",
+  "jasper-ai": ".webp",
+  "kagi": ".webp",
+  "leonardo-ai": ".webp",
+  "looka": ".webp",
+  "microsoft-365-copilot": ".png",
+  "microsoft-designer": ".png",
+  "midjourney": ".webp",
+  "mindstudio": ".png",
+  "murf-ai": ".webp",
+  "notebooklm": ".jpg",
+  "notion-ai": ".png",
+  "opus-clip": ".png",
+  "otter-ai": ".webp",
+  "pecan-ai": ".webp",
+  "perplexity": ".webp",
+  "power-bi-copilot": ".png",
+  "quillbot": ".webp",
+  "replit-ghostwriter": ".png",
+  "runway": ".webp",
+  "scholarcy": ".jpg",
+  "slack-ai": ".png",
+  "stable-diffusion": ".webp",
+  "suno": ".webp",
+  "surfer-seo": ".webp",
+  "synthesia": ".webp",
+  "tableau-ai": ".png",
+  "tabnine": ".png",
+  "tidio": ".webp",
+  "udio": ".webp",
+  "writesonic": ".webp",
+  "you-com": ".png",
+  "zapier": ".webp",
+  "hubspot-ai": ".webp"
+};
+
 /**
  * Returns the local logo URL for a tool slug, or null if no logo is available.
- * Logo files are static assets at /logos/<slug>.svg, downloaded via
- * `node scripts/download-logos.mjs`.
+ * Maps to the exact file extension we pulled from the logos folder.
  */
 export function getLogoUrl(slug: string): string | null {
+  const ext = LOCAL_EXTENSIONS[slug];
+  if (ext) {
+    return `/logos/${slug}${ext}`;
+  }
+
   const logo = AI_LOGOS[slug];
   if (!logo || !logo.slug) return null;
   return `/logos/${slug}.svg`;

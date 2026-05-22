@@ -13,7 +13,13 @@ function isActive(prefix: string) {
     <a class="logo" href="/" aria-label="ToolBench home">
       ToolBench<span class="logo-dot" aria-hidden="true"></span>
     </a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">≡</button>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
+        <line x1="3" y1="6.5" x2="19" y2="6.5" />
+        <line x1="3" y1="11" x2="19" y2="11" />
+        <line x1="3" y1="15.5" x2="19" y2="15.5" />
+      </svg>
+    </button>
     <ul class="nav-links" id="nav-links">
       <li><a class="nav-link" href="/" aria-current={isActive('/') ? 'page' : undefined}>Reviews</a></li>
       <li>

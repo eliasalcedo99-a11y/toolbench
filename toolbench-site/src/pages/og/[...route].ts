@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 
 const tools = await getCollection('tools');
 const blog = await getCollection('blog');
-const comparisons = await getCollection('comparisons');
+const comparisons = await getCollection('comparisons', ({ data }) => !data.noindex);
 
 const pages: Record<string, any> = {};
 
@@ -44,7 +44,7 @@ const { getStaticPaths, GET } = await OGImageRoute({
   getImageOptions: (_path, page) => ({
     title: page.title,
     description: page.description,
-    format: 'webp',
+    format: 'WEBP',
     logo: {
       path: './public/favicon.svg',
       size: [100],

@@ -1,9 +1,10 @@
----
+﻿---
+noindex: true
 title: "Runway vs HeyGen: Which is Better in 2026?"
 description: "Head-to-head comparison of Runway and HeyGen across pricing, quality, ease of use, and integrations for video workflows."
 toolA: "runway"
 toolB: "heygen"
-verdict: "When comparing Runway and HeyGen, we found that Runway generally delivers better performance and versatility. HeyGen still holds its ground as a reliable, budget-friendly solution for everyday tasks."
+verdict: "Runway and HeyGen land close in our scoring — HeyGen leads on ease of use (85/100), while Runway edges it on output quality (92/100). Pick based on which dimension matters more for your workflow."
 features:
   - label: "Starting price"
     a: "Free"

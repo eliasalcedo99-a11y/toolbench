@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 import { SITE, CATEGORY_LABELS } from '~/data/categories';
 import { getLogoUrl } from '~/data/ai-logos';
 
-const comparisons = await getCollection('comparisons');
+const comparisons = await getCollection('comparisons', ({ data }) => !data.noindex);
 const tools = await getCollection('tools');
 
 const toolMap = new Map(tools.map(t => [t.slug, t]));
@@ -46,7 +46,7 @@ const jsonLd = {
 
 <BaseLayout
   title="All AI Tool Comparisons"
-  description={`${comparisons.length}+ side-by-side comparisons of the top AI tools — ChatGPT vs Claude, Midjourney vs DALL-E, GitHub Copilot vs Cursor, and more.`}
+  description={`${comparisons.length}+ side-by-side comparisons of the top AI tools: ChatGPT vs Claude, Midjourney vs DALL-E, GitHub Copilot vs Cursor, and more.`}
   jsonLd={jsonLd}
 >
   <div class="container">
@@ -56,7 +56,7 @@ const jsonLd = {
         Every AI tool, <em class="accent">side-by-side</em>
       </h1>
       <p class="hero-sub">
-        {comparisons.length} head-to-head comparisons across {tools.length} AI tools. No fluff — just specs, prices, and which one wins for your workflow.
+        {comparisons.length} head-to-head comparisons across {tools.length} AI tools. No fluff. Just specs, prices, and which one wins for your workflow.
       </p>
     </section>
 
@@ -145,7 +145,7 @@ const jsonLd = {
     <a class="cta-banner" href="/ai-comparator">
       <div class="cta-banner-text">
         <div class="cta-banner-eyebrow">Don't know which to compare?</div>
-        <div class="cta-banner-title">Try the AI Matrix — see top picks for any task →</div>
+        <div class="cta-banner-title">Try the AI Matrix: see top picks for any task →</div>
       </div>
       <span class="btn btn-primary">Open the matrix</span>
     </a>

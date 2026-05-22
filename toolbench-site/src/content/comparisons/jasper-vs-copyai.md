@@ -1,4 +1,5 @@
----
+﻿---
+noindex: true
 title: "Jasper AI vs Copy.ai: Which is Better for Small Business in 2026?"
 description: "Side-by-side comparison of Jasper AI and Copy.ai across price, output quality, integrations, and support — based on 60 days of independent testing and interviews with 14 SMB marketing leads."
 toolA: "jasper-ai"

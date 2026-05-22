@@ -9,7 +9,10 @@ import SocialShare from '~/components/SocialShare.astro';
 import { SITE } from '~/data/categories';
 
 export async function getStaticPaths() {
-  const comparisons = await getCollection('comparisons');
+  // Only build curated, indexable comparisons. The templated noindex pairs are
+  // kept in the repo but not served: scaled near-duplicate pages are an AdSense
+  // "low value content" / scaled-content liability and rank for nothing.
+  const comparisons = await getCollection('comparisons', ({ data }) => !data.noindex);
   return comparisons.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
@@ -43,10 +46,29 @@ const articleSchema = {
   '@type': 'Article',
   headline: d.title,
   description: d.description,
-  author: { '@type': 'Organization', name: SITE.name },
-  publisher: { '@type': 'Organization', name: SITE.name },
+  image: `${SITE.url}/og/compare/${entry.slug}.webp`,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `${SITE.url}/compare/${entry.slug}`,
+  },
+  author: { '@id': `${SITE.url}/#organization` },
+  publisher: { '@id': `${SITE.url}/#organization` },
   datePublished: d.publishedDate.toISOString().slice(0, 10),
   dateModified: d.updatedDate.toISOString().slice(0, 10),
+  about: [
+    {
+      '@type': 'SoftwareApplication',
+      name: toolA.data.name,
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web',
+    },
+    {
+      '@type': 'SoftwareApplication',
+      name: toolB.data.name,
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web',
+    },
+  ],
 };
 
 const faqSchema = d.faq.length > 0 ? {
@@ -90,7 +112,7 @@ const breadcrumbSchema = {
 
 const shareUrl = `${SITE.url}/compare/${entry.slug}`;
 
-const schemas = [articleSchema, breadcrumbSchema];
+const schemas: object[] = [articleSchema, breadcrumbSchema];
 if (faqSchema) schemas.push(faqSchema);
 ---
 

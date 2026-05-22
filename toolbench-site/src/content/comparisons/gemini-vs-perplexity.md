@@ -1,9 +1,10 @@
----
+﻿---
+noindex: true
 title: "Gemini vs Perplexity: Which is Better in 2026?"
 description: "Head-to-head comparison of Gemini and Perplexity across pricing, quality, ease of use, and integrations for general workflows."
 toolA: "gemini"
 toolB: "perplexity"
-verdict: "While both Gemini and Perplexity offer robust capabilities, Gemini stands out for its comprehensive feature set and overall performance. However, Perplexity is a highly capable alternative that may better suit teams with strict budget requirements."
+verdict: "Gemini pulls ahead on integrations (92/100 vs 58/100), while Perplexity still wins on ease of use (94/100). Pick Gemini unless ease of use is your top constraint."
 features:
   - label: "Starting price"
     a: "Free"

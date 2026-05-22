@@ -26,7 +26,7 @@ const {
   noindex = false,
 } = Astro.props;
 
-const fullTitle = title ? `${title} — ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`;
+const fullTitle = title ? `${title} · ${SITE.name}` : `${SITE.name} · ${SITE.tagline}`;
 const canonicalUrl = canonical
   ? new URL(canonical, Astro.site).toString()
   : new URL(Astro.url.pathname, Astro.site).toString();
@@ -36,7 +36,8 @@ const jsonLdArray = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
 const urlPath = Astro.url.pathname.replace(/^\/|\/$/g, '');
 const ogRoute = urlPath === '' ? 'index' : urlPath;
 
-jsonLdArray.push({
+const sameAs = [SITE.social.twitterUrl, SITE.social.linkedinUrl, SITE.social.githubUrl].filter(Boolean);
+const organizationSchema: Record<string, unknown> = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   '@id': `${SITE.url}/#organization`,
@@ -46,13 +47,11 @@ jsonLdArray.push({
     '@type': 'ImageObject',
     url: `${SITE.url}/favicon.svg`,
     width: '192',
-    height: '192'
+    height: '192',
   },
-  sameAs: [
-    'https://twitter.com/toolbench',
-    'https://linkedin.com/company/toolbench'
-  ]
-});
+};
+if (sameAs.length > 0) organizationSchema.sameAs = sameAs;
+jsonLdArray.push(organizationSchema);
 const dynamicOgImage = new URL(`/og/${ogRoute}.webp`, Astro.site || 'https://toolbench.example').toString();
 const ogImageUrl = image ? new URL(image, Astro.site).toString() : dynamicOgImage;
 
@@ -62,8 +61,10 @@ const gaId = import.meta.env.PUBLIC_GA_ID;
 const gaEnabled = !!gaId && import.meta.env.PROD;
 
 // Google AdSense — set PUBLIC_ADSENSE_ID in Netlify env (e.g. ca-pub-XXXXXXXXXXXXXXXX)
+// Never load ads on noindex pages: serving AdSense over thin/templated pages is
+// exactly the "low value content" signal that gets a site rejected.
 const adsenseId = import.meta.env.PUBLIC_ADSENSE_ID;
-const adsenseEnabled = !!adsenseId && import.meta.env.PROD;
+const adsenseEnabled = !!adsenseId && import.meta.env.PROD && !noindex;
 ---
 
 <!doctype html>
@@ -85,7 +86,9 @@ const adsenseEnabled = !!adsenseId && import.meta.env.PROD;
     <meta property="og:image" content={ogImageUrl} />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@toolbench" />
+    {SITE.social.twitterHandle && (
+      <meta name="twitter:site" content={`@${SITE.social.twitterHandle}`} />
+    )}
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
@@ -132,11 +135,18 @@ const adsenseEnabled = !!adsenseId && import.meta.env.PROD;
     {adsenseEnabled && (
       <>
         <meta name="google-adsense-account" content={adsenseId} />
-        <script 
-          is:inline 
-          async 
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`}
-          crossorigin="anonymous">
+        <script is:inline define:vars={{ adsenseId }}>
+          // Defer AdSense until after the load event so it doesn't compete
+          // with LCP-critical resources. Verification works via the meta tag
+          // above without the script. Auto-ads and <ins class="adsbygoogle">
+          // slots still work, just delayed by ~one paint.
+          window.addEventListener('load', () => {
+            const s = document.createElement('script');
+            s.async = true;
+            s.crossOrigin = 'anonymous';
+            s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`;
+            document.head.appendChild(s);
+          });
         </script>
       </>
     )}

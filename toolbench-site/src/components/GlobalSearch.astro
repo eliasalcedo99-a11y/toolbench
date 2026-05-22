@@ -25,7 +25,7 @@
       <kbd class="search-esc-kbd">ESC</kbd>
     </div>
     <div class="search-results" id="search-results">
-      <p class="search-empty">Start typing to search across {''}<strong>50 tools</strong>, <strong>1,225 comparisons</strong>, and <strong>articles</strong>.</p>
+      <p class="search-empty">Start typing to search across <strong>tools</strong>, <strong>comparisons</strong>, and <strong>articles</strong>.</p>
     </div>
   </div>
 </div>
@@ -136,7 +136,7 @@
   function renderResults(q: string) {
     if (!results) return;
     if (!q) {
-      results.innerHTML = '<p class="search-empty">Start typing to search across <strong>50 tools</strong>, <strong>1,225 comparisons</strong>, and <strong>articles</strong>.</p>';
+      results.innerHTML = '<p class="search-empty">Start typing to search across <strong>tools</strong>, <strong>comparisons</strong>, and <strong>articles</strong>.</p>';
       return;
     }
     const matches = index

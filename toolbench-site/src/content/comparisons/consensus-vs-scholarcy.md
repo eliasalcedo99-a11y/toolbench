@@ -1,9 +1,10 @@
----
+﻿---
+noindex: true
 title: "Consensus vs Scholarcy: Which is Better in 2026?"
 description: "Head-to-head comparison of Consensus and Scholarcy across pricing, quality, ease of use, and integrations for search workflows."
 toolA: "consensus"
 toolB: "scholarcy"
-verdict: "When comparing Consensus and Scholarcy, we found that Consensus generally delivers better performance and versatility. Scholarcy still holds its ground as a reliable, budget-friendly solution for everyday tasks."
+verdict: "Consensus pulls ahead on output quality (84/100 vs 76/100), while Scholarcy still wins on integrations (42/100). Default to Consensus; Scholarcy only makes sense when integrations dominates your decision."
 features:
   - label: "Starting price"
     a: "Free"

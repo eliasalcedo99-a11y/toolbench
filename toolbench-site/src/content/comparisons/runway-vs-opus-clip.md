@@ -1,9 +1,10 @@
----
+﻿---
+noindex: true
 title: "Runway vs Opus Clip: Which is Better in 2026?"
 description: "Head-to-head comparison of Runway and Opus Clip across pricing, quality, ease of use, and integrations for video workflows."
 toolA: "runway"
 toolB: "opus-clip"
-verdict: "When comparing Opus Clip and Runway, we found that Opus Clip generally delivers better performance and versatility. Runway still holds its ground as a reliable, budget-friendly solution for everyday tasks."
+verdict: "Runway and Opus Clip land close in our scoring — Opus Clip leads on value for money (82/100), while Runway edges it on output quality (92/100). Pick based on which dimension matters more for your workflow."
 features:
   - label: "Starting price"
     a: "Free"

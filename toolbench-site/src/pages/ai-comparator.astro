@@ -7,6 +7,16 @@ import { getLogoUrl } from '~/data/ai-logos';
 
 const tools = await getCollection('tools');
 
+// Served (curated, indexable) comparisons only. Head-to-head deep links must
+// point at a page that actually builds, never at an excluded noindex pair.
+const servedComparisons = await getCollection('comparisons', ({ data }) => !data.noindex);
+const servedComparisonSlugs = new Set(servedComparisons.map((c) => c.slug));
+function comparisonSlugFor(slugA: string, slugB: string): string | null {
+  if (servedComparisonSlugs.has(`${slugA}-vs-${slugB}`)) return `${slugA}-vs-${slugB}`;
+  if (servedComparisonSlugs.has(`${slugB}-vs-${slugA}`)) return `${slugB}-vs-${slugA}`;
+  return null;
+}
+
 // Map of new AI categories that should be featured in the comparator
 const AI_CATEGORIES = ['general', 'code', 'writing', 'image', 'video', 'audio', 'search', 'music', 'design', 'business', 'productivity'];
 
@@ -35,7 +45,10 @@ const useCaseRankings = USE_CASES.map(uc => {
     .filter(x => x.score > 0)
     .sort((a, b) => b.score - a.score)
     .slice(0, 6);
-  return { useCase: uc, ranked };
+  const vsSlug = ranked.length >= 2
+    ? comparisonSlugFor(ranked[0].tool.slug, ranked[1].tool.slug)
+    : null;
+  return { useCase: uc, ranked, vsSlug };
 });
 
 // JSON-LD: Collection page
@@ -43,15 +56,15 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: 'AI Tools Comparator Matrix',
-  description: 'Interactive matrix comparing 50 AI tools across 11 use cases. Find the best AI for code, writing, images, video, and more.',
+  description: `Interactive matrix comparing ${aiTools.length} AI tools across ${USE_CASES.length} use cases. Find the best AI for code, writing, images, video, and more.`,
   url: `${SITE.url}/ai-comparator`,
   numberOfItems: aiTools.length,
 };
 ---
 
 <BaseLayout
-  title="AI Comparator — Find the Best AI for Every Task"
-  description="Compare 50 AI tools across 11 use cases. Interactive matrix with rankings for code, writing, images, video, audio, and more."
+  title="AI Comparator · Find the Best AI for Every Task"
+  description={`Compare ${aiTools.length} AI tools across ${USE_CASES.length} use cases. Interactive matrix with rankings for code, writing, images, video, audio, and more.`}
   jsonLd={jsonLd}
 >
   <div class="container">
@@ -62,7 +75,7 @@ const jsonLd = {
         The best AI for <em class="accent" id="hero-usecase">every task</em>
       </h1>
       <p class="hero-sub">
-        {aiTools.length} AI tools ranked across {USE_CASES.length} real use cases. Pick a category below to see the top performers — based on quality, ease of use, and community feedback.
+        {aiTools.length} AI tools ranked across {USE_CASES.length} real use cases. Pick a category below to see the top performers, ranked on quality, ease of use, and community feedback.
       </p>
 
       <div class="comparator-stats">
@@ -75,7 +88,7 @@ const jsonLd = {
           <span class="stat-label">use cases</span>
         </div>
         <div class="stat-pill">
-          <span class="stat-num">1,225+</span>
+          <span class="stat-num">{servedComparisons.length}</span>
           <span class="stat-label">comparisons</span>
         </div>
       </div>
@@ -158,10 +171,10 @@ const jsonLd = {
             </ol>
           )}
 
-          {ranking.ranked.length >= 2 && (
+          {ranking.vsSlug && (
             <div class="ranking-vs">
               <span class="vs-label">Head-to-head:</span>
-              <a class="vs-link" href={`/compare/${ranking.ranked[0].tool.slug}-vs-${ranking.ranked[1].tool.slug}`}>
+              <a class="vs-link" href={`/compare/${ranking.vsSlug}`}>
                 {ranking.ranked[0].tool.data.name} vs {ranking.ranked[1].tool.data.name} →
               </a>
             </div>
@@ -180,7 +193,7 @@ const jsonLd = {
             type="search"
             id="matrix-search"
             class="matrix-search"
-            placeholder="🔍 Filter tools — type 'midjourney', 'code', 'free'..."
+            placeholder="🔍 Filter tools: type 'midjourney', 'code', 'free'..."
             aria-label="Filter matrix tools"
           />
           <span class="matrix-search-count" id="matrix-search-count">{aiTools.length} tools</span>

@@ -45,7 +45,7 @@ const wins = dimensions
 
 const winnerLogo = winner ? getLogoUrl(winner.slug) : null;
 
-let verdictLine = 'Too close to call — both tools come in within a margin of error.';
+let verdictLine = 'Too close to call. Both tools come in within a margin of error.';
 if (winner) {
   if (margin >= 8) verdictLine = `${winner.data.name} is the clear winner overall.`;
   else if (margin >= 4) verdictLine = `${winner.data.name} edges ahead.`;

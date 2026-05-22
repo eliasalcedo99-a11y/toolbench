@@ -1,9 +1,10 @@
----
+﻿---
+noindex: true
 title: "Kagi vs Consensus: Which is Better in 2026?"
 description: "Head-to-head comparison of Kagi and Consensus across pricing, quality, ease of use, and integrations for search workflows."
 toolA: "kagi"
 toolB: "consensus"
-verdict: "In our analysis, Consensus takes the lead due to its superior output quality and extensive ecosystem. On the other hand, Kagi provides an excellent price-to-value ratio, making it an attractive option for cost-conscious users."
+verdict: "Consensus pulls ahead on value for money (85/100 vs 55/100), while Kagi still wins on output quality (90/100). Pick Consensus unless output quality is your top constraint."
 features:
   - label: "Starting price"
     a: "$5"

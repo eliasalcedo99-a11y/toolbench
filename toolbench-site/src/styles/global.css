@@ -1,6 +1,16 @@
 /* ============================================
    ToolBench global styles
    Dark mode only. 8px spacing scale. 150ms transitions.
+
+   Breakpoints (canonical, content-driven):
+     --bp-sm: 560px   handheld / single-column collapse
+     --bp-md: 720px   tablet / 2→1 column grids
+     --bp-lg: 960px   desktop / sidebars + multi-column lay-outs
+   CSS @media still needs raw px (custom props don't expand in @media).
+   Non-canonical existing breakpoints (640/680/760/860/980) are
+   preserved where the component breakage point is genuinely
+   different. Don't introduce new arbitrary values: align to one
+   of the three above unless the layout requires otherwise.
    ============================================ */
 
 *,
@@ -147,7 +157,16 @@ section { padding: var(--s6) 0; }
   transition: transform var(--t), box-shadow var(--t);
 }
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px var(--amber-soft); }
-.nav-toggle { display: none; font-size: 1.5rem; color: var(--text); }
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  border-radius: var(--r-sm);
+  margin-right: -10px;
+}
 @media (max-width: 860px) {
   .nav-links {
     display: none;
@@ -164,7 +183,7 @@ section { padding: var(--s6) 0; }
   .nav-links.open { display: flex; }
   .nav-link { padding: 14px var(--s3); }
   .nav-cta { display: none; }
-  .nav-toggle { display: block; }
+  .nav-toggle { display: inline-flex; }
   .nav-links.open .nav-cta { display: inline-block; margin: var(--s2) var(--s3); }
 }
 
@@ -217,6 +236,9 @@ section { padding: var(--s6) 0; }
 /* ===== FILTER PILLS ===== */
 .pills { display: flex; gap: var(--s1); flex-wrap: wrap; margin: var(--s4) 0 var(--s5); }
 .pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   padding: 8px 18px;
   border-radius: var(--r-pill);
   border: 1px solid var(--border);
@@ -314,6 +336,9 @@ section { padding: var(--s6) 0; }
   border: 1px dashed var(--border);
   border-radius: var(--r-lg);
 }
+
+.category-section { margin-bottom: var(--s5); }
+.category-section > .section-title { margin-bottom: var(--s3); }
 
 /* ===== COMPARISON CTA BANNER ===== */
 .cta-banner {
@@ -547,7 +572,7 @@ footer { border-top: 1px solid var(--border); padding: var(--s5) 0 var(--s4); ma
   border: 1px solid var(--amber);
   border-radius: var(--r-lg);
   padding: var(--s4);
-  background: linear-gradient(120deg, rgba(240, 192, 96, 0.08), rgba(240, 192, 96, 0.02));
+  background: var(--bg-elev);
   margin: var(--s4) 0 var(--s5);
 }
 .verdict-box .label {
@@ -624,27 +649,31 @@ input[type='range'] {
   border-radius: 2px;
   background: var(--faint);
   outline: none;
+  touch-action: manipulation;
 }
 input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: var(--amber);
   cursor: pointer;
   border: none;
-  transition: transform var(--t);
+  box-shadow: 0 0 0 6px transparent;
+  transition: transform var(--t), box-shadow var(--t);
 }
-input[type='range']::-webkit-slider-thumb:hover { transform: scale(1.15); }
+input[type='range']::-webkit-slider-thumb:hover { transform: scale(1.1); }
+input[type='range']:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 4px var(--amber-soft); }
 input[type='range']::-moz-range-thumb {
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: var(--amber);
   cursor: pointer;
   border: none;
 }
+input[type='range']:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 4px var(--amber-soft); }
 .scores {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -796,14 +825,24 @@ input[type='range']::-moz-range-thumb {
 .article h2 { margin: var(--s5) 0 var(--s3); }
 .article h3 { margin: var(--s4) 0 var(--s2); font-family: var(--sans); font-weight: 600; font-size: 1.15rem; }
 .article blockquote {
-  border-left: 2px solid var(--amber);
-  padding: var(--s2) 0 var(--s2) var(--s3);
+  position: relative;
+  padding: var(--s3) var(--s3) var(--s3) var(--s5);
   margin: var(--s4) 0;
   font-family: var(--serif);
   font-size: 1.5rem;
-  color: var(--amber);
+  color: var(--text);
   font-style: italic;
-  line-height: 1.4;
+  line-height: 1.45;
+}
+.article blockquote::before {
+  content: '\201C';
+  position: absolute;
+  left: var(--s1);
+  top: -0.2em;
+  font-size: 3.2rem;
+  line-height: 1;
+  color: var(--amber);
+  font-style: normal;
 }
 .article a { color: var(--amber); border-bottom: 1px solid var(--amber-soft); }
 .article a:hover { border-color: var(--amber); }
@@ -1500,13 +1539,14 @@ input[type='range']::-moz-range-thumb {
   display: flex;
   align-items: center;
   gap: var(--s2);
-  padding: 10px 14px;
+  padding: 14px 16px;
   background: var(--bg-elev);
   border: 1px solid var(--border);
   border-radius: var(--r-md);
   text-decoration: none;
   color: var(--text);
   transition: all 0.15s ease;
+  min-height: 44px;
 }
 .compare-list-item:hover {
   border-color: var(--amber-soft);
@@ -1753,7 +1793,8 @@ input[type='range']::-moz-range-thumb {
   background: var(--bg-elev);
   border: 1px solid var(--border);
   color: var(--muted);
-  padding: 6px 12px;
+  padding: 10px 14px;
+  min-height: 40px;
   border-radius: var(--r-pill);
   cursor: pointer;
   font-family: inherit;

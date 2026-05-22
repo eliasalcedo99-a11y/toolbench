@@ -4,7 +4,7 @@ import { SITE } from '~/data/categories';
 
 export const GET: APIRoute = async () => {
   const tools = await getCollection('tools');
-  const comparisons = await getCollection('comparisons');
+  const comparisons = await getCollection('comparisons', ({ data }) => !data.noindex);
   const blog = await getCollection('blog');
 
   let content = `# ${SITE.name}

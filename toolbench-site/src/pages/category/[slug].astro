@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 const allTools = await getCollection('tools');
-const allComparisons = await getCollection('comparisons');
+const allComparisons = await getCollection('comparisons', ({ data }) => !data.noindex);
 
 const tools = allTools
   .filter(t => t.data.category === slug)
@@ -36,7 +36,7 @@ const topPicks = tools.slice(0, 3);
 // Category descriptions
 const CATEGORY_DESCRIPTIONS: Record<string, string> = {
   general: 'All-purpose conversational AI assistants for daily work, research, and brainstorming.',
-  code: 'AI-powered coding assistants for developers — autocomplete, debugging, and full-codebase reasoning.',
+  code: 'AI-powered coding assistants for developers: autocomplete, debugging, and full-codebase reasoning.',
   writing: 'AI writing tools for blogs, marketing copy, emails, and long-form content production.',
   image: 'AI image generators for visual art, illustrations, marketing assets, and design.',
   video: 'AI video creation, avatars, editing, and clip generation tools for content creators.',
@@ -78,7 +78,7 @@ const jsonLd = {
 ---
 
 <BaseLayout
-  title={`Best ${categoryLabel} AI Tools — Compared`}
+  title={`Best ${categoryLabel} AI Tools · Compared`}
   description={description}
   jsonLd={jsonLd}
 >

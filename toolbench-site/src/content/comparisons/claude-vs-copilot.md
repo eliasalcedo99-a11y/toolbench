@@ -1,9 +1,10 @@
----
+﻿---
+noindex: true
 title: "Claude vs Microsoft Copilot: Which is Better in 2026?"
 description: "Head-to-head comparison of Claude and Microsoft Copilot across pricing, quality, ease of use, and integrations for general workflows."
 toolA: "claude"
 toolB: "copilot"
-verdict: "For users demanding the highest level of integration and quality, Microsoft Copilot is the clear winner in this comparison. Claude remains a strong contender, particularly for those who prioritize affordability over advanced edge-case features."
+verdict: "Claude and Microsoft Copilot land close in our scoring — Claude leads on value for money (78/100), while Microsoft Copilot edges it on integrations (95/100). Pick based on which dimension matters more for your workflow."
 features:
   - label: "Starting price"
     a: "Free"

@@ -1,0 +1,125 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { SITE } from '~/data/categories';
+
+const title = 'About ToolBench';
+const description = 'ToolBench is an independent review desk for AI tools, built for small business owners who are tired of affiliate-driven listicles. Here is who we are and how we work.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: `${title}`,
+  description,
+  url: `${SITE.url}/about`,
+  publisher: { '@id': `${SITE.url}/#organization` },
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <div class="container">
+    <section class="hero" style="padding-bottom: 1.5rem;">
+      <div class="eyebrow">About</div>
+      <h1>We review AI tools so you don't lose a <em class="accent">week</em> to free trials.</h1>
+      <p class="hero-sub" style="max-width: 780px;">
+        ToolBench is an independent editorial site. We test, score, and compare the AI tools small businesses actually use, and we say plainly which ones are worth your money and which ones to skip.
+      </p>
+    </section>
+
+    <article class="legal">
+      <section>
+        <h2>The problem we exist to fix</h2>
+        <p>
+          Search "best AI tool for X" and you get a wall of listicles. Most are ranked by who pays the biggest affiliate commission, padded with stock copy, and stitched together from vendor screenshots. They look like reviews. They are advertising.
+        </p>
+        <p>
+          Small business owners deserve better than that. You have a real decision to make, limited time, and a monthly budget that a wrong subscription quietly drains. ToolBench is built for that moment: a credible verdict, an honest comparison, and a clear read on price and fit for a small team.
+        </p>
+      </section>
+
+      <section>
+        <h2>How we stay independent</h2>
+        <p>Independence is not a tagline here, it is the product. Three rules make it real:</p>
+        <ul>
+          <li><strong>No paid placements.</strong> A vendor cannot buy a review, a higher score, or a spot on a list. Ever.</li>
+          <li><strong>No affiliate links.</strong> The outbound links to the tools we cover earn us nothing. We have no financial reason to push you toward one tool over another.</li>
+          <li><strong>Funding you can see.</strong> ToolBench is reader-supported and carries clearly-labeled display ads. That is it. Our <a href="/editorial-standards">editorial standards</a> spell out exactly how this works.</li>
+        </ul>
+        <p>
+          Because we make nothing from your clicks, the only thing we have to sell is being right. That is the whole business model.
+        </p>
+      </section>
+
+      <section>
+        <h2>How we test</h2>
+        <p>
+          We don't rewrite marketing copy. Every tool goes through hands-on testing built around real small business workflows, then gets scored on five dimensions: quality, ease of use, integrations, support, and price. The full process is documented on our <a href="/methodology">methodology page</a>, so you can judge our judgments.
+        </p>
+        <p>
+          We also revisit our verdicts. AI tools change fast, prices shift, and a great product in January can be middling by summer. Reviews carry a "last updated" date for exactly this reason.
+        </p>
+      </section>
+
+      <section>
+        <h2>Who is behind it</h2>
+        <p>
+          ToolBench is a small, independent operation founded and run by <a href="/authors/elias">Elias</a>, who handles the testing and writing. It is a focused desk rather than a content farm, which is the point: every review reflects an actual person putting an actual tool through actual work.
+        </p>
+      </section>
+
+      <section>
+        <h2>Get involved</h2>
+        <p>
+          Think we got something wrong? Tell us, and we will look again. Want a tool considered for review? <a href="/submit-tool">Submit it here</a>. Want the short version in your inbox each week? The newsletter sign-up is at the bottom of every page: one email, the best tool we tested and one we'd skip, no spam.
+        </p>
+        <p>
+          For anything else, the <a href="/contact">contact page</a> is the fastest way to reach us.
+        </p>
+      </section>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1rem 0 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .legal h2 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 0.85rem;
+    color: var(--text);
+  }
+  .legal p {
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 0.85rem;
+  }
+  .legal ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 0.5rem 0 0.85rem;
+    padding-left: 1.2rem;
+  }
+  .legal li {
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .legal strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+  .legal a {
+    color: var(--amber);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .legal a:hover {
+    opacity: 0.85;
+  }
+</style>

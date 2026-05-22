@@ -1,9 +1,10 @@
----
+﻿---
+noindex: true
 title: "Kagi vs Scholarcy: Which is Better in 2026?"
 description: "Head-to-head comparison of Kagi and Scholarcy across pricing, quality, ease of use, and integrations for search workflows."
 toolA: "kagi"
 toolB: "scholarcy"
-verdict: "For users demanding the highest level of integration and quality, Kagi is the clear winner in this comparison. Scholarcy remains a strong contender, particularly for those who prioritize affordability over advanced edge-case features."
+verdict: "Kagi and Scholarcy land close in our scoring — Scholarcy leads on value for money (82/100), while Kagi edges it on output quality (90/100). Pick based on which dimension matters more for your workflow."
 features:
   - label: "Starting price"
     a: "$5"

@@ -1,9 +1,10 @@
----
+﻿---
+noindex: true
 title: "DALL-E 3 vs Leonardo.ai: Which is Better in 2026?"
 description: "Head-to-head comparison of DALL-E 3 and Leonardo.ai across pricing, quality, ease of use, and integrations for image workflows."
 toolA: "dall-e-3"
 toolB: "leonardo-ai"
-verdict: "In our analysis, DALL-E 3 takes the lead due to its superior output quality and extensive ecosystem. On the other hand, Leonardo.ai provides an excellent price-to-value ratio, making it an attractive option for cost-conscious users."
+verdict: "DALL-E 3 pulls ahead on integrations (88/100 vs 60/100), while Leonardo.ai still wins on value for money (85/100). DALL-E 3 is the safer bet for most teams; Leonardo.ai wins for buyers prioritising value for money."
 features:
   - label: "Starting price"
     a: "Free (via ChatGPT)"

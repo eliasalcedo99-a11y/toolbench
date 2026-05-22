@@ -33,5 +33,7 @@ def process_noindex(pattern):
     print(f"Added noindex: true to {modified} files.")
 
 if __name__ == '__main__':
-    pattern = 'c:/Users/elias/Desktop/toolbench/toolbench-site/src/content/comparisons/*.md'
+    import os
+    here = os.path.dirname(os.path.abspath(__file__))
+    pattern = os.path.join(here, '..', 'src', 'content', 'comparisons', '*.md')
     process_noindex(pattern)
